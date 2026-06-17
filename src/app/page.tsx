@@ -6,14 +6,14 @@ import { About } from "@/components/sections/about";
 import { WhyUs } from "@/components/sections/why-us";
 import { Services } from "@/components/sections/services";
 import { SourcingProcess } from "@/components/sections/sourcing-process";
-import { PhotographyShowcase } from "@/components/sections/photography-showcase";
+// import { PhotographyShowcase } from "@/components/sections/photography-showcase";
 import { Showcase } from "@/components/sections/showcase";
 import { TechStack } from "@/components/sections/tech-stack";
 import { Freight } from "@/components/sections/freight";
 import { TrademarkPillars } from "@/components/sections/trademark-pillars";
 import { Process } from "@/components/sections/process";
 import { Philosophy } from "@/components/sections/philosophy";
-import { DeepStats } from "@/components/sections/deep-stats";
+// import { DeepStats } from "@/components/sections/deep-stats";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Insights } from "@/components/sections/insights";
 import { FAQ } from "@/components/sections/faq";
@@ -22,19 +22,19 @@ import { Footer } from "@/components/sections/footer";
 
 // NEW reference-driven sections
 import { CapabilityStack } from "@/components/sections/capability-stack";
-import { ShapePlayground } from "@/components/sections/shape-playground";
+// import { ShapePlayground } from "@/components/sections/shape-playground";
 import { Connections } from "@/components/sections/connections";
 import { SpotlightStats } from "@/components/sections/spotlight-stats";
-import { AdvancedStats } from "@/components/sections/advanced-stats";
+// import { AdvancedStats } from "@/components/sections/advanced-stats";
 import { BentoBrand } from "@/components/sections/bento-brand";
 import { OperatorFeed } from "@/components/sections/operator-feed";
 import { MarqueeStrip } from "@/components/ui/aceternity/marquee-strip";
 import { ServicePreface } from "@/components/sections/service-preface";
 import { ServiceCompass } from "@/components/sections/service-compass";
 import { ServiceMarqueeIntro } from "@/components/sections/service-marquee-intro";
-import { BrandMark } from "@/components/sections/brand-mark";
+// import { BrandMark } from "@/components/sections/brand-mark";
 import { MacbookShowcase } from "@/components/sections/macbook-showcase";
-import { CaseCompare } from "@/components/sections/case-compare";
+// import { CaseCompare } from "@/components/sections/case-compare";
 import { TrustedBar } from "@/components/sections/trusted-bar";
 import { GlobalReach } from "@/components/sections/global-reach";
 
@@ -121,13 +121,13 @@ export default function Home() {
         <SourcingProcess />
 
         {/* 11 — Photography showcase masonry */}
-        <PhotographyShowcase />
+        {/* <PhotographyShowcase /> */}
 
         {/* 12.3 — Case compare: drag-to-reveal before/after */}
-        <CaseCompare />
+        {/* <CaseCompare /> */}
 
         {/* 12.5 — BrandMark: manifesto on giant ghost-logo background */}
-        <BrandMark />
+        {/* <BrandMark /> */}
 
         {/* 13 — Showcase highlight (copper block) */}
         <Showcase />
@@ -148,13 +148,13 @@ export default function Home() {
         <Process />
 
         {/* 18 — Manifesto: 2D shape playground */}
-        <ShapePlayground />
+        {/* <ShapePlayground /> */}
 
         {/* 19 — Philosophy (4 principles, obsidian) */}
         <Philosophy />
 
         {/* 20 — Deep stats */}
-        <DeepStats />
+        {/* <DeepStats /> */}
 
         {/* 21 — Big rotating divider */}
         <MarqueeStrip
@@ -178,7 +178,7 @@ export default function Home() {
         <SpotlightStats />
 
         {/* 23.7 — AdvancedStats: operator dashboard with mini-charts */}
-        <AdvancedStats />
+        {/* <AdvancedStats /> */}
 
         {/* 24 — Testimonials */}
         <Testimonials />

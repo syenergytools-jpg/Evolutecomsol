@@ -5,11 +5,11 @@ import { TrustedBy } from "@/components/sections/trusted-by";
 import { About } from "@/components/sections/about";
 import { WhyUs } from "@/components/sections/why-us";
 import { Services } from "@/components/sections/services";
-import { SourcingProcess } from "@/components/sections/sourcing-process";
+// import { SourcingProcess } from "@/components/sections/sourcing-process";
 // import { PhotographyShowcase } from "@/components/sections/photography-showcase";
-import { Showcase } from "@/components/sections/showcase";
+// import { Showcase } from "@/components/sections/showcase";
 import { TechStack } from "@/components/sections/tech-stack";
-import { Freight } from "@/components/sections/freight";
+// import { Freight } from "@/components/sections/freight";
 import { TrademarkPillars } from "@/components/sections/trademark-pillars";
 import { Process } from "@/components/sections/process";
 import { Philosophy } from "@/components/sections/philosophy";
@@ -21,19 +21,19 @@ import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
 
 // NEW reference-driven sections
-import { CapabilityStack } from "@/components/sections/capability-stack";
+// import { CapabilityStack } from "@/components/sections/capability-stack";
 // import { ShapePlayground } from "@/components/sections/shape-playground";
 import { Connections } from "@/components/sections/connections";
-import { SpotlightStats } from "@/components/sections/spotlight-stats";
+// import { SpotlightStats } from "@/components/sections/spotlight-stats";
 // import { AdvancedStats } from "@/components/sections/advanced-stats";
 import { BentoBrand } from "@/components/sections/bento-brand";
 import { OperatorFeed } from "@/components/sections/operator-feed";
 import { MarqueeStrip } from "@/components/ui/aceternity/marquee-strip";
-import { ServicePreface } from "@/components/sections/service-preface";
-import { ServiceCompass } from "@/components/sections/service-compass";
+// import { ServicePreface } from "@/components/sections/service-preface";
+// import { ServiceCompass } from "@/components/sections/service-compass";
 import { ServiceMarqueeIntro } from "@/components/sections/service-marquee-intro";
 // import { BrandMark } from "@/components/sections/brand-mark";
-import { MacbookShowcase } from "@/components/sections/macbook-showcase";
+// import { MacbookShowcase } from "@/components/sections/macbook-showcase";
 // import { CaseCompare } from "@/components/sections/case-compare";
 import { TrustedBar } from "@/components/sections/trusted-bar";
 import { GlobalReach } from "@/components/sections/global-reach";
@@ -94,10 +94,10 @@ export default function Home() {
         <About />
 
         {/* 06 — MacBook showcase: Scene.mp4 playing inside the lid */}
-        <MacbookShowcase />
+        {/* <MacbookShowcase /> */}
 
         {/* 07 — Capability stack (Source · Build · Scale · Defend) — STICKY CARDS */}
-        <CapabilityStack />
+        {/* <CapabilityStack /> */}
 
         {/* 08 — Why us (6-reason grid) */}
         <WhyUs />
@@ -106,10 +106,10 @@ export default function Home() {
         <OperatorFeed />
 
         {/* 09a — Service preface: oversized intro w/ chrome blobs */}
-        <ServicePreface />
+        {/* <ServicePreface /> */}
 
         {/* 09b — Service compass: orbit diagram of 8 nodes */}
-        <ServiceCompass />
+        {/* <ServiceCompass /> */}
 
         {/* 09c — Service marquee intro: kinetic obsidian preview */}
         <ServiceMarqueeIntro />
@@ -118,7 +118,7 @@ export default function Home() {
         <Services />
 
         {/* 10 — Sourcing process timeline */}
-        <SourcingProcess />
+        {/* <SourcingProcess /> */}
 
         {/* 11 — Photography showcase masonry */}
         {/* <PhotographyShowcase /> */}
@@ -130,7 +130,7 @@ export default function Home() {
         {/* <BrandMark /> */}
 
         {/* 13 — Showcase highlight (copper block) */}
-        <Showcase />
+        {/* <Showcase /> */}
 
         {/* 14 — Tech stack (obsidian pills) */}
         <TechStack />
@@ -139,7 +139,7 @@ export default function Home() {
         <Connections />
 
         {/* 15 — Freight forwarding */}
-        <Freight />
+        {/* <Freight /> */}
 
         {/* 16 — Trademark pillars */}
         <TrademarkPillars />
@@ -157,7 +157,7 @@ export default function Home() {
         {/* <DeepStats /> */}
 
         {/* 21 — Big rotating divider */}
-        <MarqueeStrip
+        {/* <MarqueeStrip
           items={[
             "Compounding since 2018",
             "240+ brands",
@@ -169,13 +169,13 @@ export default function Home() {
           size="md"
           duration={42}
           separator="·"
-        />
+        /> */}
 
         {/* 23.5 — Global reach: world-map of brands across continents */}
         <GlobalReach />
 
         {/* 23.6 — Spotlight bento: real Amazon Seller-Central charts */}
-        <SpotlightStats />
+        {/* <SpotlightStats /> */}
 
         {/* 23.7 — AdvancedStats: operator dashboard with mini-charts */}
         {/* <AdvancedStats /> */}

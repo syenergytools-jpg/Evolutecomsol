@@ -1,21 +1,21 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Hero } from "@/components/sections/hero";
-import { Promise } from "@/components/sections/promise";
-import { TrustedBy } from "@/components/sections/trusted-by";
-import { About } from "@/components/sections/about";
-import { WhyUs } from "@/components/sections/why-us";
+// import { Promise } from "@/components/sections/promise";
+// import { TrustedBy } from "@/components/sections/trusted-by";
+// import { About } from "@/components/sections/about";
+// import { WhyUs } from "@/components/sections/why-us";
 import { Services } from "@/components/sections/services";
 // import { SourcingProcess } from "@/components/sections/sourcing-process";
 // import { PhotographyShowcase } from "@/components/sections/photography-showcase";
 // import { Showcase } from "@/components/sections/showcase";
 // import { TechStack } from "@/components/sections/tech-stack";
 // import { Freight } from "@/components/sections/freight";
-import { TrademarkPillars } from "@/components/sections/trademark-pillars";
-import { Process } from "@/components/sections/process";
-import { Philosophy } from "@/components/sections/philosophy";
+// import { TrademarkPillars } from "@/components/sections/trademark-pillars";
+// import { Process } from "@/components/sections/process";
+// import { Philosophy } from "@/components/sections/philosophy";
 // import { DeepStats } from "@/components/sections/deep-stats";
 import { Testimonials } from "@/components/sections/testimonials";
-import { Insights } from "@/components/sections/insights";
+// import { Insights } from "@/components/sections/insights";
 import { FAQ } from "@/components/sections/faq";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
@@ -26,32 +26,29 @@ import { Footer } from "@/components/sections/footer";
 // import { Connections } from "@/components/sections/connections";
 // import { SpotlightStats } from "@/components/sections/spotlight-stats";
 // import { AdvancedStats } from "@/components/sections/advanced-stats";
-import { BentoBrand } from "@/components/sections/bento-brand";
-import { OperatorFeed } from "@/components/sections/operator-feed";
-import { MarqueeStrip } from "@/components/ui/aceternity/marquee-strip";
+// import { BentoBrand } from "@/components/sections/bento-brand";
+// import { OperatorFeed } from "@/components/sections/operator-feed";
+// import { MarqueeStrip } from "@/components/ui/aceternity/marquee-strip";
 // import { ServicePreface } from "@/components/sections/service-preface";
 // import { ServiceCompass } from "@/components/sections/service-compass";
-import { ServiceMarqueeIntro } from "@/components/sections/service-marquee-intro";
+// import { ServiceMarqueeIntro } from "@/components/sections/service-marquee-intro";
 // import { BrandMark } from "@/components/sections/brand-mark";
 // import { MacbookShowcase } from "@/components/sections/macbook-showcase";
 // import { CaseCompare } from "@/components/sections/case-compare";
-import { TrustedBar } from "@/components/sections/trusted-bar";
-import { GlobalReach } from "@/components/sections/global-reach";
+// import { TrustedBar } from "@/components/sections/trusted-bar";
+// import { GlobalReach } from "@/components/sections/global-reach";
 
 /**
  * Evolut homepage.
- * Recent inserts (cinematic build-up before the service deck):
- *   • ServicePreface       — oversized "08" + chrome blobs intro
- *   • ServiceCompass       — orbit diagram of 8 service lines
- *   • ServiceMarqueeIntro  — pinned kinetic typography on obsidian
- *   • Services (rebuilt)   — sticky-card deck of 8 services (was 8-card grid)
  *
- * Other ref-driven inserts:
- *   • MarqueeStrip #1  — Flow Party divider after Promise
- *   • CapabilityStack  — Sticky-card stack of 4 capabilities (Source/Build/Scale/Defend)
- *   • WorkGrid         — Bencelinski-style portfolio grid w/ hover image swap
- *   • ShapePlayground  — 2D Shape Interaction magnetic-cursor section
- *   • MarqueeStrip #2  — obsidian divider before the Operators section
+ * Trimmed to the 5 essential sections that cover the whole story in short:
+ *   • Hero          — value prop / who we are
+ *   • Services      — sticky-card deck of all 8 service lines (the full offering)
+ *   • Testimonials  — social proof
+ *   • FAQ           — objection handling
+ *   • CTA           — convert
+ *
+ * Everything else is commented out below (easy to restore).
  */
 export default function Home() {
   return (
@@ -62,16 +59,16 @@ export default function Home() {
         <Hero />
 
         {/* 01b — Trusted-by strip (BJK + 3 case-study brands) */}
-        <TrustedBar />
+        {/* <TrustedBar /> */}
 
         {/* 01c — BentoBrand: 9-card brand snapshot directly under hero */}
-        <BentoBrand />
+        {/* <BentoBrand /> */}
 
         {/* 02 — Brand promise (scroll-lit) */}
-        <Promise />
+        {/* <Promise /> */}
 
         {/* 03 — Big rotating divider (Flow Party style) */}
-        <MarqueeStrip
+        {/* <MarqueeStrip
           items={[
             "Sourcing",
             "Listings",
@@ -85,13 +82,13 @@ export default function Home() {
           variant="lime"
           size="lg"
           duration={36}
-        />
+        /> */}
 
         {/* 04 — Trusted by (logo marquee) */}
-        <TrustedBy />
+        {/* <TrustedBy /> */}
 
         {/* 05 — About (operators, not executors) */}
-        <About />
+        {/* <About /> */}
 
         {/* 06 — MacBook showcase: Scene.mp4 playing inside the lid */}
         {/* <MacbookShowcase /> */}
@@ -100,10 +97,10 @@ export default function Home() {
         {/* <CapabilityStack /> */}
 
         {/* 08 — Why us (6-reason grid) */}
-        <WhyUs />
+        {/* <WhyUs /> */}
 
         {/* 08.5 — Operator feed: live-cycling activity stream */}
-        <OperatorFeed />
+        {/* <OperatorFeed /> */}
 
         {/* 09a — Service preface: oversized intro w/ chrome blobs */}
         {/* <ServicePreface /> */}
@@ -112,7 +109,7 @@ export default function Home() {
         {/* <ServiceCompass /> */}
 
         {/* 09c — Service marquee intro: kinetic obsidian preview */}
-        <ServiceMarqueeIntro />
+        {/* <ServiceMarqueeIntro /> */}
 
         {/* 09 — Services (sticky-card deck — replaces 8-card grid) */}
         <Services />
@@ -142,16 +139,16 @@ export default function Home() {
         {/* <Freight /> */}
 
         {/* 16 — Trademark pillars */}
-        <TrademarkPillars />
+        {/* <TrademarkPillars /> */}
 
         {/* 17 — Pinned horizontal process */}
-        <Process />
+        {/* <Process /> */}
 
         {/* 18 — Manifesto: 2D shape playground */}
         {/* <ShapePlayground /> */}
 
         {/* 19 — Philosophy (4 principles, obsidian) */}
-        <Philosophy />
+        {/* <Philosophy /> */}
 
         {/* 20 — Deep stats */}
         {/* <DeepStats /> */}
@@ -172,7 +169,7 @@ export default function Home() {
         /> */}
 
         {/* 23.5 — Global reach: world-map of brands across continents */}
-        <GlobalReach />
+        {/* <GlobalReach /> */}
 
         {/* 23.6 — Spotlight bento: real Amazon Seller-Central charts */}
         {/* <SpotlightStats /> */}
@@ -184,7 +181,7 @@ export default function Home() {
         <Testimonials />
 
         {/* 25 — Insights */}
-        <Insights />
+        {/* <Insights /> */}
 
         {/* 26 — FAQ */}
         <FAQ />

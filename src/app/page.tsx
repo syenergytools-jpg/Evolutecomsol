@@ -8,7 +8,7 @@ import { Services } from "@/components/sections/services";
 // import { SourcingProcess } from "@/components/sections/sourcing-process";
 // import { PhotographyShowcase } from "@/components/sections/photography-showcase";
 // import { Showcase } from "@/components/sections/showcase";
-import { TechStack } from "@/components/sections/tech-stack";
+// import { TechStack } from "@/components/sections/tech-stack";
 // import { Freight } from "@/components/sections/freight";
 import { TrademarkPillars } from "@/components/sections/trademark-pillars";
 import { Process } from "@/components/sections/process";
@@ -23,7 +23,7 @@ import { Footer } from "@/components/sections/footer";
 // NEW reference-driven sections
 // import { CapabilityStack } from "@/components/sections/capability-stack";
 // import { ShapePlayground } from "@/components/sections/shape-playground";
-import { Connections } from "@/components/sections/connections";
+// import { Connections } from "@/components/sections/connections";
 // import { SpotlightStats } from "@/components/sections/spotlight-stats";
 // import { AdvancedStats } from "@/components/sections/advanced-stats";
 import { BentoBrand } from "@/components/sections/bento-brand";
@@ -133,10 +133,10 @@ export default function Home() {
         {/* <Showcase /> */}
 
         {/* 14 — Tech stack (obsidian pills) */}
-        <TechStack />
+        {/* <TechStack /> */}
 
         {/* 14.5 — Connections: animated beams Evolut → platforms */}
-        <Connections />
+        {/* <Connections /> */}
 
         {/* 15 — Freight forwarding */}
         {/* <Freight /> */}

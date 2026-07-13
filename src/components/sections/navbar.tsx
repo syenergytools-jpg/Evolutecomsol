@@ -206,9 +206,9 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* TESTIMONIALS — anchors to the homepage testimonials section */}
+            {/* TESTIMONIALS — redirects to the case-studies section */}
             <Link
-              href="/#testimonials"
+              href="/#case-studies"
               className="hidden md:inline-flex items-center px-3 py-2 text-[0.85rem] font-medium text-ink hover:text-ink-soft transition-colors rounded-full"
             >
               Testimonials

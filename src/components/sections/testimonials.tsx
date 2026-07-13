@@ -27,7 +27,7 @@ export function Testimonials() {
   const prev = () => setActive((i) => (i - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="relative bg-obsidian text-canvas py-28 md:py-36 overflow-hidden">
+    <section id="testimonials" className="relative bg-obsidian text-canvas py-28 md:py-36 overflow-hidden">
       {/* sparkles dust */}
       <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" aria-hidden="true">
         <SparklesCore particleColor="#dfe3e8" particleDensity={30} speed={0.25} particleSize={{ min: 0.3, max: 0.9 }} />

@@ -13,6 +13,10 @@ import { Logo } from "@/components/ui/logo";
 import { navItems, services } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
+// Services shown in the navbar. Shopify & MERN is intentionally excluded
+// from nav (it still lives on the homepage Services grid + its detail page).
+const NAV_SERVICES = services.filter((s) => s.slug !== "shopify");
+
 /**
  * Navbar — wordmark left, "Services" hover-dropdown + Menu + Talk to us
  * pill on the right. The Services dropdown lists all 8 services in a
@@ -129,7 +133,7 @@ export function Navbar() {
                     {/* Top eyebrow row */}
                     <div className="flex items-center justify-between px-5 py-3 border-b border-hairline">
                       <p className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mute">
-                        · {services.length} services · one team ·
+                        · {NAV_SERVICES.length} services · one team ·
                       </p>
                       <Link
                         href="/services"
@@ -146,7 +150,7 @@ export function Navbar() {
 
                     {/* Services grid */}
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-hairline">
-                      {services.map((s, i) => {
+                      {NAV_SERVICES.map((s, i) => {
                         const Icon = s.icon;
                         return (
                           <li key={s.slug} role="none">
@@ -201,6 +205,14 @@ export function Navbar() {
                 )}
               </AnimatePresence>
             </div>
+
+            {/* TESTIMONIALS — anchors to the homepage testimonials section */}
+            <Link
+              href="/#testimonials"
+              className="hidden md:inline-flex items-center px-3 py-2 text-[0.85rem] font-medium text-ink hover:text-ink-soft transition-colors rounded-full"
+            >
+              Testimonials
+            </Link>
 
             {/* Menu trigger */}
             <button

@@ -10,8 +10,8 @@ const PREMIUM_EASE = [0.16, 1, 0.3, 1] as const;
 
 /**
  * IpAccelerator — dark, premium feature block for Amazon's IP Accelerator
- * program. Acts as the homepage teaser; the full breakdown (process,
- * toolkit) lives on the dedicated /ip-accelerator page.
+ * program. Acts as the homepage teaser; CTAs point to the Trademark & IP
+ * service page (/services/trademark) for the full breakdown.
  */
 export function IpAccelerator() {
   const { eyebrow, badge, subtitle, benefits, stats } = ipAccelerator;
@@ -94,7 +94,7 @@ export function IpAccelerator() {
           <Reveal delay={0.4}>
             <div className="flex flex-wrap items-center gap-3">
               <Link
-                href="/ip-accelerator"
+                href="/services/trademark"
                 className="group inline-flex items-center gap-2 rounded-full bg-canvas text-ink px-6 py-3.5 text-[0.95rem] font-medium transition-all hover:-translate-y-0.5 hover:bg-white"
               >
                 Explore IP Accelerator
@@ -149,7 +149,7 @@ export function IpAccelerator() {
 
           <Reveal delay={0.3}>
             <Link
-              href="/ip-accelerator"
+              href="/services/trademark"
               className="group mt-4 flex items-center justify-between rounded-2xl border border-dashed border-hairline-dark px-6 py-5 transition-colors hover:border-canvas/25 hover:bg-canvas/[0.03]"
             >
               <span className="text-[0.92rem] text-canvas/70">

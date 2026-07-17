@@ -42,7 +42,7 @@ export const site = {
 
 export const navItems = [
   { label: "Services", href: "/services" },
-  { label: "IP Accelerator", href: "/ip-accelerator" },
+  { label: "IP Accelerator", href: "/services/trademark" },
   { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
   { label: "Insights", href: "/insights" },
@@ -365,7 +365,7 @@ export const trademarkPillars = [
 
 /* ------------------------------------------------------------------ *
  * Amazon IP Accelerator — brand-protection program offering.
- * Powers the homepage <IpAccelerator /> section + the /ip-accelerator page.
+ * Powers the homepage <IpAccelerator /> section; CTAs link to /services/trademark.
  * ------------------------------------------------------------------ */
 export const ipAccelerator = {
   eyebrow: "Amazon IP Accelerator",

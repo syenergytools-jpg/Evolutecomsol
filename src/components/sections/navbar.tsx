@@ -206,9 +206,9 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* IP ACCELERATOR — dedicated brand-protection program page */}
+            {/* IP ACCELERATOR — points to the Trademark & IP service page */}
             <Link
-              href="/ip-accelerator"
+              href="/services/trademark"
               className="hidden md:inline-flex items-center gap-1.5 px-3 py-2 text-[0.85rem] font-medium text-ink hover:text-ink-soft transition-colors rounded-full"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-copper" aria-hidden="true" />

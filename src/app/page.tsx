@@ -14,7 +14,7 @@ import { Footer } from "@/components/sections/footer";
  * Evolut homepage — tells the full story the site needs to cover:
  *   • Hero           — value prop / who we are
  *   • Services       — all 8 service lines (detailed offerings → detail pages)
- *   • IpAccelerator  — Amazon IP Accelerator program (→ /ip-accelerator)
+ *   • IpAccelerator  — Amazon IP Accelerator program (→ /services/trademark)
  *   • WhyUs          — core offerings, benefits & expertise
  *   • SpotlightStats — real Seller Central stat screenshots (credentials)
  *   • CaseStudies    — success stories, brand by brand

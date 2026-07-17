@@ -10,6 +10,11 @@ import {
   Megaphone,
   FileSearch,
   CircuitBoard,
+  BadgeCheck,
+  Scale,
+  Zap,
+  Store,
+  Fingerprint,
 } from "lucide-react";
 
 export const site = {
@@ -37,6 +42,7 @@ export const site = {
 
 export const navItems = [
   { label: "Services", href: "/services" },
+  { label: "IP Accelerator", href: "/ip-accelerator" },
   { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
   { label: "Insights", href: "/insights" },
@@ -356,6 +362,104 @@ export const trademarkPillars = [
     icon: CircuitBoard,
   },
 ];
+
+/* ------------------------------------------------------------------ *
+ * Amazon IP Accelerator — brand-protection program offering.
+ * Powers the homepage <IpAccelerator /> section + the /ip-accelerator page.
+ * ------------------------------------------------------------------ */
+export const ipAccelerator = {
+  eyebrow: "Amazon IP Accelerator",
+  badge: "Brand-protection program",
+  title: "Protect your brand before the trademark even registers.",
+  subtitle:
+    "Amazon's IP Accelerator connects brands with vetted IP law firms and unlocks Brand Registry protections early — months before a trademark certificate would normally arrive. We run the whole path for you, from filing to enforcement.",
+  benefits: [
+    {
+      title: "Early Brand Registry access",
+      detail:
+        "Unlock Amazon Brand Registry while your trademark is still pending — no waiting 6–12 months for the certificate to start protecting your listings.",
+      icon: BadgeCheck,
+    },
+    {
+      title: "Vetted IP law firms",
+      detail:
+        "We match you with Amazon-approved trademark attorneys at pre-negotiated, transparent rates. No hunting, no surprise legal bills.",
+      icon: Scale,
+    },
+    {
+      title: "Faster trademark filing",
+      detail:
+        "Your name and logo are drafted and filed in days — the mark enters examination while your protected listings go live.",
+      icon: Zap,
+    },
+    {
+      title: "Counterfeit & hijacker defense",
+      detail:
+        "Transparency codes, Project Zero, and automated takedowns keep copycats and unauthorized sellers off your detail pages.",
+      icon: ShieldCheck,
+    },
+    {
+      title: "Full brand toolkit unlocked",
+      detail:
+        "A+ Content, Brand Store, Sponsored Brands, Posts, and Vine — the entire Brand Registry suite, set up and ready to convert.",
+      icon: Store,
+    },
+    {
+      title: "Ongoing IP monitoring",
+      detail:
+        "We watch your marks, renewals, and infringements across marketplaces so protection never lapses as you scale.",
+      icon: Fingerprint,
+    },
+  ],
+  steps: [
+    {
+      n: "01",
+      title: "Eligibility & strategy",
+      blurb:
+        "We assess your brand, mark, and category, then map the fastest route to registered protection.",
+    },
+    {
+      n: "02",
+      title: "IP firm match",
+      blurb:
+        "You're introduced to a vetted, Amazon-approved trademark attorney at pre-negotiated pricing.",
+    },
+    {
+      n: "03",
+      title: "Trademark filing",
+      blurb:
+        "Your name and logo are drafted and filed for registration — the clock on protection starts.",
+    },
+    {
+      n: "04",
+      title: "Brand Registry enrollment",
+      blurb:
+        "We enroll you early and switch on the full suite of protection tools immediately.",
+    },
+    {
+      n: "05",
+      title: "Protect & scale",
+      blurb:
+        "Transparency, takedowns, A+ content, and monitoring run continuously as your catalog grows.",
+    },
+  ],
+  stats: [
+    { value: "Weeks", label: "To Brand Registry, not months" },
+    { value: "Approved", label: "Amazon-vetted IP firms" },
+    { value: "24/7", label: "Infringement monitoring" },
+    { value: "End-to-end", label: "Filing to enforcement" },
+  ],
+  toolkit: [
+    "A+ Content",
+    "Brand Store",
+    "Sponsored Brands",
+    "Transparency",
+    "Project Zero",
+    "Brand Analytics",
+    "Amazon Vine",
+    "Posts",
+  ],
+} as const;
 
 export const techStack = [
   { name: "Next.js", category: "Framework" },

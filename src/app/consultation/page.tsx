@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import { ConsultationHeader } from "./consultation-header";
 import { ConsultationHero } from "./consultation-hero";
 import { ConsultationVideo } from "./consultation-video";
+import { ConsultationMarquee } from "./consultation-marquee";
+import { ConsultationServices } from "./consultation-services";
 import { ConsultationWhyUs } from "./consultation-why-us";
 import { ConsultationProjects } from "./consultation-projects";
 import { ConsultationTestimonials } from "./consultation-testimonials";
 import { ConsultationQualifyCta } from "./consultation-qualify-cta";
 import { ConsultationFooter } from "./consultation-footer";
 import { BookingModalProvider } from "./consultation-booking-modal";
+import { ConsultationOnboardingModal } from "./consultation-onboarding-modal";
 import { site } from "@/lib/site-config";
 
 /**
@@ -52,12 +55,14 @@ export default function ConsultationPage() {
       <main>
         <ConsultationHero />
         <ConsultationVideo />
+        <ConsultationServices />
         <ConsultationWhyUs />
         <ConsultationProjects />
         <ConsultationTestimonials />
         <ConsultationQualifyCta />
       </main>
       <ConsultationFooter />
+      <ConsultationOnboardingModal />
     </BookingModalProvider>
   );
 }

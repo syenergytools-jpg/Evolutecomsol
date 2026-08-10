@@ -33,6 +33,26 @@ export type ContactSubmissionRow = {
   responded_at: string | null;
 };
 
+/** One row per /consultation funnel lead. See migration 0002. */
+export type ConsultationLeadRow = {
+  id: string;
+  created_at: string;
+  kind: "onboarding" | "qualifier";
+  name: string;
+  email: string;
+  phone: string | null;
+  budget: string | null;
+  authority: string | null;
+  need: string | null;
+  timing: string | null;
+  answers: Record<string, unknown>;
+  source_url: string | null;
+  user_agent: string | null;
+  ip_hash: string | null;
+  status: "new" | "in_progress" | "responded" | "archived" | "spam";
+  notes: string | null;
+};
+
 const URL_KEY = "NEXT_PUBLIC_SUPABASE_URL";
 const ANON_KEY = "NEXT_PUBLIC_SUPABASE_ANON_KEY";
 const SERVICE_KEY = "SUPABASE_SERVICE_ROLE_KEY";

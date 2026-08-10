@@ -393,6 +393,21 @@ html.lenis, html.lenis body { height: auto; }
   50%      { filter: drop-shadow(0 0 24px var(--electric-glow)); }
 }
 
+/* Split-flap countdown digit — the new number drops in from the hinge.
+   Deliberately CSS rather than a JS enter/exit animation: the digit
+   remounts on every tick, so there is never an "exiting" node waiting on
+   a rAF frame that a backgrounded tab will not deliver. */
+.flap-digit {
+  animation: flap-in 340ms var(--ease-premium) both;
+  transform-origin: center top;
+  backface-visibility: hidden;
+}
+@keyframes flap-in {
+  0%   { transform: translateY(-38%) rotateX(-72deg); opacity: 0; }
+  60%  { opacity: 1; }
+  100% { transform: translateY(0) rotateX(0deg); opacity: 1; }
+}
+
 /* Tilt-on-hover preset */
 .tilt-hover {
   transition: transform 600ms var(--ease-premium);
@@ -423,7 +438,7 @@ html.lenis, html.lenis body { height: auto; }
   }
   .float-loop, .rotate-slow, .marquee-track, .gradient-blob,
   .chrome-text, .beam-border::before, .drift-down, .pulse-ring::after,
-  .glow-pulse {
+  .glow-pulse, .flap-digit {
     animation: none !important;
   }
 }

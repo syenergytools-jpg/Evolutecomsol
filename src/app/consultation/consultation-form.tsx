@@ -4,41 +4,28 @@ import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Send, Check, AlertTriangle } from "lucide-react";
 import { CardSpotlight } from "@/components/ui/aceternity/card-spotlight";
-import { BUDGETS, site } from "@/lib/site-config";
+import {
+  BUDGETS,
+  calBookingUrl,
+  calEmbedUrl,
+  qualifierOptions,
+  site,
+  type QualifierOption,
+} from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 const PREMIUM_EASE = [0.16, 1, 0.3, 1] as const;
 
-/* ------------------------------------------------------------------ *
- * Placeholder — swap for the real Calendly event link. Query params
- * are Calendly's documented inline-embed contract (embed_domain +
- * embed_type=Inline); without them the widget can render squashed.
- * ------------------------------------------------------------------ */
-const CALENDLY_URL = "https://calendly.com/evolut-team/consultation";
+type Option = QualifierOption;
 
-type Option = { value: string; label: string };
-
+// Budget values are already human-readable, so value === label.
 const BUDGET_OPTIONS: Option[] = BUDGETS.map((b) => ({ value: b, label: b }));
 
-const AUTHORITY_OPTIONS: Option[] = [
-  { value: "solo", label: "Just me — I decide" },
-  { value: "partner", label: "Me and a partner or co-founder" },
-  { value: "team", label: "A team or board needs to weigh in" },
-];
-
-const NEED_OPTIONS: Option[] = [
-  { value: "sourcing", label: "Sourcing & manufacturing is a mess" },
-  { value: "listings", label: "Listings & content aren't converting" },
-  { value: "ads", label: "Ads are burning budget with no real ROAS" },
-  { value: "brand", label: "No trademark or brand protection yet" },
-  { value: "exploring", label: "Just exploring — nothing urgent yet" },
-];
-
-const TIMING_OPTIONS: Option[] = [
-  { value: "now", label: "Immediately — this month" },
-  { value: "soon", label: "Within the next 90 days" },
-  { value: "later", label: "Just researching for later" },
-];
+// The other three come from site-config so the server validates the
+// exact same slugs this form can produce — mismatched copies here were
+// what made submissions fail validation with no usable message.
+const { authority: AUTHORITY_OPTIONS, need: NEED_OPTIONS, timing: TIMING_OPTIONS } =
+  qualifierOptions;
 
 const STEP_COPY: { title: string; sub?: string }[] = [
   { title: "What's your monthly budget for growth right now?", sub: "Ballpark is fine — this just helps us tailor the call." },
@@ -49,10 +36,6 @@ const STEP_COPY: { title: string; sub?: string }[] = [
 ];
 
 const TOTAL_STEPS = STEP_COPY.length;
-
-function labelFor(options: Option[], value: string): string {
-  return options.find((o) => o.value === value)?.label ?? value;
-}
 
 type Answers = { budget: string; authority: string; need: string; timing: string };
 
@@ -65,8 +48,10 @@ export function ConsultationForm() {
     timing: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [saveOk, setSaveOk] = useState(true);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   function selectAnswer(key: keyof Answers, value: string) {
     setAnswers((a) => ({ ...a, [key]: value }));
@@ -84,37 +69,47 @@ export function ConsultationForm() {
     if (loading) return;
     setLoading(true);
     setErrorMsg(null);
+    setFieldErrors({});
 
     const fd = new FormData(e.currentTarget);
     const payload = {
+      kind: "qualifier" as const,
       name: String(fd.get("name") ?? "").trim(),
       email: String(fd.get("email") ?? "").trim(),
       phone: String(fd.get("phone") ?? "").trim(),
-      service: "general-consultation",
-      reason: "consultation-funnel",
       budget: answers.budget,
-      message: [
-        `Decision authority: ${labelFor(AUTHORITY_OPTIONS, answers.authority)}`,
-        `Biggest bottleneck: ${labelFor(NEED_OPTIONS, answers.need)}`,
-        `Timing: ${labelFor(TIMING_OPTIONS, answers.timing)}`,
-      ].join("\n"),
+      authority: answers.authority,
+      need: answers.need,
+      timing: answers.timing,
       website: String(fd.get("website") ?? ""), // honeypot
     };
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/consultation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
       const json = await res.json();
 
-      if (!res.ok) {
-        setErrorMsg(json.error ?? `Something went wrong (HTTP ${res.status}). Please try again.`);
+      // 400 means a field is genuinely wrong — stay put and say which.
+      if (res.status === 400 || res.status === 429) {
+        setErrorMsg(json.error ?? "Please check the highlighted fields.");
+        if (Array.isArray(json.issues)) {
+          setFieldErrors(
+            Object.fromEntries(
+              json.issues.map((i: { field: string; message: string }) => [i.field, i.message])
+            )
+          );
+        }
         setLoading(false);
         return;
       }
 
+      // Anything else: go to the calendar regardless. Booking is the
+      // real goal and Cal.com captures them independently — but track
+      // whether we actually saved so the copy doesn't overclaim.
+      setSaveOk(Boolean(json?.ok));
       setSubmitted(true);
     } catch (err) {
       setErrorMsg(
@@ -126,9 +121,6 @@ export function ConsultationForm() {
       setLoading(false);
     }
   }
-
-  const embedDomain = new URL(site.url).hostname;
-  const calendlyEmbedUrl = `${CALENDLY_URL}?embed_domain=${embedDomain}&embed_type=Inline&hide_gdpr_banner=1`;
 
   return (
     <CardSpotlight className="p-7 md:p-10">
@@ -222,9 +214,9 @@ export function ConsultationForm() {
                       className="absolute left-[-9999px] top-[-9999px] h-0 w-0 opacity-0"
                     />
 
-                    <TextField label="Name" name="name" placeholder="Your name" required />
-                    <TextField label="Email" name="email" type="email" placeholder="you@brand.com" required />
-                    <TextField label="Phone (optional)" name="phone" type="tel" placeholder="+1 555 000 1234" />
+                    <TextField label="Name" name="name" placeholder="Your name" required error={fieldErrors.name} />
+                    <TextField label="Email" name="email" type="email" placeholder="you@brand.com" required error={fieldErrors.email} />
+                    <TextField label="Phone (optional)" name="phone" type="tel" placeholder="+1 555 000 1234" error={fieldErrors.phone} />
 
                     {errorMsg && (
                       <div className="flex items-start gap-3 rounded-2xl border border-copper/40 bg-copper/[0.08] px-4 py-3 text-sm text-ink">
@@ -257,7 +249,7 @@ export function ConsultationForm() {
           </motion.div>
         ) : (
           <motion.div
-            key="calendly"
+            key="booking"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: PREMIUM_EASE }}
@@ -271,18 +263,39 @@ export function ConsultationForm() {
                   You&apos;re qualified — pick a time.
                 </p>
                 <p className="text-sm text-mute">
-                  A confirmation is on its way to your inbox.
+                  {saveOk
+                    ? "We've emailed you this link too, in case you'd rather choose later."
+                    : "Pick a time below — that's all we need to lock it in."}
                 </p>
               </div>
             </div>
-            <div className="rounded-2xl border border-hairline-strong overflow-hidden h-[560px] md:h-[700px]">
+
+            {/* Cal.com inline embed. Plain iframe rather than
+                @calcom/embed-react — the booking page works standalone at
+                this URL, and this keeps the funnel dependency-free. */}
+            <div className="rounded-2xl border border-hairline-strong overflow-hidden h-[560px] md:h-[700px] bg-canvas">
               <iframe
-                src={calendlyEmbedUrl}
+                src={calEmbedUrl()}
                 title="Book a consultation"
                 className="w-full h-full"
                 frameBorder={0}
+                allow="camera; microphone; fullscreen; payment"
               />
             </div>
+
+            {/* Fallback for anyone whose browser blocks third-party frames */}
+            <p className="mt-4 text-sm text-mute">
+              Calendar not loading?{" "}
+              <a
+                href={calBookingUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink underline underline-offset-4 hover:text-copper transition-colors"
+              >
+                Open the booking page in a new tab
+              </a>
+              .
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -326,12 +339,14 @@ function TextField({
   type = "text",
   placeholder,
   required,
+  error,
 }: {
   label: string;
   name: string;
   type?: string;
   placeholder?: string;
   required?: boolean;
+  error?: string;
 }) {
   return (
     <label className="block">
@@ -344,8 +359,13 @@ function TextField({
         name={name}
         required={required}
         placeholder={placeholder}
-        className="w-full rounded-2xl border border-hairline bg-canvas-2 px-4 py-3 text-ink placeholder:text-mute focus:bg-canvas focus:border-electric focus:outline-none transition-colors"
+        aria-invalid={error ? true : undefined}
+        className={cn(
+          "w-full rounded-2xl border bg-canvas-2 px-4 py-3 text-ink placeholder:text-mute focus:bg-canvas focus:outline-none transition-colors",
+          error ? "border-copper focus:border-copper" : "border-hairline focus:border-electric"
+        )}
       />
+      {error && <span className="mt-1.5 block text-sm text-copper">{error}</span>}
     </label>
   );
 }

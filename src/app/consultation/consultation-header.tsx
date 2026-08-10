@@ -1,5 +1,5 @@
 import { Phone } from "lucide-react";
-import { Logo } from "@/components/ui/logo";
+import { FunnelLogo } from "@/components/ui/funnel-logo";
 import { site } from "@/lib/site-config";
 
 /**
@@ -15,7 +15,7 @@ export function ConsultationHeader() {
     <header className="sticky top-0 z-50 bg-canvas/90 backdrop-blur-xl border-b border-hairline">
       <div className="container-x flex items-center justify-between h-16 md:h-20">
         <div className="shrink-0 -ml-1">
-          <Logo />
+          <FunnelLogo />
         </div>
 
         <a

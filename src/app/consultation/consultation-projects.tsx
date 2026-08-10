@@ -39,7 +39,8 @@ export function ConsultationProjects() {
         <SectionHeader
           align="center"
           eyebrow="Selected work"
-          title="Real brands, real results."
+          title="Real brands. Real numbers."
+          subtitle="Four engagements, and the work behind each number."
           size="md"
         />
 

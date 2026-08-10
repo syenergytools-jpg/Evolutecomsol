@@ -4,6 +4,7 @@ import { PillButton } from "@/components/ui/pill-button";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
 import { useBookingModal } from "./consultation-booking-modal";
+import { ConsultationUrgencyBar } from "./consultation-urgency-bar";
 
 /**
  * ConsultationQualifyCta — section 6. The actual qualifier (budget /
@@ -27,8 +28,17 @@ export function ConsultationQualifyCta() {
 
         <Reveal delay={0.15}>
           <div className="mt-10">
+            {/* risk reversal — at this point in the funnel the objection
+                isn't interest, it's "is this a sales call in disguise" */}
+            <p className="max-w-xl mx-auto text-base md:text-lg text-ink-soft leading-relaxed mb-8">
+              If we&apos;re not the right fit, we&apos;ll tell you honestly — and
+              point you somewhere better.
+            </p>
+            <div className="mb-5 flex justify-center">
+              <ConsultationUrgencyBar />
+            </div>
             <PillButton onClick={open} variant="ink" size="lg">
-              Book your free consultation
+              Book your consultation
             </PillButton>
           </div>
         </Reveal>

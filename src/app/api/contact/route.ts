@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createHash } from "node:crypto";
 import { z } from "zod";
 import { getServiceClient, isSupabaseConfigured } from "@/lib/supabase";
+import { clientIp, hashIp, rateLimit } from "@/lib/request-guard";
 import {
   isEmailConfigured,
   notifyAdminOfSubmission,
+  sendConsultationConfirmation,
   sendUserAutoReply,
   type ContactPayload,
 } from "@/lib/email";
@@ -38,35 +39,6 @@ const Body = z.object({
   // Honeypot — should always be empty when filled by a real human
   website: z.string().max(0, "spam").optional().or(z.literal("")),
 });
-
-// Per-IP rate limit: 5 submissions / 10 min. Purges entries older than 10 min on each call.
-const WINDOW_MS = 10 * 60 * 1000;
-const MAX_PER_WINDOW = 5;
-const submissionLog = new Map<string, number[]>();
-
-function rateLimit(key: string): boolean {
-  const now = Date.now();
-  const arr = submissionLog.get(key) ?? [];
-  const recent = arr.filter((t) => now - t < WINDOW_MS);
-  if (recent.length >= MAX_PER_WINDOW) {
-    submissionLog.set(key, recent);
-    return false;
-  }
-  recent.push(now);
-  submissionLog.set(key, recent);
-  return true;
-}
-
-function clientIp(req: NextRequest): string {
-  const fwd = req.headers.get("x-forwarded-for");
-  if (fwd) return fwd.split(",")[0]?.trim() || "unknown";
-  return req.headers.get("x-real-ip") || "unknown";
-}
-
-function hashIp(ip: string): string {
-  const secret = process.env.ADMIN_COOKIE_SECRET ?? "evolut-default-salt-rotate-in-prod";
-  return createHash("sha256").update(`${ip}:${secret}`).digest("hex").slice(0, 32);
-}
 
 export async function POST(req: NextRequest) {
   let raw: unknown;
@@ -145,9 +117,15 @@ export async function POST(req: NextRequest) {
   let emailedUser = false;
   let emailError: string | null = null;
   if (isEmailConfigured()) {
+    // Leads from the /consultation funnel get the branded booking email
+    // (it carries the Cal.com link); everyone else gets the generic
+    // "we'll reply within 24h" auto-reply.
+    const isFunnelLead = data.reason?.startsWith("consultation-") ?? false;
     const [adminRes, userRes] = await Promise.all([
       notifyAdminOfSubmission(payload),
-      sendUserAutoReply(payload),
+      isFunnelLead
+        ? sendConsultationConfirmation(payload)
+        : sendUserAutoReply(payload),
     ]);
     emailedAdmin = adminRes.ok;
     emailedUser = userRes.ok;

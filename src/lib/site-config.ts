@@ -924,6 +924,16 @@ export const contactReasons = [
   { label: "General question", description: "Anything else? We'll route you correctly.", value: "general" },
 ] as const;
 
+/** Shared budget-range options — used by /contact and /consultation. */
+export const BUDGETS = [
+  "Not sure yet",
+  "<$2K / month",
+  "$2K – $5K / month",
+  "$5K – $15K / month",
+  "$15K+ / month",
+  "One-time project",
+] as const;
+
 export const valueDeck = [
   { n: "01", title: "Operators, not executors", body: "Our team has scaled brands past 8 figures. We don't just run playbooks — we wrote them." },
   { n: "02", title: "Single accountable team", body: "Sourcing, listings, photography, and ads compound when one team owns them." },

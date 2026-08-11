@@ -1,9 +1,27 @@
 "use client";
 
+import { Fragment } from "react";
 import { StaggerWords, Reveal } from "@/components/ui/reveal";
 import { PillButton } from "@/components/ui/pill-button";
 import { useBookingModal } from "./consultation-booking-modal";
 import { ConsultationCountdown } from "./consultation-countdown";
+import { funnelProduct } from "./funnel-products";
+
+/**
+ * Hero proof figures read from ./funnel-products so this line can never
+ * disagree with the portfolio section further down the same page — the
+ * funnel states its own numbers, and it has to state them once.
+ */
+const PROOF = [
+  { slug: "gloco-calm-carry-us", brand: "Glowco", tail: "YTD" },
+  {
+    slug: "squirtz-water-enhancer-us",
+    brand: "Squirtz",
+    tail: "revenue in 6 months",
+  },
+]
+  .map((p) => ({ ...p, value: funnelProduct(p.slug)?.metric.value }))
+  .filter((p): p is typeof p & { value: string } => Boolean(p.value));
 
 /**
  * ConsultationHero — section 1. Heading -> subhead -> countdown -> CTA.
@@ -44,21 +62,56 @@ export function ConsultationHero() {
 
       <div className="container-x relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="display text-[clamp(2.75rem,7.5vw,6.5rem)] text-ink leading-[0.98] tracking-[-0.02em]">
-            <StaggerWords text="Stop running five agencies" />
+          {/* Proof-led lead. Both figures are verbatim from site-config
+              (deepStats "$420M total GMV under mgmt" and stats "18,000+
+              ASINs optimized") — do not round them up or re-attribute
+              them. "ASINs" is doing deliberate work here: it is
+              Amazon-only vocabulary, so an Amazon seller clocks the fit
+              in the headline without the claim overreaching into
+              "$420M of AMAZON GMV", which the data does not support. */}
+          {/* Three short lines, not two long ones: at display size the
+              two-line version wrapped and orphaned "ASINs." on a line of
+              its own. Each line here is <=20 characters so it holds
+              from 375px up without a stray break. */}
+          <h1 className="display text-[clamp(2rem,6.2vw,5rem)] text-ink leading-[1.02] tracking-[-0.02em]">
+            <StaggerWords text="Grow Your Amazon Sales by 40%" />
             <br />
             <StaggerWords
-              text="to grow one brand."
-              delayStart={0.2}
+              text="In Just 30 Days"
+              delayStart={0.24}
               wordClassName="italic font-normal text-copper"
             />
           </h1>
 
           <Reveal delay={0.35}>
             <p className="mt-6 md:mt-7 text-lg md:text-xl text-ink-soft leading-[1.6] max-w-2xl mx-auto">
-              Sourcing, listings, photography, ads, freight, and trademark — run by
-              one accountable team instead of five vendors who don&apos;t talk to
-              each other.
+              We run Seller Central, Vendor Central, and FBA under one roof —
+              sourcing, listings, PPC, and Brand Registry included.
+            </p>
+          </Reveal>
+
+          {/* The two case-study numbers as their own scannable line —
+              buried inside the paragraph above, they read as prose and
+              stop being proof. */}
+          <Reveal delay={0.45}>
+            <p className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-sm text-mute">
+              {PROOF.map((p, i) => (
+                <Fragment key={p.slug}>
+                  {i > 0 && (
+                    <span
+                      aria-hidden="true"
+                      className="h-1 w-1 rounded-full bg-hairline-strong"
+                    />
+                  )}
+                  <span>
+                    {p.brand}{" "}
+                    <span className="text-copper font-medium tabular-nums">
+                      {p.value}
+                    </span>{" "}
+                    {p.tail}
+                  </span>
+                </Fragment>
+              ))}
             </p>
           </Reveal>
         </div>
@@ -74,8 +127,8 @@ export function ConsultationHero() {
                 Book your consultation
               </PillButton>
               <p className="mt-4 text-mute text-sm">
-                Free 30-minute call · no pitch · a real operator replies within the
-                hour
+                Free 30-minute call · no pitch · a real operator replies within
+                the hour
               </p>
             </div>
           </div>

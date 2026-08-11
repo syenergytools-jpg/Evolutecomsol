@@ -25,8 +25,7 @@ export const site = {
     "When your ideas take shape, our expertise takes over. Your ecommerce business won't just survive — it will thrive, grow, and reach new heights.",
   description:
     "Evolut Ecommerce Solutions is a full-stack ecommerce agency for Amazon sellers, Shopify brands, and DTC operators. We run sourcing, listings, photography, ads, trademark registration, freight forwarding, and Shopify/MERN development under one accountable team — with $420M+ GMV under management across 240+ active brands and 4 continents.",
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://evolutecomsolutions.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://evolutecomsolutions.com",
   contact: {
     email: "support@evolutecomsolutions.com",
     phone: "+92 301 5574 531",
@@ -74,7 +73,8 @@ function normalizeCalLink(raw: string): string {
 }
 
 export const cal = {
-  link: normalizeCalLink(process.env.NEXT_PUBLIC_CAL_LINK ?? "") || CAL_PLACEHOLDER,
+  link:
+    normalizeCalLink(process.env.NEXT_PUBLIC_CAL_LINK ?? "") || CAL_PLACEHOLDER,
 };
 
 /**
@@ -296,7 +296,11 @@ export const stats = [
 
 export const deepStats = [
   { label: "Average conversion lift", value: "+38%", note: "Top SKU, 14 days" },
-  { label: "PPC efficiency improvement", value: "2.7×", note: "ACoS reduction" },
+  {
+    label: "PPC efficiency improvement",
+    value: "2.7×",
+    note: "ACoS reduction",
+  },
   { label: "Sessions growth", value: "+162%", note: "90 days post-launch" },
   { label: "Brand search increase", value: "4.1×", note: "Within 6 months" },
   { label: "Time-to-FBA", value: "21 days", note: "From sample to shelf" },
@@ -306,7 +310,7 @@ export const deepStats = [
 export const testimonials = [
   {
     quote:
-      "Evolut took our Amazon presence from \"we have listings\" to \"we own the category.\" 4× revenue in 11 months without raising more capital.",
+      'Evolut took our Amazon presence from "we have listings" to "we own the category." 4× revenue in 11 months without raising more capital.',
     name: "Sarah K.",
     role: "Founder, DTC Outdoor Brand",
     photo: "/testimonals_images/sarah.png",
@@ -423,8 +427,7 @@ export const whyUs = [
   },
   {
     title: "Results-driven, not retainer-driven",
-    detail:
-      "Engagements scoped by outcomes — not hours. We win when you win.",
+    detail: "Engagements scoped by outcomes — not hours. We win when you win.",
   },
   {
     title: "Pakistan-based, globally trusted",
@@ -434,12 +437,36 @@ export const whyUs = [
 ];
 
 export const sourcingProcess = [
-  { n: "01", title: "Initial Request", blurb: "Submit via form or email — expect contact within 48 hours." },
-  { n: "02", title: "Quotation", blurb: "Receive transparent pricing for desired products." },
-  { n: "03", title: "Sampling", blurb: "Review samples before committing to mass production." },
-  { n: "04", title: "Quality Inspection", blurb: "Detailed QC with photographic reporting." },
-  { n: "05", title: "FBA Preparation", blurb: "Package and label per Amazon's exact requirements." },
-  { n: "06", title: "Shipping", blurb: "Verify costs and arrange door-to-FBA delivery." },
+  {
+    n: "01",
+    title: "Initial Request",
+    blurb: "Submit via form or email — expect contact within 48 hours.",
+  },
+  {
+    n: "02",
+    title: "Quotation",
+    blurb: "Receive transparent pricing for desired products.",
+  },
+  {
+    n: "03",
+    title: "Sampling",
+    blurb: "Review samples before committing to mass production.",
+  },
+  {
+    n: "04",
+    title: "Quality Inspection",
+    blurb: "Detailed QC with photographic reporting.",
+  },
+  {
+    n: "05",
+    title: "FBA Preparation",
+    blurb: "Package and label per Amazon's exact requirements.",
+  },
+  {
+    n: "06",
+    title: "Shipping",
+    blurb: "Verify costs and arrange door-to-FBA delivery.",
+  },
 ];
 
 export const trademarkPillars = [
@@ -742,7 +769,11 @@ export const operators = [
   { initials: "SH", role: "Head of Creative", focus: "Brand, photo, A+" },
   { initials: "RA", role: "Head of Sourcing", focus: "Manufacturing, QC" },
   { initials: "TF", role: "Head of Engineering", focus: "Shopify, MERN" },
-  { initials: "MN", role: "Head of Performance", focus: "PPC, DSP, attribution" },
+  {
+    initials: "MN",
+    role: "Head of Performance",
+    focus: "PPC, DSP, attribution",
+  },
 ];
 
 export type CaseStudy = {
@@ -807,11 +838,26 @@ export const caseStudies: CaseStudy[] = [
       attribution: "Founder, Gloco",
     },
     timeline: [
-      { phase: "01 · Sourcing", body: "Manufacturer vetted in CN, samples shipped in 12 days, packaging spec locked." },
-      { phase: "02 · Photography", body: "Studio + lifestyle pack, infographic-led main image, 360° spin." },
-      { phase: "03 · Listing", body: "Title / bullets / A+ Premium / Brand Store across 8 SKUs." },
-      { phase: "04 · Launch", body: "Sponsored Products + Brands, Brand Registry filed, review velocity ramp." },
-      { phase: "05 · Scale", body: "DSP retargeting, ACoS pulled to <14%, scaled to $50K+ / month." },
+      {
+        phase: "01 · Sourcing",
+        body: "Manufacturer vetted in CN, samples shipped in 12 days, packaging spec locked.",
+      },
+      {
+        phase: "02 · Photography",
+        body: "Studio + lifestyle pack, infographic-led main image, 360° spin.",
+      },
+      {
+        phase: "03 · Listing",
+        body: "Title / bullets / A+ Premium / Brand Store across 8 SKUs.",
+      },
+      {
+        phase: "04 · Launch",
+        body: "Sponsored Products + Brands, Brand Registry filed, review velocity ramp.",
+      },
+      {
+        phase: "05 · Scale",
+        body: "DSP retargeting, ACoS pulled to <14%, scaled to $50K+ / month.",
+      },
     ],
     shots: [
       "/stats/products/gloco/1.webp",
@@ -849,10 +895,22 @@ export const caseStudies: CaseStudy[] = [
       attribution: "Marketing lead, Squirtz",
     },
     timeline: [
-      { phase: "01 · Audit", body: "Listing audit + PPC structure rebuild plan locked in 5 days." },
-      { phase: "02 · Photography", body: "Studio + lifestyle re-shoot across all 8 SKUs in two weeks." },
-      { phase: "03 · Listings", body: "Copy rewrites, A+ Premium, Brand Store overhaul." },
-      { phase: "04 · PPC", body: "Manual + smart-auto tiers by margin, broad-match killed." },
+      {
+        phase: "01 · Audit",
+        body: "Listing audit + PPC structure rebuild plan locked in 5 days.",
+      },
+      {
+        phase: "02 · Photography",
+        body: "Studio + lifestyle re-shoot across all 8 SKUs in two weeks.",
+      },
+      {
+        phase: "03 · Listings",
+        body: "Copy rewrites, A+ Premium, Brand Store overhaul.",
+      },
+      {
+        phase: "04 · PPC",
+        body: "Manual + smart-auto tiers by margin, broad-match killed.",
+      },
     ],
     shots: [
       "/stats/products/Squirtz_drink/1.webp",
@@ -890,10 +948,22 @@ export const caseStudies: CaseStudy[] = [
       attribution: "Operator, Shilajit Co.",
     },
     timeline: [
-      { phase: "01 · Sourcing", body: "Manufacturer vetting + sample QC pipeline." },
-      { phase: "02 · Compliance", body: "TGA-aware copy, ingredient claims pass." },
-      { phase: "03 · Photography", body: "Studio + lifestyle pack tuned to AU shopper." },
-      { phase: "04 · Launch", body: "Brand Registry + Sponsored Products day-one campaigns." },
+      {
+        phase: "01 · Sourcing",
+        body: "Manufacturer vetting + sample QC pipeline.",
+      },
+      {
+        phase: "02 · Compliance",
+        body: "TGA-aware copy, ingredient claims pass.",
+      },
+      {
+        phase: "03 · Photography",
+        body: "Studio + lifestyle pack tuned to AU shopper.",
+      },
+      {
+        phase: "04 · Launch",
+        body: "Brand Registry + Sponsored Products day-one campaigns.",
+      },
     ],
     shots: [
       "/stats/products/shilajit/1.jpg",
@@ -927,8 +997,14 @@ export const caseStudies: CaseStudy[] = [
     duration: "5 months",
     channels: ["photography", "bol", "amazon", "ppc"],
     timeline: [
-      { phase: "01 · Positioning", body: "Brand language reset to 'pro-grade detail'." },
-      { phase: "02 · Photography", body: "Infographic-led main + lifestyle pack." },
+      {
+        phase: "01 · Positioning",
+        body: "Brand language reset to 'pro-grade detail'.",
+      },
+      {
+        phase: "02 · Photography",
+        body: "Infographic-led main + lifestyle pack.",
+      },
       { phase: "03 · Bundles", body: "3 SKU bundles created to lift AOV." },
       { phase: "04 · PPC", body: "Sponsored Brands + Display retargeting." },
     ],
@@ -967,10 +1043,22 @@ export const caseStudies: CaseStudy[] = [
       attribution: "Founder, PawSteps",
     },
     timeline: [
-      { phase: "01 · Photography", body: "Lifestyle pack with real dogs, real owners." },
-      { phase: "02 · Lifecycle", body: "Klaviyo flows for post-purchase + winback." },
-      { phase: "03 · Range", body: "3 new SKUs sourced + launched in 8 weeks." },
-      { phase: "04 · Scale", body: "Sponsored Display retargeting + DSP audiences." },
+      {
+        phase: "01 · Photography",
+        body: "Lifestyle pack with real dogs, real owners.",
+      },
+      {
+        phase: "02 · Lifecycle",
+        body: "Klaviyo flows for post-purchase + winback.",
+      },
+      {
+        phase: "03 · Range",
+        body: "3 new SKUs sourced + launched in 8 weeks.",
+      },
+      {
+        phase: "04 · Scale",
+        body: "Sponsored Display retargeting + DSP audiences.",
+      },
     ],
     shots: [
       "/stats/products/Dog_Stand/1.jpg",
@@ -1003,9 +1091,15 @@ export const caseStudies: CaseStudy[] = [
     channels: ["sourcing", "photography", "bol", "amazon", "ppc"],
     timeline: [
       { phase: "01 · Sourcing", body: "Multi-size SKU matrix locked with QC." },
-      { phase: "02 · Photography", body: "Athletic lifestyle pack on real runners." },
+      {
+        phase: "02 · Photography",
+        body: "Athletic lifestyle pack on real runners.",
+      },
       { phase: "03 · A+ Premium", body: "Performance-line storefront." },
-      { phase: "04 · Day-1 Launch", body: "Sponsored Brands + reviews velocity." },
+      {
+        phase: "04 · Day-1 Launch",
+        body: "Sponsored Brands + reviews velocity.",
+      },
     ],
     shots: [
       "/stats/products/Running_vest/1.jpg",
@@ -1018,10 +1112,26 @@ export const caseStudies: CaseStudy[] = [
 ];
 
 export const contactReasons = [
-  { label: "New project", description: "Tell us what you're building or scaling.", value: "project" },
-  { label: "Strategy audit", description: "Let us assess your current ops in 5 days.", value: "audit" },
-  { label: "Sourcing request", description: "We'll quote products in 48 hours.", value: "sourcing" },
-  { label: "General question", description: "Anything else? We'll route you correctly.", value: "general" },
+  {
+    label: "New project",
+    description: "Tell us what you're building or scaling.",
+    value: "project",
+  },
+  {
+    label: "Strategy audit",
+    description: "Let us assess your current ops in 5 days.",
+    value: "audit",
+  },
+  {
+    label: "Sourcing request",
+    description: "We'll quote products in 48 hours.",
+    value: "sourcing",
+  },
+  {
+    label: "General question",
+    description: "Anything else? We'll route you correctly.",
+    value: "general",
+  },
 ] as const;
 
 /** Shared budget-range options — used by /contact and /consultation. */
@@ -1035,17 +1145,57 @@ export const BUDGETS = [
 ] as const;
 
 export const valueDeck = [
-  { n: "01", title: "Operators, not executors", body: "Our team has scaled brands past 8 figures. We don't just run playbooks — we wrote them." },
-  { n: "02", title: "Single accountable team", body: "Sourcing, listings, photography, and ads compound when one team owns them." },
-  { n: "03", title: "Algorithm + shopper expertise", body: "We know what Amazon shoppers are searching for and can optimize content and ads to match intent." },
-  { n: "04", title: "Available 24/7", body: "Email, phone, WhatsApp, live chat. Time zones are not your problem to solve." },
+  {
+    n: "01",
+    title: "Operators, not executors",
+    body: "Our team has scaled brands past 8 figures. We don't just run playbooks — we wrote them.",
+  },
+  {
+    n: "02",
+    title: "Single accountable team",
+    body: "Sourcing, listings, photography, and ads compound when one team owns them.",
+  },
+  {
+    n: "03",
+    title: "Algorithm + shopper expertise",
+    body: "We know what Amazon shoppers are searching for and can optimize content and ads to match intent.",
+  },
+  {
+    n: "04",
+    title: "Available 24/7",
+    body: "Email, phone, WhatsApp, live chat. Time zones are not your problem to solve.",
+  },
 ];
 
 export const milestones = [
-  { year: "2018", title: "Studio launches", body: "Started in Jhelum with two operators and a photo studio." },
-  { year: "2019", title: "First 100 brands", body: "Built the playbooks during the FBA gold rush." },
-  { year: "2021", title: "Sourcing arm spins up", body: "Manufacturer network scales to 60+ verified factories." },
-  { year: "2023", title: "Engineering team forms", body: "Shopify Hydrogen + MERN apps become a first-class service line." },
-  { year: "2025", title: "$420M GMV under management", body: "Across 240+ active brands and 4 continents." },
-  { year: "2026", title: "Evolut today", body: "Full-stack ecommerce ops as a single accountable team." },
+  {
+    year: "2018",
+    title: "Studio launches",
+    body: "Started in Jhelum with two operators and a photo studio.",
+  },
+  {
+    year: "2019",
+    title: "First 100 brands",
+    body: "Built the playbooks during the FBA gold rush.",
+  },
+  {
+    year: "2021",
+    title: "Sourcing arm spins up",
+    body: "Manufacturer network scales to 60+ verified factories.",
+  },
+  {
+    year: "2023",
+    title: "Engineering team forms",
+    body: "Shopify Hydrogen + MERN apps become a first-class service line.",
+  },
+  {
+    year: "2025",
+    title: "$420M GMV under management",
+    body: "Across 240+ active brands and 4 continents.",
+  },
+  {
+    year: "2026",
+    title: "Evolut today",
+    body: "Full-stack ecommerce ops as a single accountable team.",
+  },
 ];

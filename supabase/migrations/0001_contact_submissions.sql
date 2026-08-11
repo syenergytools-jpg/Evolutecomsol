@@ -45,5 +45,8 @@ create index if not exists contact_submissions_service_idx
 -- nothing.
 alter table public.contact_submissions enable row level security;
 
+
+
+
 -- No public policies are created. Service-role bypasses RLS by
 -- design, which is exactly what we want for the API route + admin.

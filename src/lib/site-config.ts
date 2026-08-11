@@ -52,9 +52,41 @@ export const site = {
  * is set. Both the in-page embed and the confirmation email read from
  * here, so there is exactly one value to change.
  * ------------------------------------------------------------------ */
+const CAL_PLACEHOLDER = "evolut/consultation";
+
+/**
+ * Accepts whatever shape NEXT_PUBLIC_CAL_LINK is given and reduces it to
+ * the bare "<user>/<event-type>" slug.
+ *
+ * Pasting the whole booking URL is the natural instinct, and the failure
+ * it caused was silent and confusing: the URL got concatenated onto the
+ * base, producing https://cal.com/https://cal.com/user/event, which
+ * cal.com serves as its own styled 404 *inside the iframe* — so the page
+ * looked broken with no clue why. Cheaper to normalize than to explain.
+ */
+function normalizeCalLink(raw: string): string {
+  return raw
+    .trim()
+    .split("?")[0]
+    .replace(/^https?:\/\//i, "")
+    .replace(/^(www\.)?(app\.)?cal\.com\//i, "")
+    .replace(/^\/+|\/+$/g, "");
+}
+
 export const cal = {
-  link: process.env.NEXT_PUBLIC_CAL_LINK ?? "evolut/consultation",
+  link: normalizeCalLink(process.env.NEXT_PUBLIC_CAL_LINK ?? "") || CAL_PLACEHOLDER,
 };
+
+/**
+ * False while NEXT_PUBLIC_CAL_LINK is unset. Worth checking before
+ * rendering the embed: cal.com does not serve a 404 page for a
+ * username that doesn't exist — it drops the connection outright, so a
+ * placeholder link produces a silently blank iframe with nothing in
+ * the console to explain it.
+ */
+export function calIsConfigured(): boolean {
+  return cal.link !== CAL_PLACEHOLDER;
+}
 
 /** Public booking page — used in emails and as the embed fallback. */
 export function calBookingUrl(): string {

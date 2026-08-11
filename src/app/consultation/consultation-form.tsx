@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Send, Check, AlertTriangle } from "lucide-react";
+import { ArrowLeft, Send, Check, AlertTriangle, ExternalLink, Mail } from "lucide-react";
 import { CardSpotlight } from "@/components/ui/aceternity/card-spotlight";
 import {
   BUDGETS,
   calBookingUrl,
   calEmbedUrl,
+  calIsConfigured,
   qualifierOptions,
   site,
   type QualifierOption,
@@ -270,32 +271,7 @@ export function ConsultationForm() {
               </div>
             </div>
 
-            {/* Cal.com inline embed. Plain iframe rather than
-                @calcom/embed-react — the booking page works standalone at
-                this URL, and this keeps the funnel dependency-free. */}
-            <div className="rounded-2xl border border-hairline-strong overflow-hidden h-[560px] md:h-[700px] bg-canvas">
-              <iframe
-                src={calEmbedUrl()}
-                title="Book a consultation"
-                className="w-full h-full"
-                frameBorder={0}
-                allow="camera; microphone; fullscreen; payment"
-              />
-            </div>
-
-            {/* Fallback for anyone whose browser blocks third-party frames */}
-            <p className="mt-4 text-sm text-mute">
-              Calendar not loading?{" "}
-              <a
-                href={calBookingUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-ink underline underline-offset-4 hover:text-copper transition-colors"
-              >
-                Open the booking page in a new tab
-              </a>
-              .
-            </p>
+            <CalEmbed />
           </motion.div>
         )}
       </AnimatePresence>
@@ -330,6 +306,114 @@ function OptionList({
         </button>
       ))}
     </div>
+  );
+}
+
+/**
+ * CalEmbed — the booking calendar, with both of its real failure modes
+ * handled rather than left as a blank rectangle.
+ *
+ * 1. NEXT_PUBLIC_CAL_LINK unset. cal.com does NOT serve a 404 page for
+ *    a username that doesn't exist — it closes the connection — so the
+ *    placeholder link renders an empty iframe with nothing in the
+ *    console to explain it. Detected up front, so the visitor gets a
+ *    way to reach us instead of a void.
+ * 2. Link set but the frame never loads (extension, tracking blocker,
+ *    strict privacy mode). Cross-origin means we can't inspect the
+ *    frame, so a watchdog promotes the "open in a new tab" escape
+ *    hatch from small print to a real button.
+ */
+function CalEmbed() {
+  const configured = calIsConfigured();
+  const [loaded, setLoaded] = useState(false);
+  const [timedOut, setTimedOut] = useState(false);
+
+  useEffect(() => {
+    if (!configured) {
+      console.warn(
+        "[consultation] NEXT_PUBLIC_CAL_LINK is not set, so the Cal.com embed is disabled. " +
+          'Set it to your "<user>/<event-type>" slug (the part after cal.com/) and restart the dev server.'
+      );
+      return;
+    }
+    const id = setTimeout(() => setTimedOut(true), 8000);
+    return () => clearTimeout(id);
+  }, [configured]);
+
+  if (!configured) {
+    return (
+      <div className="rounded-2xl border border-hairline-strong bg-canvas-2 p-8 text-center">
+        <p className="text-ink font-medium mb-2">
+          Our online calendar is being connected.
+        </p>
+        <p className="text-sm text-ink-soft mb-6 max-w-md mx-auto leading-relaxed">
+          Your answers are already with us. Send us a line and we&apos;ll come back
+          with a couple of times that suit you — usually within the hour.
+        </p>
+        <a
+          href={`mailto:${site.contact.email}?subject=${encodeURIComponent("Consultation booking")}`}
+          className="inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-6 py-3 text-[0.95rem] font-medium hover:bg-ink-soft transition-colors"
+        >
+          <Mail className="h-4 w-4" strokeWidth={2} />
+          Email {site.contact.email}
+        </a>
+      </div>
+    );
+  }
+
+  const failed = timedOut && !loaded;
+
+  return (
+    <>
+      <div className="relative rounded-2xl border border-hairline-strong overflow-hidden h-[560px] md:h-[700px] bg-canvas">
+        <iframe
+          src={calEmbedUrl()}
+          title="Book a consultation"
+          className="w-full h-full"
+          frameBorder={0}
+          onLoad={() => setLoaded(true)}
+          allow="camera; microphone; fullscreen; payment"
+        />
+        {!loaded && !failed && (
+          <div className="absolute inset-0 grid place-items-center bg-canvas pointer-events-none">
+            <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-mute">
+              Loading available times…
+            </span>
+          </div>
+        )}
+      </div>
+
+      {failed ? (
+        <div className="mt-4 rounded-2xl border border-copper/40 bg-copper/5 p-5 text-center">
+          <p className="text-sm text-ink mb-4">
+            The calendar didn&apos;t load — a browser extension or privacy setting
+            may be blocking it.
+          </p>
+          <a
+            href={calBookingUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-ink text-canvas px-6 py-3 text-[0.95rem] font-medium hover:bg-ink-soft transition-colors"
+          >
+            Open the booking page
+            <ExternalLink className="h-4 w-4" strokeWidth={2} />
+          </a>
+        </div>
+      ) : (
+        <p className="mt-4 text-sm text-mute">
+          Calendar not loading?{" "}
+          <a
+            href={calBookingUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ink underline underline-offset-4 hover:text-copper transition-colors"
+          >
+            Open the booking page in a new tab
+          </a>
+          .
+        </p>
+      )}
+    </>
   );
 }
 

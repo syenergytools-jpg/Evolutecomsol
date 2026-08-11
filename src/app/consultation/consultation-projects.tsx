@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
 import { CountUp } from "@/components/ui/count-up";
 import { parseMetric } from "@/lib/parse-metric";
-import { caseStudies } from "@/lib/site-config";
+import { funnelProducts } from "./funnel-products";
 import { cn } from "@/lib/utils";
 
 /**
@@ -14,17 +14,12 @@ import { cn } from "@/lib/utils";
  * so each result reads as a single big proof point instead of a wall
  * of tiles. `id="case-studies"` is kept so the hero's "See our
  * portfolio" anchor link still lands here.
+ *
+ * Reads `./funnel-products`, NOT `caseStudies` — this page shows full
+ * product names and unabbreviated money figures, and that presentation
+ * is deliberately isolated from the rest of the site. See that file for
+ * the rules.
  */
-const FEATURED_SLUGS = [
-  "gloco-calm-carry-us",
-  "squirtz-water-enhancer-us",
-  "pawsteps-dog-ramp-us",
-  "shilajit-resin-au",
-];
-
-const FEATURED = FEATURED_SLUGS
-  .map((slug) => caseStudies.find((c) => c.slug === slug))
-  .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
 function AnimatedMetric({ value, className }: { value: string; className?: string }) {
   const p = parseMetric(value);
@@ -45,7 +40,7 @@ export function ConsultationProjects() {
         />
 
         <div className="mt-16 md:mt-20 max-w-6xl mx-auto space-y-16 md:space-y-24">
-          {FEATURED.map((study, i) => {
+          {funnelProducts.map((study, i) => {
             const reversed = i % 2 === 1;
             return (
               <Reveal key={study.slug}>
@@ -64,7 +59,7 @@ export function ConsultationProjects() {
                   >
                     <Image
                       src={study.image}
-                      alt={`${study.brand} ${study.productName}`}
+                      alt={study.name}
                       fill
                       sizes="(max-width: 768px) 100vw, 48vw"
                       className="object-contain p-6 transition-transform duration-700 group-hover:scale-[1.04]"
@@ -81,8 +76,11 @@ export function ConsultationProjects() {
                       reversed && "md:order-1 md:text-right"
                     )}
                   >
-                    <h3 className="display text-[clamp(1.75rem,3.5vw,2.75rem)] text-ink leading-tight mb-4">
-                      {study.brand}
+                    {/* Sized down from the brand-only version: full
+                        product names are 3-4x longer and were breaking
+                        awkwardly against the image column. */}
+                    <h3 className="display text-[clamp(1.5rem,3vw,2.25rem)] text-ink leading-[1.15] mb-4 text-balance">
+                      {study.name}
                     </h3>
                     <p
                       className={cn(

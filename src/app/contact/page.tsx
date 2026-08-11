@@ -8,19 +8,10 @@ import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { CardSpotlight } from "@/components/ui/aceternity/card-spotlight";
 import { Reveal } from "@/components/ui/reveal";
-import { site, contactReasons, services } from "@/lib/site-config";
+import { site, contactReasons, services, BUDGETS } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 const PREMIUM_EASE = [0.16, 1, 0.3, 1] as const;
-
-const BUDGETS = [
-  "Not sure yet",
-  "<$2K / month",
-  "$2K – $5K / month",
-  "$5K – $15K / month",
-  "$15K+ / month",
-  "One-time project",
-] as const;
 
 export default function ContactPage() {
   return (

@@ -40,6 +40,74 @@ export const site = {
   },
 };
 
+/* ------------------------------------------------------------------ *
+ * Cal.com booking
+ *
+ * `cal.link` is the "<user>/<event-type>" slug from your Cal.com
+ * dashboard — the part after cal.com/ in your public booking URL.
+ * Override it with NEXT_PUBLIC_CAL_LINK (it's read on both the server
+ * and the client, so it must be NEXT_PUBLIC_-prefixed).
+ *
+ * The fallback below is a PLACEHOLDER and will 404 until the real slug
+ * is set. Both the in-page embed and the confirmation email read from
+ * here, so there is exactly one value to change.
+ * ------------------------------------------------------------------ */
+export const cal = {
+  link: process.env.NEXT_PUBLIC_CAL_LINK ?? "evolut/consultation",
+};
+
+/** Public booking page — used in emails and as the embed fallback. */
+export function calBookingUrl(): string {
+  return `https://cal.com/${cal.link}`;
+}
+
+/** Embeddable variant of the same booking page. */
+export function calEmbedUrl(): string {
+  const params = new URLSearchParams({
+    embed: "true",
+    layout: "month_view",
+    theme: "light",
+  });
+  return `${calBookingUrl()}?${params.toString()}`;
+}
+
+/* ------------------------------------------------------------------ *
+ * /consultation qualifier options
+ *
+ * Shared by the client form (renders the labels) and /api/consultation
+ * (validates the slugs, then resolves them back to labels for the
+ * admin mirror and the confirmation email). Keeping one copy is what
+ * stops the server from rejecting a value the form can legitimately
+ * produce.
+ * ------------------------------------------------------------------ */
+export type QualifierOption = { value: string; label: string };
+
+export const qualifierOptions = {
+  authority: [
+    { value: "solo", label: "Just me — I decide" },
+    { value: "partner", label: "Me and a partner or co-founder" },
+    { value: "team", label: "A team or board needs to weigh in" },
+  ],
+  need: [
+    { value: "sourcing", label: "Sourcing & manufacturing is a mess" },
+    { value: "listings", label: "Listings & content aren't converting" },
+    { value: "ads", label: "Ads are burning budget with no real ROAS" },
+    { value: "brand", label: "No trademark or brand protection yet" },
+    { value: "exploring", label: "Just exploring — nothing urgent yet" },
+  ],
+  timing: [
+    { value: "now", label: "Immediately — this month" },
+    { value: "soon", label: "Within the next 90 days" },
+    { value: "later", label: "Just researching for later" },
+  ],
+} satisfies Record<string, QualifierOption[]>;
+
+export type QualifierField = keyof typeof qualifierOptions;
+
+export function qualifierLabel(field: QualifierField, value: string): string {
+  return qualifierOptions[field].find((o) => o.value === value)?.label ?? value;
+}
+
 export const navItems = [
   { label: "Services", href: "/services" },
   { label: "IP Accelerator", href: "/services/trademark" },
@@ -922,6 +990,16 @@ export const contactReasons = [
   { label: "Strategy audit", description: "Let us assess your current ops in 5 days.", value: "audit" },
   { label: "Sourcing request", description: "We'll quote products in 48 hours.", value: "sourcing" },
   { label: "General question", description: "Anything else? We'll route you correctly.", value: "general" },
+] as const;
+
+/** Shared budget-range options — used by /contact and /consultation. */
+export const BUDGETS = [
+  "Not sure yet",
+  "<$2K / month",
+  "$2K – $5K / month",
+  "$5K – $15K / month",
+  "$15K+ / month",
+  "One-time project",
 ] as const;
 
 export const valueDeck = [

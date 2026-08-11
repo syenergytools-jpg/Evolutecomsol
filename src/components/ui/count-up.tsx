@@ -1,8 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { animate, useInView, useReducedMotion } from "framer-motion";
 import { fmt } from "@/lib/utils";
+
+// Safety net: if the viewport intersection never fires, snap straight to
+// the final value instead of leaving the number stuck at 0 forever.
+const COUNTUP_FALLBACK_MS = 1500;
 
 /**
  * CountUp — number ticker that animates from 0 → target on first
@@ -41,19 +45,32 @@ export function CountUp({
   // react-hooks/set-state-in-effect).
   const [display, setDisplay] = useState<number>(() => (reduce ? value : 0));
 
-  useEffect(() => {
-    if (!inView || reduce) return;
-    const controls = animate(0, value, {
-      duration,
-      ease: [0.16, 1, 0.3, 1],
-      // onUpdate runs in animation-frame callbacks, not synchronously
-      onUpdate: (v) => setDisplay(v),
-    });
-    return controls.stop;
+  useLayoutEffect(() => {
+    if (reduce) return;
+
+    if (inView) {
+      const controls = animate(0, value, {
+        duration,
+        ease: [0.16, 1, 0.3, 1],
+        // onUpdate runs in animation-frame callbacks, not synchronously
+        onUpdate: (v) => setDisplay(v),
+      });
+      return controls.stop;
+    }
+
+    const id = setTimeout(() => setDisplay(value), COUNTUP_FALLBACK_MS);
+    return () => clearTimeout(id);
   }, [inView, value, duration, reduce]);
 
   const formatted = (() => {
-    if (decimals > 0) return display.toFixed(decimals);
+    if (decimals > 0) {
+      return formatThousands
+        ? display.toLocaleString("en-US", {
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals,
+          })
+        : display.toFixed(decimals);
+    }
     const rounded = Math.round(display);
     return formatThousands ? fmt(rounded) : String(rounded);
   })();

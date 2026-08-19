@@ -1,30 +1,11 @@
 "use client";
 
-import { Fragment } from "react";
 import { StaggerWords, Reveal } from "@/components/ui/reveal";
-import { PillButton } from "@/components/ui/pill-button";
-import { useBookingModal } from "./consultation-booking-modal";
-import { ConsultationCountdown } from "./consultation-countdown";
-import { funnelProduct } from "./funnel-products";
+import { ConsultationCtaCard } from "./consultation-cta-card";
 
 /**
- * Hero proof figures read from ./funnel-products so this line can never
- * disagree with the portfolio section further down the same page — the
- * funnel states its own numbers, and it has to state them once.
- */
-const PROOF = [
-  { slug: "gloco-calm-carry-us", brand: "Glowco", tail: "YTD" },
-  {
-    slug: "squirtz-water-enhancer-us",
-    brand: "Squirtz",
-    tail: "revenue in 6 months",
-  },
-]
-  .map((p) => ({ ...p, value: funnelProduct(p.slug)?.metric.value }))
-  .filter((p): p is typeof p & { value: string } => Boolean(p.value));
-
-/**
- * ConsultationHero — section 1. Heading -> subhead -> countdown -> CTA.
+ * ConsultationHero — section 1. Heading -> subhead -> proof stats ->
+ * CTA (the last two live in consultation-cta-card.tsx).
  *
  * The ask sits above the fold-ish, immediately after the promise: a
  * reader who is already sold does not have to scroll past a video to
@@ -33,8 +14,6 @@ const PROOF = [
  * convincing first.
  */
 export function ConsultationHero() {
-  const { open } = useBookingModal();
-
   return (
     <section
       id="hero"
@@ -90,48 +69,12 @@ export function ConsultationHero() {
             </p>
           </Reveal>
 
-          {/* The two case-study numbers as their own scannable line —
-              buried inside the paragraph above, they read as prose and
-              stop being proof. */}
-          <Reveal delay={0.45}>
-            <p className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-sm text-mute">
-              {PROOF.map((p, i) => (
-                <Fragment key={p.slug}>
-                  {i > 0 && (
-                    <span
-                      aria-hidden="true"
-                      className="h-1 w-1 rounded-full bg-hairline-strong"
-                    />
-                  )}
-                  <span>
-                    {p.brand}{" "}
-                    <span className="text-copper font-medium tabular-nums">
-                      {p.value}
-                    </span>{" "}
-                    {p.tail}
-                  </span>
-                </Fragment>
-              ))}
-            </p>
-          </Reveal>
         </div>
 
-        {/* countdown → CTA, sized so the clock reads as a companion to the
-            button rather than dwarfing it */}
+        {/* Proof stats then the ask — no panel, no background, the
+            layout alone carries it (consultation-cta-card.tsx). */}
         <Reveal delay={0.15}>
-          <div className="mt-10 md:mt-12 text-center">
-            <ConsultationCountdown />
-
-            <div className="mt-8">
-              <PillButton onClick={open} variant="ink" size="lg">
-                Book your consultation
-              </PillButton>
-              <p className="mt-4 text-mute text-sm">
-                Free 30-minute call · no pitch · a real operator replies within
-                the hour
-              </p>
-            </div>
-          </div>
+          <ConsultationCtaCard className="mt-11 md:mt-14" />
         </Reveal>
       </div>
     </section>

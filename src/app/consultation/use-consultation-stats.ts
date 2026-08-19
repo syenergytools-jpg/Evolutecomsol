@@ -36,7 +36,10 @@ export function useBookedToday(): number | null {
 
 export function bookedTodayLabel(count: number | null): string {
   if (count === null) return "···";
-  if (count === 0) return "Be the first to book today";
+  // Zero deliberately does NOT say "be the first" — true, but it reads
+  // as "nobody wants this" right next to the button. "Booking open for
+  // today" is equally true and doesn't argue against itself.
+  if (count === 0) return "Booking open for today";
   if (count === 1) return "1 person booked today";
   return `${count} people booked today`;
 }

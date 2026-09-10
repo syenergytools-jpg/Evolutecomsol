@@ -4,10 +4,9 @@ import { PillButton } from "@/components/ui/pill-button";
 import { cn } from "@/lib/utils";
 import { useBookingModal } from "./consultation-booking-modal";
 import { ConsultationCountdown } from "./consultation-countdown";
-import { funnelProduct } from "./funnel-products";
 
 /**
- * ConsultationCtaCard — proof stats, then the ask.
+ * ConsultationCtaCard — proof line, then the ask.
  *
  * No panel, no card, no background fill: the layout alone carries the
  * hierarchy. An earlier version wrapped all of this in a dark box and
@@ -17,61 +16,40 @@ import { funnelProduct } from "./funnel-products";
  * sitting above it as its own block — it is a modifier on the ask, not
  * a competing element, and a corner badge says that without spending a
  * separate row on it.
- *
- * Figures come from ./funnel-products so this can never disagree with
- * the portfolio section further down the same page. Only the short
- * labels live here, because they are presentation, not data.
  */
 const PROOF = [
-  // Company name comes from ./funnel-products so the full legal name is
-  // stated identically here and in the portfolio. It sits on its own
-  // line above the metric: "Glowco International LLC" plus a descriptor
-  // on one line would wrap unpredictably and knock the two numbers out
-  // of alignment, and the pair only works read side by side.
-  { slug: "gloco-calm-carry-us", metricLabel: "Total revenue" },
-  { slug: "squirtz-water-enhancer-us", metricLabel: "Revenue, 6 months" },
-]
-  .map((p) => {
-    const fp = funnelProduct(p.slug);
-    return { ...p, company: fp?.company, value: fp?.metric.value };
-  })
-  .filter(
-    (p): p is (typeof p) & { company: string; value: string } =>
-      Boolean(p.company && p.value)
-  );
+  // $5.28M+ is Glowco's $5,287,932 rounded down, and 412% is Squirtz's
+  // figure — both traceable to ./funnel-products and to the portfolio
+  // section further down this page.
+  { value: "$5.28M+", label: "Revenue managed" },
+  // 89+ has no source anywhere in the codebase; it is a client-supplied
+  // number. Nothing else on the site corroborates it, so don't "fix" it
+  // against site-config and don't reuse it elsewhere without asking.
+  { value: "89+", label: "Launches" },
+  { value: "Up to 412%", label: "Client growth" },
+];
 
 export function ConsultationCtaCard({ className }: { className?: string }) {
   const { open } = useBookingModal();
 
   return (
     <div className={cn("text-center", className)}>
-      {/* fixed two-up, not flex-wrap: the pair only works as a
-          side-by-side comparison, and wrapping breaks that on phones */}
-      <div className="mx-auto grid max-w-md grid-cols-2 gap-x-5 sm:max-w-xl sm:gap-x-14">
-        {PROOF.map((p) => (
-          <div
-            key={p.slug}
-            // Explicit radius — this project overrides the Tailwind
-            // radius scale (rounded-2xl is 40px here).
-            className="flex flex-col rounded-[1.15rem] border border-hairline-strong bg-canvas px-4 py-5 sm:px-6 sm:py-6 shadow-[0_22px_45px_-28px_rgba(15,17,21,0.4)]"
-          >
-            {/* 0.6rem, not the 0.5rem this was squeezed to when the long
-                company name had to fit on one line. It no longer does:
-                the number below is bottom-aligned with `mt-auto`, so the
-                label can wrap freely without knocking the two figures
-                onto different baselines. 8px was unreadable on a phone. */}
-            <p className="font-mono text-[0.6rem] uppercase tracking-[0.08em] sm:tracking-[0.16em] text-mute">
-              <span className="block text-ink-soft">{p.company}</span>
-              <span className="block mt-1">{p.metricLabel}</span>
-            </p>
-            {/* mt-auto bottom-aligns the numbers. Labels are different
-                lengths ("Glowco International LLC" wraps to two lines on
-                a phone, "Squirtz" does not), and without this the two
-                figures sat on different baselines, which read as a bug. */}
-            <p className="mt-auto pt-3 display text-[clamp(1.5rem,4.4vw,2.75rem)] leading-none tabular-nums text-copper">
-              {p.value}
-            </p>
-          </div>
+      {/* One credential line rather than the stat cards this replaced:
+          three claims read as a single sentence of proof, and three
+          cards side by side would be unreadably narrow on a phone. It
+          wraps to its own rows below sm, with the rules hidden there so
+          no separator is ever left dangling at the end of a line. */}
+      <div className="mx-auto flex max-w-2xl flex-col items-center gap-2 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-4">
+        {PROOF.map((p, i) => (
+          <span key={p.label} className="flex items-center gap-4">
+            {i > 0 && (
+              <span aria-hidden="true" className="hidden sm:block h-4 w-px bg-hairline-strong" />
+            )}
+            <span className="text-base sm:text-lg text-ink whitespace-nowrap">
+              <span className="font-semibold text-copper tabular-nums">{p.value}</span>{" "}
+              {p.label}
+            </span>
+          </span>
         ))}
       </div>
 
@@ -80,7 +58,7 @@ export function ConsultationCtaCard({ className }: { className?: string }) {
           the row's. On phones the button goes full width, so the badge
           tucks to its right edge instead of overhanging into the
           container padding. */}
-      <div className="mt-11 md:mt-12 flex justify-center">
+      <div className="mt-9 md:mt-11 flex justify-center">
         <div className="relative inline-flex w-full sm:w-auto [&>button]:w-full sm:[&>button]:w-auto">
           <PillButton
             onClick={open}
@@ -88,7 +66,7 @@ export function ConsultationCtaCard({ className }: { className?: string }) {
             size="lg"
             className="w-full justify-center"
           >
-            Book your consultation
+            Show me how to scale
           </PillButton>
           {/* -top-7 leaves the badge sitting just above the button with
               a few pixels of overlap on the corner. At -top-3.5 it sat

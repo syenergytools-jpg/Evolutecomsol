@@ -41,22 +41,13 @@ export function ConsultationHero() {
 
       <div className="container-x relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Proof-led lead. Both figures are verbatim from site-config
-              (deepStats "$420M total GMV under mgmt" and stats "18,000+
-              ASINs optimized") — do not round them up or re-attribute
-              them. "ASINs" is doing deliberate work here: it is
-              Amazon-only vocabulary, so an Amazon seller clocks the fit
-              in the headline without the claim overreaching into
-              "$420M of AMAZON GMV", which the data does not support. */}
-          {/* Three short lines, not two long ones: at display size the
-              two-line version wrapped and orphaned "ASINs." on a line of
-              its own. Each line here is <=20 characters so it holds
-              from 375px up without a stray break. */}
-          <h1 className="display text-[clamp(1.85rem,6.2vw,5rem)] text-ink leading-[1.06] tracking-[-0.02em] text-balance">
-            <StaggerWords text="Grow Your Amazon Sales by 40%" />
+          {/* The 1.7rem floor is set so "Stop guessing on Amazon." holds
+              on a single line at 375px — measured, not guessed. */}
+          <h1 className="display text-[clamp(1.7rem,5.5vw,4.5rem)] text-ink leading-[1.06] tracking-[-0.02em] text-balance">
+            <StaggerWords text="Stop guessing on Amazon." />
             <br />
             <StaggerWords
-              text="In Just 30 Days"
+              text="Start scaling."
               delayStart={0.24}
               wordClassName="italic font-normal text-copper"
             />
@@ -70,16 +61,21 @@ export function ConsultationHero() {
                 UNLAYERED `* { border-color: var(--hairline) }` that beats
                 every border-<color> utility in the project. */}
             <p
-              className="mt-6 md:mt-7 inline-block max-w-2xl rounded-[1.25rem] border bg-copper/10 px-5 py-3 sm:px-6 sm:py-3.5 text-base sm:text-lg md:text-xl italic text-ink-soft leading-[1.55] text-balance"
+              className="mt-6 md:mt-7 inline-block rounded-[1.25rem] border bg-copper/10 px-5 py-2.5 sm:px-6 sm:py-3 text-base sm:text-lg md:text-xl font-medium italic text-copper leading-[1.5] text-balance"
               style={{
                 borderColor: "color-mix(in oklab, var(--copper) 30%, transparent)",
               }}
             >
-              We run Seller Central, Vendor Central, and FBA under one roof.
-              Sourcing, listings, PPC, and Brand Registry included.
+              Target 40%+ growth in 90 days.
             </p>
           </Reveal>
 
+          <Reveal delay={0.45}>
+            <p className="mt-5 md:mt-6 text-base sm:text-lg md:text-xl text-ink-soft leading-[1.6] max-w-2xl mx-auto text-balance">
+              We find the products. Build the brand. Run the PPC. Scale the
+              sales.
+            </p>
+          </Reveal>
         </div>
 
         {/* Proof stats then the ask — no panel, no background, the

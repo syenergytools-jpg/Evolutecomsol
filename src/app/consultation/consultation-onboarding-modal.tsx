@@ -144,7 +144,7 @@ export function ConsultationOnboardingModal() {
                     Who are we talking to?
                   </h2>
                   <p className="text-ink-soft mb-8">
-                    Quick intro so we can tailor this to your business — takes
+                    Quick intro so we can tailor this to your business. Takes
                     10 seconds.
                   </p>
 

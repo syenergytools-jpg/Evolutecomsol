@@ -27,13 +27,13 @@ import { site } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Free Ecommerce Growth Consultation",
   description:
-    "Book a free 30-minute consultation with Evolut Ecommerce Solutions — sourcing, listings, photography, ads, freight, and trademark, run by one accountable team.",
+    "Book a free 30-minute consultation with Evolut Ecommerce Solutions. Sourcing, listings, photography, ads, freight, and trademark, run by one accountable team.",
   robots: { index: false, follow: false },
   alternates: { canonical: "/consultation" },
   openGraph: {
     title: "Free Ecommerce Growth Consultation | Evolut Ecommerce Solutions",
     description:
-      "Sourcing, listings, photography, ads, freight, and trademark — run by one accountable team. Book a free consultation.",
+      "Sourcing, listings, photography, ads, freight, and trademark, run by one accountable team. Book a free consultation.",
     url: `${site.url}/consultation`,
     type: "website",
     images: [

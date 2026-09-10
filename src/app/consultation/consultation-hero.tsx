@@ -64,8 +64,8 @@ export function ConsultationHero() {
 
           <Reveal delay={0.35}>
             <p className="mt-6 md:mt-7 text-lg md:text-xl text-ink-soft leading-[1.6] max-w-2xl mx-auto">
-              We run Seller Central, Vendor Central, and FBA under one roof —
-              sourcing, listings, PPC, and Brand Registry included.
+              We run Seller Central, Vendor Central, and FBA under one roof.
+              Sourcing, listings, PPC, and Brand Registry included.
             </p>
           </Reveal>
 

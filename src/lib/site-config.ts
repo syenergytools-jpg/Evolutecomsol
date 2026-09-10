@@ -116,7 +116,7 @@ export type QualifierOption = { value: string; label: string };
 
 export const qualifierOptions = {
   authority: [
-    { value: "solo", label: "Just me — I decide" },
+    { value: "solo", label: "Just me, I decide" },
     { value: "partner", label: "Me and a partner or co-founder" },
     { value: "team", label: "A team or board needs to weigh in" },
   ],
@@ -125,10 +125,10 @@ export const qualifierOptions = {
     { value: "listings", label: "Listings & content aren't converting" },
     { value: "ads", label: "Ads are burning budget with no real ROAS" },
     { value: "brand", label: "No trademark or brand protection yet" },
-    { value: "exploring", label: "Just exploring — nothing urgent yet" },
+    { value: "exploring", label: "Just exploring, nothing urgent yet" },
   ],
   timing: [
-    { value: "now", label: "Immediately — this month" },
+    { value: "now", label: "Immediately, this month" },
     { value: "soon", label: "Within the next 90 days" },
     { value: "later", label: "Just researching for later" },
   ],

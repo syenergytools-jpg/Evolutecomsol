@@ -29,11 +29,11 @@ const { authority: AUTHORITY_OPTIONS, need: NEED_OPTIONS, timing: TIMING_OPTIONS
   qualifierOptions;
 
 const STEP_COPY: { title: string; sub?: string }[] = [
-  { title: "What's your monthly budget for growth right now?", sub: "Ballpark is fine — this just helps us tailor the call." },
+  { title: "What's your monthly budget for growth right now?", sub: "Ballpark is fine. This just helps us tailor the call." },
   { title: "Who else needs to sign off before you move forward?" },
   { title: "What's costing you the most right now?" },
   { title: "When do you want to get started?" },
-  { title: "Almost there — where should we send the confirmation?", sub: "No spam. No hard pitch. Just a plan." },
+  { title: "Almost there. Where should we send the confirmation?", sub: "No spam. No hard pitch. Just a plan." },
 ];
 
 const TOTAL_STEPS = STEP_COPY.length;
@@ -261,12 +261,12 @@ export function ConsultationForm() {
               </span>
               <div>
                 <p className="text-lg font-semibold text-ink">
-                  You&apos;re qualified — pick a time.
+                  You&apos;re qualified. Pick a time.
                 </p>
                 <p className="text-sm text-mute">
                   {saveOk
                     ? "We've emailed you this link too, in case you'd rather choose later."
-                    : "Pick a time below — that's all we need to lock it in."}
+                    : "Pick a time below. That's all we need to lock it in."}
                 </p>
               </div>
             </div>
@@ -348,7 +348,7 @@ function CalEmbed() {
         </p>
         <p className="text-sm text-ink-soft mb-6 max-w-md mx-auto leading-relaxed">
           Your answers are already with us. Send us a line and we&apos;ll come back
-          with a couple of times that suit you — usually within the hour.
+          with a couple of times that suit you, usually within the hour.
         </p>
         <a
           href={`mailto:${site.contact.email}?subject=${encodeURIComponent("Consultation booking")}`}
@@ -386,7 +386,7 @@ function CalEmbed() {
       {failed ? (
         <div className="mt-4 rounded-2xl border border-copper/40 bg-copper/5 p-5 text-center">
           <p className="text-sm text-ink mb-4">
-            The calendar didn&apos;t load — a browser extension or privacy setting
+            The calendar didn&apos;t load. A browser extension or privacy setting
             may be blocking it.
           </p>
           <a

@@ -22,17 +22,17 @@ import { useBookingModal } from "./consultation-booking-modal";
  */
 const PITCH: Record<string, string> = {
   amazon:
-    "Vendor Central, Seller Central, FBA — run by someone who's owned the P&L on all three, not just watched a dashboard.",
+    "Vendor Central, Seller Central, FBA, run by someone who's owned the P&L on all three, not just watched a dashboard.",
   shopify:
     "A store built to convert and survive launch-day traffic, not just look good in a portfolio screenshot.",
-  bol: "Listings rebuilt around what shoppers actually type into the search bar — not what sounds good in a deck.",
+  bol: "Listings rebuilt around what shoppers actually type into the search bar, not what sounds good in a deck.",
   ppc: "Sponsored Products, Brands, and Display structured around your real margin, not a flat ACoS target that ignores it.",
   photography:
     "The image that stops the scroll and the one that closes the sale, shot by the same team in the same week.",
   sourcing:
     "We vet the factory and run the QC, so a bad batch doesn't become your problem three months from now.",
   freight:
-    "Door-to-FBA on air, sea, or road — with one accountable party if it doesn't land on time.",
+    "Door-to-FBA on air, sea, or road, with one accountable party if it doesn't land on time.",
   trademark:
     "Brand Registry and IP protection filed before a copycat listing goes live, not scrambled together after.",
 };

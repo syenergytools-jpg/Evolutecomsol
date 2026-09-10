@@ -18,7 +18,7 @@ const REASONS: { title: string; detail: string; icon: LucideIcon }[] = [
   {
     title: "You get operators, not account managers",
     detail:
-      "We've personally scaled brands past 8 figures. Book a call and you're talking to the person who runs the account — not a rep reading from a script.",
+      "We've personally scaled brands past 8 figures. Book a call and you're talking to the person who runs the account, not a rep reading from a script.",
     icon: Users,
   },
   {
@@ -36,7 +36,7 @@ const REASONS: { title: string; detail: string; icon: LucideIcon }[] = [
   {
     title: "You're never waiting on a reply",
     detail:
-      "Email, phone, WhatsApp, live chat — a real operator replies within the hour, 24/7. Time zones are not your problem to solve.",
+      "Email, phone, WhatsApp, live chat. A real operator replies within the hour, 24/7. Time zones are not your problem to solve.",
     icon: Clock,
   },
   {

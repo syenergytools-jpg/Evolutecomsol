@@ -5,6 +5,7 @@ import { Play } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
 import { cn } from "@/lib/utils";
+import { FUNNEL_HEADING } from "./funnel-styles";
 
 /**
  * ConsultationTestimonials — real client review videos, dot-paginated
@@ -90,6 +91,7 @@ export function ConsultationTestimonials() {
 
       <div className="container-x relative z-10">
         <SectionHeader
+          className={FUNNEL_HEADING}
           invert
           align="center"
           eyebrow="Client voices"

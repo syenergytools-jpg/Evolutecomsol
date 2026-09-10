@@ -5,6 +5,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
 import { useBookingModal } from "./consultation-booking-modal";
 import { ConsultationUrgencyBar } from "./consultation-urgency-bar";
+import { FUNNEL_HEADING } from "./funnel-styles";
 
 /**
  * ConsultationQualifyCta — section 6. The actual qualifier (budget /
@@ -22,6 +23,7 @@ export function ConsultationQualifyCta() {
     >
       <div className="container-narrow text-center">
         <SectionHeader
+          className={FUNNEL_HEADING}
           align="center"
           eyebrow="One quick fit-check"
           title="Let's see if we're the right fit."

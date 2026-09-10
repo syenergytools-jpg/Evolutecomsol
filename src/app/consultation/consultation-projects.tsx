@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { CountUp } from "@/components/ui/count-up";
 import { parseMetric } from "@/lib/parse-metric";
 import { funnelProducts } from "./funnel-products";
+import { FUNNEL_HEADING } from "./funnel-styles";
 import { cn } from "@/lib/utils";
 
 /**
@@ -32,6 +33,7 @@ export function ConsultationProjects() {
     <section id="case-studies" className="relative bg-canvas-2 py-28 md:py-36 scroll-mt-20">
       <div className="container-x">
         <SectionHeader
+          className={FUNNEL_HEADING}
           align="center"
           eyebrow="Selected work"
           title="Real brands. Real numbers."
@@ -81,7 +83,7 @@ export function ConsultationProjects() {
                         Calm Carry" read as one long product name. Sized
                         down from the brand-only version, which was set
                         for words like "Gloco". */}
-                    <h3 className="display text-[clamp(1.5rem,3vw,2.25rem)] text-ink leading-[1.15] mb-4 text-balance">
+                    <h3 className="display text-[clamp(1.35rem,3vw,2.25rem)] text-ink leading-[1.15] mb-4 text-balance">
                       {study.company}
                       <span className="block">{study.product}</span>
                     </h3>

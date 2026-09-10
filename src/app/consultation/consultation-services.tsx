@@ -8,6 +8,7 @@ import { PillButton } from "@/components/ui/pill-button";
 import { services } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 import { useBookingModal } from "./consultation-booking-modal";
+import { FUNNEL_HEADING } from "./funnel-styles";
 
 /**
  * ConsultationServices — section 3. Breadth is the argument here: eight
@@ -117,6 +118,7 @@ export function ConsultationServices() {
 
       <div className="container-x relative">
         <SectionHeader
+          className={FUNNEL_HEADING}
           align="center"
           invert
           eyebrow="What we run"
@@ -152,7 +154,7 @@ export function ConsultationServices() {
                   <p className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-copper mb-3">
                     {group.eyebrow}
                   </p>
-                  <h3 className="display text-[clamp(1.4rem,2.6vw,1.95rem)] text-canvas leading-[1.15] mb-3.5">
+                  <h3 className="display text-[clamp(1.25rem,2.6vw,1.95rem)] text-canvas leading-[1.15] mb-3.5 text-balance">
                     {group.title}
                   </h3>
                   <p className="text-canvas/55 text-[0.95rem] leading-relaxed">
@@ -202,7 +204,9 @@ export function ConsultationServices() {
                           <h4
                             className={cn(
                               "flex items-start gap-1.5 text-canvas font-medium leading-snug tracking-[-0.01em] transition-colors duration-300 group-hover:text-copper",
-                              group.dense ? "text-base md:text-lg" : "text-lg md:text-xl"
+                              group.dense
+                                ? "text-[0.95rem] sm:text-base md:text-lg"
+                                : "text-base sm:text-lg md:text-xl"
                             )}
                           >
                             {service.title}

@@ -55,7 +55,12 @@ export function ConsultationCtaCard({ className }: { className?: string }) {
             // radius scale (rounded-2xl is 40px here).
             className="flex flex-col rounded-[1.15rem] border border-hairline-strong bg-canvas px-4 py-5 sm:px-6 sm:py-6 shadow-[0_22px_45px_-28px_rgba(15,17,21,0.4)]"
           >
-            <p className="font-mono text-[0.5rem] sm:text-[0.6rem] uppercase tracking-[0.1em] sm:tracking-[0.16em] text-mute">
+            {/* 0.6rem, not the 0.5rem this was squeezed to when the long
+                company name had to fit on one line. It no longer does:
+                the number below is bottom-aligned with `mt-auto`, so the
+                label can wrap freely without knocking the two figures
+                onto different baselines. 8px was unreadable on a phone. */}
+            <p className="font-mono text-[0.6rem] uppercase tracking-[0.08em] sm:tracking-[0.16em] text-mute">
               <span className="block text-ink-soft">{p.company}</span>
               <span className="block mt-1">{p.metricLabel}</span>
             </p>

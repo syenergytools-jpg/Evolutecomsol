@@ -5,6 +5,7 @@ import { Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   bookedTodayLabel,
+  bookedTodayLabelShort,
   msUntilMidnight,
   splitDuration,
   useBookedToday,
@@ -39,7 +40,9 @@ export function ConsultationUrgencyBar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "inline-flex flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full border bg-copper/10 px-5 py-2.5",
+        // flex-nowrap: this has to stay on one line at 375px, which is
+        // what the shorter mobile copy and tighter tracking below buy.
+        "inline-flex flex-nowrap items-center justify-center gap-x-3 sm:gap-x-4 rounded-full border bg-copper/10 px-4 sm:px-5 py-2.5",
         className
       )}
       // Inline, not `border-copper/30`: globals.css line 86 has an
@@ -55,10 +58,11 @@ export function ConsultationUrgencyBar({ className }: { className?: string }) {
           <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-copper" />
         </span>
         <span
-          className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-ink tabular-nums"
+          className="font-mono text-[0.65rem] sm:text-[0.7rem] uppercase tracking-[0.08em] sm:tracking-[0.14em] text-ink tabular-nums whitespace-nowrap"
           suppressHydrationWarning
         >
-          {formatCountdown(msLeft)} left today
+          {formatCountdown(msLeft)} left
+          <span className="hidden sm:inline"> today</span>
         </span>
       </span>
 
@@ -67,9 +71,10 @@ export function ConsultationUrgencyBar({ className }: { className?: string }) {
       <span aria-hidden="true" className="h-3 w-px bg-copper/30 hidden sm:block" />
 
       <span className="inline-flex items-center gap-1.5">
-        <Users className="h-3.5 w-3.5 text-mute" strokeWidth={2.2} />
-        <span className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-mute tabular-nums">
-          {bookedTodayLabel(bookedToday)}
+        <Users className="h-3.5 w-3.5 shrink-0 text-mute" strokeWidth={2.2} />
+        <span className="font-mono text-[0.65rem] sm:text-[0.7rem] uppercase tracking-[0.08em] sm:tracking-[0.14em] text-mute tabular-nums whitespace-nowrap">
+          <span className="sm:hidden">{bookedTodayLabelShort(bookedToday)}</span>
+          <span className="hidden sm:inline">{bookedTodayLabel(bookedToday)}</span>
         </span>
       </span>
     </div>

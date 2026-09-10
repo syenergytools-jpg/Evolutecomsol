@@ -52,7 +52,7 @@ export function ConsultationHero() {
               two-line version wrapped and orphaned "ASINs." on a line of
               its own. Each line here is <=20 characters so it holds
               from 375px up without a stray break. */}
-          <h1 className="display text-[clamp(2rem,6.2vw,5rem)] text-ink leading-[1.02] tracking-[-0.02em]">
+          <h1 className="display text-[clamp(1.85rem,6.2vw,5rem)] text-ink leading-[1.06] tracking-[-0.02em] text-balance">
             <StaggerWords text="Grow Your Amazon Sales by 40%" />
             <br />
             <StaggerWords
@@ -70,7 +70,7 @@ export function ConsultationHero() {
                 UNLAYERED `* { border-color: var(--hairline) }` that beats
                 every border-<color> utility in the project. */}
             <p
-              className="mt-6 md:mt-7 inline-block max-w-2xl rounded-[1.25rem] border bg-copper/10 px-6 py-3.5 text-lg md:text-xl italic text-ink-soft leading-[1.6]"
+              className="mt-6 md:mt-7 inline-block max-w-2xl rounded-[1.25rem] border bg-copper/10 px-5 py-3 sm:px-6 sm:py-3.5 text-base sm:text-lg md:text-xl italic text-ink-soft leading-[1.55] text-balance"
               style={{
                 borderColor: "color-mix(in oklab, var(--copper) 30%, transparent)",
               }}

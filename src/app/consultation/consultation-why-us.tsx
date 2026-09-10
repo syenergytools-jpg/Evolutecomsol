@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { PillButton } from "@/components/ui/pill-button";
 import { cn } from "@/lib/utils";
 import { useBookingModal } from "./consultation-booking-modal";
+import { FUNNEL_HEADING } from "./funnel-styles";
 
 /**
  * ConsultationWhyUs — page-specific "why us," written to convert, not
@@ -66,6 +67,7 @@ export function ConsultationWhyUs() {
     <section className="relative bg-canvas py-28 md:py-36 overflow-hidden">
       <div className="container-x relative">
         <SectionHeader
+          className={FUNNEL_HEADING}
           align="center"
           eyebrow="Why Evolut"
           title="Six reasons brands choose us."
@@ -121,7 +123,7 @@ export function ConsultationWhyUs() {
                         reversed && "md:text-right"
                       )}
                     >
-                      <h3 className="display text-[clamp(1.5rem,3vw,2.15rem)] text-ink leading-tight mb-2.5">
+                      <h3 className="display text-[clamp(1.3rem,3vw,2.15rem)] text-ink leading-tight mb-2.5 text-balance">
                         {item.title}
                       </h3>
                       <p

@@ -34,6 +34,19 @@ export function useBookedToday(): number | null {
   return count;
 }
 
+/**
+ * Phone-width variant. The full label plus the countdown is ~373px of
+ * text, which cannot fit one line inside a 335px container, and the
+ * pill reads badly wrapped. Dropping the redundant "for today" (the
+ * countdown beside it already says "today") is what buys the room.
+ */
+export function bookedTodayLabelShort(count: number | null): string {
+  if (count === null) return "···";
+  if (count === 0) return "Booking open";
+  if (count === 1) return "1 booked";
+  return `${count} booked`;
+}
+
 export function bookedTodayLabel(count: number | null): string {
   if (count === null) return "···";
   // Zero deliberately does NOT say "be the first" — true, but it reads

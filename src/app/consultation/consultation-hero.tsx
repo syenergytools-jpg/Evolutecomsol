@@ -41,9 +41,13 @@ export function ConsultationHero() {
 
       <div className="container-x relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* The 1.7rem floor is set so "Stop guessing on Amazon." holds
-              on a single line at 375px — measured, not guessed. */}
-          <h1 className="display text-[clamp(1.7rem,5.5vw,4.5rem)] text-ink leading-[1.06] tracking-[-0.02em] text-balance">
+          {/* Uppercase runs roughly 12% wider than sentence case, so the
+              clamp is retuned from the sentence-case version: the max
+              keeps "STOP GUESSING ON AMAZON." on one line inside the
+              max-w-4xl column, the floor keeps it on one line at 375px.
+              Tracking is loosened from -0.02em because caps need more
+              room between letters than lowercase does. */}
+          <h1 className="display uppercase text-[clamp(1.15rem,5.9vw,4rem)] text-ink leading-[1.08] tracking-[-0.005em] text-balance">
             <StaggerWords text="Stop guessing on Amazon." />
             <br />
             <StaggerWords

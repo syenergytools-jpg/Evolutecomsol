@@ -94,7 +94,7 @@ export function PhotographyShowcase() {
     <section
       id="photography"
       ref={ref}
-      className="relative bg-canvas py-28 md:py-36 border-t border-hairline overflow-hidden"
+      className="relative bg-canvas py-16 md:py-36 border-t border-hairline overflow-hidden"
     >
       <div className="container-x">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">

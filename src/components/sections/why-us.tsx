@@ -8,7 +8,7 @@ const PREMIUM_EASE = [0.16, 1, 0.3, 1] as const;
 
 export function WhyUs() {
   return (
-    <section className="relative bg-canvas py-28 md:py-36 border-t border-hairline">
+    <section className="relative bg-canvas py-16 md:py-36 border-t border-hairline">
       <div className="container-x">
         <SectionHeader
           eyebrow="Why Evolut"

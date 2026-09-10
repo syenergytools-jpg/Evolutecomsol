@@ -29,7 +29,7 @@ export function Showcase() {
     <section
       id="showcase"
       ref={sectionRef}
-      className="relative bg-canvas py-20 md:py-28"
+      className="relative bg-canvas py-12 md:py-28"
     >
       <div className="container-x">
         {/* Header */}
@@ -38,7 +38,7 @@ export function Showcase() {
             <Reveal>
               <p className="eyebrow mb-5">We don&apos;t talk. We show.</p>
             </Reveal>
-            <h2 className="display text-[clamp(2rem,4.6vw,4rem)] text-ink leading-[1.04]">
+            <h2 className="display text-[clamp(1.55rem,4.6vw,4rem)] text-ink leading-[1.04]">
               <StaggerWords text="Listings, storefronts," />
               <br />
               <StaggerWords

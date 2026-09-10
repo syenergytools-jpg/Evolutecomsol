@@ -61,7 +61,7 @@ const PROMPT_BY_SLUG: Record<string, { alt: string; prompt: string }> = {
 
 export function WorkGrid() {
   return (
-    <section id="work" className="relative bg-canvas py-24 md:py-32">
+    <section id="work" className="relative bg-canvas py-14 md:py-32">
       <div className="container-x">
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12 md:mb-16 items-end">
@@ -69,7 +69,7 @@ export function WorkGrid() {
             <Reveal>
               <p className="eyebrow eyebrow-line mb-6">Selected work · 2018 — 2026</p>
             </Reveal>
-            <h2 className="display text-[clamp(2.25rem,5vw,4.75rem)] text-ink leading-[1.02]">
+            <h2 className="display text-[clamp(1.7rem,5vw,4.75rem)] text-ink leading-[1.02]">
               <StaggerWords text="We don't talk." />
               <br />
               <StaggerWords

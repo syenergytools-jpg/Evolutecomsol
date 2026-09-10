@@ -55,7 +55,7 @@ export function ShapePlayground() {
     });
 
   return (
-    <section className="relative bg-canvas-2 overflow-hidden py-24 md:py-32">
+    <section className="relative bg-canvas-2 overflow-hidden py-14 md:py-32">
       {/* Header */}
       <div className="container-x relative z-10 mb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
@@ -63,7 +63,7 @@ export function ShapePlayground() {
             <Reveal>
               <p className="eyebrow eyebrow-line mb-6">Manifesto · the way we work</p>
             </Reveal>
-            <h2 className="display text-[clamp(2.25rem,5vw,4.75rem)] text-ink leading-[1.02]">
+            <h2 className="display text-[clamp(1.7rem,5vw,4.75rem)] text-ink leading-[1.02]">
               <StaggerWords text="Move the shapes." />
               <br />
               <StaggerWords

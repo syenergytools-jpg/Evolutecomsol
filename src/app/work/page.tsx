@@ -103,7 +103,7 @@ export default function WorkIndexPage() {
                     Work · {caseStudies.length} case studies
                   </p>
                 </Reveal>
-                <h1 className="display text-[clamp(2.5rem,6vw,5.5rem)] text-ink leading-[1.02]">
+                <h1 className="display text-[clamp(1.8rem,6vw,5.5rem)] text-ink leading-[1.02]">
                   <StaggerWords text="Real brands." />
                   <br />
                   <StaggerWords

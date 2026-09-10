@@ -97,7 +97,7 @@ export function CaseStudies() {
     <section
       ref={sectionRef}
       id="case-studies"
-      className="relative bg-canvas py-28 md:py-36 border-y border-hairline overflow-hidden"
+      className="relative bg-canvas py-16 md:py-36 border-y border-hairline overflow-hidden"
     >
       {/* atmospheric gradient + paper grid */}
       <div
@@ -121,7 +121,7 @@ export function CaseStudies() {
             <Reveal>
               <p className="eyebrow eyebrow-line mb-6">Case studies · the receipts</p>
             </Reveal>
-            <h2 className="display text-[clamp(2.25rem,5vw,4.75rem)] text-ink leading-[1.02]">
+            <h2 className="display text-[clamp(1.7rem,5vw,4.75rem)] text-ink leading-[1.02]">
               <StaggerWords text="Brands we built" />
               <br />
               <StaggerWords
@@ -359,7 +359,7 @@ function HeroVariant({
         <div className="mb-7">
           <p
             className={cn(
-              "display text-[clamp(2.75rem,5vw,4.5rem)] leading-none mb-2 tabular-nums",
+              "display text-[clamp(1.9rem,5vw,4.5rem)] leading-none mb-2 tabular-nums",
               tone.fg
             )}
           >
@@ -492,7 +492,7 @@ function MetricStackVariant({
       {/* Headline metric */}
       <p
         className={cn(
-          "display text-[clamp(2.5rem,4.5vw,4rem)] leading-none mb-2 tabular-nums",
+          "display text-[clamp(1.8rem,4.5vw,4rem)] leading-none mb-2 tabular-nums",
           tone.fg
         )}
       >

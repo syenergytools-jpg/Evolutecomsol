@@ -79,7 +79,7 @@ export default function ServicesIndexPage() {
                     Services · {services.length} disciplines
                   </p>
                 </Reveal>
-                <h1 className="display text-[clamp(2.5rem,6vw,5.5rem)] text-ink leading-[1.02]">
+                <h1 className="display text-[clamp(1.8rem,6vw,5.5rem)] text-ink leading-[1.02]">
                   <StaggerWords text="One stack." />
                   <br />
                   <StaggerWords

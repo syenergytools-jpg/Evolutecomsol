@@ -8,10 +8,9 @@ import { PillButton } from "@/components/ui/pill-button";
 import { services } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 import { useBookingModal } from "./consultation-booking-modal";
-import { FUNNEL_HEADING } from "./funnel-styles";
 
 /**
- * ConsultationServices — section 3. Breadth is the argument here: eight
+ * ConsultationServices â€” section 3. Breadth is the argument here: eight
  * disciplines that normally mean eight invoices, under one roof.
  *
  * Copy is funnel-specific on purpose. The homepage's `blurb` field
@@ -47,7 +46,7 @@ const ACCENT_FG: Record<string, string> = {
 };
 
 /**
- * Amazon first, everything else after — this page runs on Amazon ad
+ * Amazon first, everything else after â€” this page runs on Amazon ad
  * traffic, and a reader scanning for "do they actually do my channel"
  * should not have to pick Amazon lines out of a mixed list of eight.
  *
@@ -57,7 +56,7 @@ const ACCENT_FG: Record<string, string> = {
  * what its pitch line leads with. Move it if the page ever stops being
  * Amazon-targeted.
  *
- * Between them these cover all eight slugs in site-config — there is a
+ * Between them these cover all eight slugs in site-config â€” there is a
  * dev-only assertion below that fails loudly if a service is ever added
  * and not placed in a group.
  */
@@ -103,8 +102,8 @@ export function ConsultationServices() {
   const { open } = useBookingModal();
 
   return (
-    <section id="services" className="relative bg-obsidian py-28 md:py-36 overflow-hidden scroll-mt-20">
-      {/* soft warm wash top-left, cool bottom-right — same backdrop
+    <section id="services" className="relative bg-obsidian py-16 md:py-36 overflow-hidden scroll-mt-20">
+      {/* soft warm wash top-left, cool bottom-right â€” same backdrop
           language as the hero, inverted for the dark ground */}
       <div
         aria-hidden="true"
@@ -118,7 +117,6 @@ export function ConsultationServices() {
 
       <div className="container-x relative">
         <SectionHeader
-          className={FUNNEL_HEADING}
           align="center"
           invert
           eyebrow="What we run"
@@ -148,7 +146,7 @@ export function ConsultationServices() {
                     both this section and <body> carry overflow:hidden,
                     and an overflow-hidden ancestor makes itself the
                     sticky element's scroll container, so it never
-                    activates. Measured — the rail scrolled straight past
+                    activates. Measured â€” the rail scrolled straight past
                     with the page. */}
                 <div>
                   <p className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-copper mb-3">

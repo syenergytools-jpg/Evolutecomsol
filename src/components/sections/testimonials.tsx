@@ -27,7 +27,7 @@ export function Testimonials() {
   const prev = () => setActive((i) => (i - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section id="testimonials" className="relative bg-obsidian text-canvas py-28 md:py-36 overflow-hidden">
+    <section id="testimonials" className="relative bg-obsidian text-canvas py-16 md:py-36 overflow-hidden">
       {/* sparkles dust */}
       <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" aria-hidden="true">
         <SparklesCore particleColor="#dfe3e8" particleDensity={30} speed={0.25} particleSize={{ min: 0.3, max: 0.9 }} />
@@ -47,7 +47,7 @@ export function Testimonials() {
             <Reveal>
               <p className="eyebrow eyebrow-line mb-5 text-canvas/60">We don&apos;t talk · we show</p>
             </Reveal>
-            <h2 className="display text-[clamp(2.25rem,5vw,4.75rem)] leading-[1.04]">
+            <h2 className="display text-[clamp(1.7rem,5vw,4.75rem)] leading-[1.04]">
               <StaggerWords text="They scaled with" />{" "}
               <StaggerWords
                 text="Evolut."
@@ -131,7 +131,7 @@ function AnimatedTestimonials({
       <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-y-12 gap-x-10 p-8 md:p-12 lg:p-16">
         {/* LEFT — text + nav */}
         <div className="lg:col-span-7 flex flex-col">
-          <h3 className="display text-[clamp(1.85rem,3.6vw,3rem)] leading-[1.08] text-canvas mb-8 md:mb-10 max-w-md">
+          <h3 className="display text-[clamp(1.45rem,3.6vw,3rem)] leading-[1.08] text-canvas mb-8 md:mb-10 max-w-md">
             What our customers
             <br />
             <span className="italic font-normal text-copper-soft">
@@ -314,7 +314,7 @@ function PortraitPlaceholder({
         }}
       />
       <div className="absolute inset-0 grid place-items-center">
-        <span className="display text-[clamp(3rem,7vw,5.5rem)] leading-none text-canvas/90 tracking-[-0.04em] mix-blend-difference">
+        <span className="display text-[clamp(2rem,7vw,5.5rem)] leading-none text-canvas/90 tracking-[-0.04em] mix-blend-difference">
           {initials}
         </span>
       </div>

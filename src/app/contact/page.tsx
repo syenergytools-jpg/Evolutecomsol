@@ -81,7 +81,7 @@ function ContactHero() {
               </div>
             </Reveal>
 
-            <h1 className="display text-[clamp(2.5rem,6vw,5.25rem)] text-ink leading-[1.02] mb-6">
+            <h1 className="display text-[clamp(1.8rem,6vw,5.25rem)] text-ink leading-[1.02] mb-6">
               Brief us in five
               <br />
               <span className="italic font-normal text-copper">minutes flat.</span>
@@ -329,7 +329,7 @@ function ContactBody() {
     services.find((s) => s.slug === service)?.title ?? null;
 
   return (
-    <section id="brief" className="relative bg-canvas py-24 md:py-32 scroll-mt-24">
+    <section id="brief" className="relative bg-canvas py-14 md:py-32 scroll-mt-24">
       <div className="container-x grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* LEFT — channels */}
         <aside className="lg:col-span-5 space-y-4">
@@ -655,7 +655,7 @@ function FAQTeaser() {
           <Reveal>
             <p className="eyebrow eyebrow-line mb-5">Common first questions</p>
           </Reveal>
-          <h2 className="display text-[clamp(1.75rem,3.5vw,2.75rem)] text-ink leading-[1.05]">
+          <h2 className="display text-[clamp(1.4rem,3.5vw,2.75rem)] text-ink leading-[1.05]">
             What we&apos;ll likely cover on the first call.
           </h2>
         </div>

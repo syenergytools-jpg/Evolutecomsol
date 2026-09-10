@@ -71,7 +71,7 @@ const BOXES: Box[] = [
 
 export function SpotlightStats() {
   return (
-    <section className="relative bg-obsidian text-canvas py-24 md:py-32 border-y border-canvas/10 overflow-hidden">
+    <section className="relative bg-obsidian text-canvas py-14 md:py-32 border-y border-canvas/10 overflow-hidden">
       {/* Quiet grain */}
       <div
         aria-hidden="true"
@@ -101,7 +101,7 @@ export function SpotlightStats() {
                 Real receipts · real screenshots
               </p>
             </Reveal>
-            <h2 className="display text-[clamp(2.25rem,5vw,4.75rem)] leading-[1.04]">
+            <h2 className="display text-[clamp(1.7rem,5vw,4.75rem)] leading-[1.04]">
               <StaggerWords text="Stats we" />{" "}
               <StaggerWords
                 text="actually shipped."
@@ -208,7 +208,7 @@ function AnchorCard() {
         <p className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-copper-soft mb-5">
           The flywheel
         </p>
-        <h3 className="display text-[clamp(1.85rem,4vw,3.4rem)] leading-[1.05] mb-5">
+        <h3 className="display text-[clamp(1.45rem,4vw,3.4rem)] leading-[1.05] mb-5">
           Same product, different trajectory.
         </h3>
         <p className="text-base md:text-lg text-canvas/70 leading-[1.6] max-w-xl">

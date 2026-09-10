@@ -11,7 +11,7 @@ export function TrademarkPillars() {
   return (
     <section
       id="trademark"
-      className="relative bg-canvas py-28 md:py-36 border-t border-hairline"
+      className="relative bg-canvas py-16 md:py-36 border-t border-hairline"
     >
       <div className="container-x">
         <SectionHeader

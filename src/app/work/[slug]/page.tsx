@@ -99,7 +99,7 @@ export default async function CaseStudyPage({ params }: Props) {
                   </div>
                 </Reveal>
 
-                <h1 className="display text-[clamp(2.5rem,6vw,5.5rem)] text-ink leading-[1.0] tracking-[-0.025em] mb-7">
+                <h1 className="display text-[clamp(1.8rem,6vw,5.5rem)] text-ink leading-[1.0] tracking-[-0.025em] mb-7">
                   <StaggerWords text={study.brand} />
                   <br />
                   <StaggerWords
@@ -443,7 +443,7 @@ export default async function CaseStudyPage({ params }: Props) {
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-end">
             <div className="md:col-span-7">
-              <p className="display text-[clamp(3rem,6vw,5.5rem)] leading-[0.96] mb-4 tabular-nums">
+              <p className="display text-[clamp(2rem,6vw,5.5rem)] leading-[0.96] mb-4 tabular-nums">
                 {study.metric.value}
               </p>
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-canvas/60">
@@ -462,7 +462,7 @@ export default async function CaseStudyPage({ params }: Props) {
          * 12 · QUOTE — pull-quote testimonial
          * ============================================================ */}
         {study.quote ? (
-          <section className="relative bg-canvas py-20 md:py-28 border-y border-hairline overflow-hidden">
+          <section className="relative bg-canvas py-12 md:py-28 border-y border-hairline overflow-hidden">
             <div
               aria-hidden="true"
               className="absolute inset-0 paper-grid opacity-30 pointer-events-none"
@@ -539,7 +539,7 @@ export default async function CaseStudyPage({ params }: Props) {
         {/* ============================================================ *
          * 15 · NEXT CASE — prev / next nav + CTA
          * ============================================================ */}
-        <section className="relative bg-canvas py-20 md:py-28 border-t border-hairline">
+        <section className="relative bg-canvas py-12 md:py-28 border-t border-hairline">
           <div className="container-x">
             <p className="eyebrow eyebrow-line mb-10">Keep reading</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -577,7 +577,7 @@ function CaseSection({
   return (
     <section
       className={cn(
-        "relative py-20 md:py-28 border-b border-hairline",
+        "relative py-12 md:py-28 border-b border-hairline",
         dark ? "bg-obsidian text-canvas" : "bg-canvas text-ink"
       )}
     >
@@ -609,7 +609,7 @@ function CaseSection({
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="display text-[clamp(2rem,4vw,3.5rem)] leading-[1.04] mb-10 max-w-3xl">
+          <h2 className="display text-[clamp(1.55rem,4vw,3.5rem)] leading-[1.04] mb-10 max-w-3xl">
             {title}
           </h2>
         </Reveal>
@@ -633,7 +633,7 @@ function Stat({
       <p
         className={cn(
           "display leading-none mb-2 tabular-nums",
-          highlight ? "text-[clamp(1.75rem,3vw,2.5rem)] text-copper" : "text-[1.5rem] text-ink"
+          highlight ? "text-[clamp(1.4rem,3vw,2.5rem)] text-copper" : "text-[1.5rem] text-ink"
         )}
       >
         {value}

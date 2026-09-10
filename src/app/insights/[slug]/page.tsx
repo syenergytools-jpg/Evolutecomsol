@@ -74,7 +74,7 @@ export default async function InsightPage({
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-copper-soft mb-6">
                 {post.category}
               </p>
-              <h1 className="display text-[clamp(2.25rem,5.5vw,4.75rem)] leading-[1.04] mb-8">
+              <h1 className="display text-[clamp(1.7rem,5.5vw,4.75rem)] leading-[1.04] mb-8">
                 {post.title}
               </h1>
               <p className="text-lg md:text-xl text-canvas/70 leading-[1.6] max-w-2xl mb-10">
@@ -91,7 +91,7 @@ export default async function InsightPage({
         </section>
 
         {/* Body */}
-        <section className="relative py-20 md:py-28 bg-canvas">
+        <section className="relative py-12 md:py-28 bg-canvas">
           <div className="container-x grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Article body */}
             <article className="lg:col-span-8 lg:col-start-2">
@@ -157,14 +157,14 @@ export default async function InsightPage({
 
         {/* Related */}
         {others.length > 0 && (
-          <section className="relative bg-canvas-2 py-20 md:py-28 border-t border-hairline">
+          <section className="relative bg-canvas-2 py-12 md:py-28 border-t border-hairline">
             <div className="container-x">
               <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
                 <div>
                   <Reveal>
                     <p className="eyebrow eyebrow-line mb-4">Keep reading</p>
                   </Reveal>
-                  <h2 className="display text-[clamp(1.75rem,3vw,2.5rem)] text-ink leading-[1.05]">
+                  <h2 className="display text-[clamp(1.4rem,3vw,2.5rem)] text-ink leading-[1.05]">
                     Other field notes.
                   </h2>
                 </div>

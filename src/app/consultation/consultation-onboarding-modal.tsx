@@ -140,7 +140,7 @@ export function ConsultationOnboardingModal() {
                   <p className="eyebrow eyebrow-line justify-center mb-6">
                     Before we dive in
                   </p>
-                  <h2 className="display text-[clamp(1.85rem,4vw,2.5rem)] text-ink leading-tight mb-3">
+                  <h2 className="display text-[clamp(1.45rem,4vw,2.5rem)] text-ink leading-tight mb-3">
                     Who are we talking to?
                   </h2>
                   <p className="text-ink-soft mb-8">

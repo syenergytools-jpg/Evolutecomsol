@@ -68,7 +68,7 @@ export function TechStack() {
   return (
     <section
       id="shopify"
-      className="relative bg-obsidian text-canvas py-24 md:py-32 overflow-hidden"
+      className="relative bg-obsidian text-canvas py-14 md:py-32 overflow-hidden"
     >
       {/* atmospheric blobs */}
       <div
@@ -115,7 +115,7 @@ export function TechStack() {
                 Shopify · MERN · Headless
               </p>
             </Reveal>
-            <h2 className="display text-[clamp(2.25rem,5vw,4.5rem)] text-canvas leading-[1.02]">
+            <h2 className="display text-[clamp(1.7rem,5vw,4.5rem)] text-canvas leading-[1.02]">
               <StaggerWords text="Custom storefronts." />
               <br />
               <StaggerWords

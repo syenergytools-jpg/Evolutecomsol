@@ -91,7 +91,7 @@ export function Footer() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-10 gap-x-12 items-end">
           <motion.h2
-            className="lg:col-span-8 display text-[clamp(2.75rem,8vw,7rem)] leading-[0.96] tracking-[-0.025em]"
+            className="lg:col-span-8 display text-[clamp(1.9rem,8vw,7rem)] leading-[0.96] tracking-[-0.025em]"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10% 0px" }}

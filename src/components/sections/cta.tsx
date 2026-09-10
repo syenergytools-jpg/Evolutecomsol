@@ -20,7 +20,7 @@ export function CTA() {
   return (
     <section
       id="contact"
-      className="relative bg-canvas py-28 md:py-36 overflow-hidden"
+      className="relative bg-canvas py-16 md:py-36 overflow-hidden"
     >
       {/* faint paper grid */}
       <div
@@ -68,7 +68,7 @@ export function CTA() {
           </motion.div>
 
           {/* Headline */}
-          <h2 className="display text-[clamp(2.25rem,5vw,5rem)] text-ink leading-[0.98] tracking-[-0.03em] mb-8 font-medium">
+          <h2 className="display text-[clamp(1.7rem,5vw,5rem)] text-ink leading-[0.98] tracking-[-0.03em] mb-8 font-medium">
             <motion.span
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}

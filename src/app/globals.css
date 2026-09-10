@@ -130,11 +130,27 @@ html.lenis, html.lenis body { height: auto; }
   max-width: 64rem;
 }
 
+/* Display headings.
+   NOTE this rule is UNLAYERED, so it beats Tailwind's @layer utilities:
+   `leading-*` and `tracking-*` classes on a .display element are
+   silently ignored. That is why the responsive values live here rather
+   than on the components.
+   0.95/-0.04em is a poster setting — it reads as intended at 60px+ but
+   jams the lines together and closes up the letters at the ~28-36px a
+   phone actually renders. Mobile gets looser values; the desktop
+   setting is restored at md. */
 .display {
   font-family: var(--font-geist-sans);
   font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+@media (min-width: 768px) {
+  .display {
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
 }
 
 .eyebrow {

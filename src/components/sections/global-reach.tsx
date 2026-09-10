@@ -22,7 +22,7 @@ const REGIONS = [
  */
 export function GlobalReach() {
   return (
-    <section className="relative bg-canvas border-y border-hairline py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-canvas border-y border-hairline py-14 md:py-32 overflow-hidden">
       <div className="container-x">
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-8 gap-x-12 items-end mb-12 md:mb-16">
@@ -30,7 +30,7 @@ export function GlobalReach() {
             <Reveal>
               <p className="eyebrow eyebrow-line mb-6">Where we operate</p>
             </Reveal>
-            <h2 className="display text-[clamp(2.25rem,5vw,4.5rem)] text-ink leading-[1.04]">
+            <h2 className="display text-[clamp(1.7rem,5vw,4.5rem)] text-ink leading-[1.04]">
               <StaggerWords text="Pakistan-based," />{" "}
               <StaggerWords
                 text="globally trusted."

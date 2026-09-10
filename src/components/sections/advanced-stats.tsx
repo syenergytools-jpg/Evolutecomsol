@@ -87,7 +87,7 @@ export function AdvancedStats() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-canvas py-24 md:py-32 border-y border-hairline overflow-hidden"
+      className="relative bg-canvas py-14 md:py-32 border-y border-hairline overflow-hidden"
     >
       <div
         aria-hidden="true"
@@ -110,7 +110,7 @@ export function AdvancedStats() {
             <Reveal>
               <p className="eyebrow eyebrow-line mb-6">Operator-grade reporting</p>
             </Reveal>
-            <h2 className="display text-[clamp(2.25rem,5vw,4.5rem)] text-ink leading-[1.04]">
+            <h2 className="display text-[clamp(1.7rem,5vw,4.5rem)] text-ink leading-[1.04]">
               <StaggerWords text="Real numbers," />{" "}
               <StaggerWords
                 text="not vanity ones."
@@ -200,7 +200,7 @@ export function AdvancedStats() {
                 <p className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-mute mb-2">
                   GMV under management · YTD
                 </p>
-                <p className="display text-[clamp(1.85rem,3vw,2.6rem)] leading-none text-ink mb-2 tabular-nums">
+                <p className="display text-[clamp(1.45rem,3vw,2.6rem)] leading-none text-ink mb-2 tabular-nums">
                   <CountUp value={420} prefix="$" suffix="M" />
                 </p>
                 <p className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-emerald inline-flex items-center gap-1.5">
@@ -371,7 +371,7 @@ function MetricCard({
 
       <p
         className={cn(
-          "display text-[clamp(1.85rem,3.2vw,2.5rem)] leading-none mb-2 tabular-nums",
+          "display text-[clamp(1.45rem,3.2vw,2.5rem)] leading-none mb-2 tabular-nums",
           accent[tone]
         )}
       >

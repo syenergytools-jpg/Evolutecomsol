@@ -66,7 +66,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="relative bg-canvas py-24 md:py-32 overflow-hidden"
+      className="relative bg-canvas py-14 md:py-32 overflow-hidden"
     >
       {/* Quiet paper grid */}
       <div
@@ -81,7 +81,7 @@ export function Services() {
             <Reveal>
               <p className="eyebrow eyebrow-line mb-6">What we do</p>
             </Reveal>
-            <h2 className="display text-[clamp(2.25rem,5.2vw,4.75rem)] text-ink leading-[1.03]">
+            <h2 className="display text-[clamp(1.7rem,5.2vw,4.75rem)] text-ink leading-[1.03]">
               <StaggerWords text="Eight services," />{" "}
               <StaggerWords
                 text="one stack."

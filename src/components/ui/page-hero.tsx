@@ -62,7 +62,7 @@ export function PageHero({
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: PREMIUM_EASE, delay: 0.1 }}
-          className="display text-[clamp(2.25rem,6vw,5.5rem)] text-canvas leading-[1.0]"
+          className="display text-[clamp(1.7rem,6vw,5.5rem)] text-canvas leading-[1.0]"
         >
           {title}
         </motion.h1>

@@ -19,7 +19,7 @@ export function BrandMark() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative bg-canvas overflow-hidden py-32 md:py-44 border-y border-hairline">
+    <section className="relative bg-canvas overflow-hidden py-16 md:py-44 border-y border-hairline">
       {/* DEPTH 0 — paper grid (very faint) */}
       <div
         aria-hidden="true"
@@ -74,7 +74,7 @@ export function BrandMark() {
 
         <SplitReveal
           as="h2"
-          className="display text-[clamp(2.5rem,6vw,5.5rem)] text-ink leading-[1.04] mb-10 max-w-[22ch] mx-auto"
+          className="display text-[clamp(1.8rem,6vw,5.5rem)] text-ink leading-[1.04] mb-10 max-w-[22ch] mx-auto"
         >
           Built for brands that want to stop managing the agency.
         </SplitReveal>

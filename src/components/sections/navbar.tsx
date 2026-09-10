@@ -367,7 +367,7 @@ function DrawerNavItem({
         <Link
           href={item.href}
           onClick={onNavigate}
-          className="display flex-1 text-[clamp(2rem,6vw,5rem)] text-ink leading-[1.05] tracking-tight transition-colors hover:text-mute flex items-baseline gap-4"
+          className="display flex-1 text-[clamp(1.6rem,6vw,5rem)] text-ink leading-[1.05] tracking-tight transition-colors hover:text-mute flex items-baseline gap-4"
         >
           <span className="font-mono text-[0.85rem] text-mute">
             0{index + 1}

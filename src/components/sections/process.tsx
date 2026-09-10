@@ -130,7 +130,7 @@ export function Process() {
               <Reveal>
                 <p className="eyebrow eyebrow-line mb-4">The Evolut process</p>
               </Reveal>
-              <h2 className="display text-[clamp(2rem,4.6vw,4rem)] text-ink leading-[1.04]">
+              <h2 className="display text-[clamp(1.55rem,4.6vw,4rem)] text-ink leading-[1.04]">
                 <StaggerWords text="From sourcing the SKU" />
                 <br />
                 <StaggerWords
@@ -208,7 +208,7 @@ export function Process() {
                     {step.n}
                   </span>
 
-                  <h3 className="display text-[clamp(2rem,4vw,3.5rem)] mb-3 leading-[1.05] relative">
+                  <h3 className="display text-[clamp(1.55rem,4vw,3.5rem)] mb-3 leading-[1.05] relative">
                     {step.title}
                   </h3>
                   <p className={cn("text-base md:text-lg leading-[1.55] max-w-md relative", tone.soft)}>

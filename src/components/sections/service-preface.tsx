@@ -17,7 +17,7 @@ const PREMIUM_EASE = [0.16, 1, 0.3, 1] as const;
  */
 export function ServicePreface() {
   return (
-    <section className="relative bg-canvas border-t border-hairline py-28 md:py-36 overflow-hidden">
+    <section className="relative bg-canvas border-t border-hairline py-16 md:py-36 overflow-hidden">
       {/* DEPTH 0 — quiet paper grid, no blobs */}
       <div
         aria-hidden="true"
@@ -40,7 +40,7 @@ export function ServicePreface() {
             </div>
           </Reveal>
 
-          <h2 className="display text-[clamp(2.5rem,5.6vw,5rem)] text-ink leading-[0.98] mb-10">
+          <h2 className="display text-[clamp(1.8rem,5.6vw,5rem)] text-ink leading-[0.98] mb-10">
             <StaggerWords text="Eight services." />
             <br />
             <StaggerWords

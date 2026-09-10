@@ -146,7 +146,7 @@ export function CapabilityStack() {
             <Reveal>
               <p className="eyebrow eyebrow-line mb-6">Capabilities · the four moves</p>
             </Reveal>
-            <h2 className="display text-[clamp(2.25rem,5vw,4.75rem)] text-ink leading-[1.02]">
+            <h2 className="display text-[clamp(1.7rem,5vw,4.75rem)] text-ink leading-[1.02]">
               <StaggerWords text="Source," />{" "}
               <StaggerWords text="build," delayStart={0.12} wordClassName="italic font-normal text-ink-soft" />{" "}
               <StaggerWords text="scale," delayStart={0.24} />{" "}
@@ -222,7 +222,7 @@ function CapabilityCard({ cap, index, total }: { cap: Capability; index: number;
               </span>
             </div>
 
-            <h3 className="display text-[clamp(1.85rem,3.6vw,3.4rem)] leading-[1.06] mb-6">
+            <h3 className="display text-[clamp(1.45rem,3.6vw,3.4rem)] leading-[1.06] mb-6">
               {cap.title}
             </h3>
             <p className={cn("text-base md:text-lg leading-[1.6] max-w-2xl mb-8", cap.accentText)}>

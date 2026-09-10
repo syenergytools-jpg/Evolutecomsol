@@ -23,7 +23,7 @@ export function Philosophy() {
   return (
     <section
       ref={ref}
-      className="relative bg-obsidian text-canvas py-28 md:py-44 overflow-hidden"
+      className="relative bg-obsidian text-canvas py-16 md:py-44 overflow-hidden"
     >
       {/* parallax word art behind */}
       <motion.span

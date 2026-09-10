@@ -39,7 +39,7 @@ export function ServiceMarqueeIntro() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-obsidian text-canvas overflow-hidden py-32 md:py-40"
+      className="relative bg-obsidian text-canvas overflow-hidden py-16 md:py-40"
     >
       {/* DEPTH 0 — soft grain only */}
       <div
@@ -86,7 +86,7 @@ export function ServiceMarqueeIntro() {
           {[...services, ...services].map((s, i) => (
             <span
               key={`${s.slug}-${i}`}
-              className="display italic text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.95]"
+              className="display italic text-[clamp(1.9rem,7vw,6.5rem)] leading-[0.95]"
               style={
                 i % 2 === 0
                   ? { color: "var(--canvas)" }
@@ -126,7 +126,7 @@ export function ServiceMarqueeIntro() {
           <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-canvas/45 mb-5">
             Eight cards. One scroll.
           </p>
-          <h3 className="display text-[clamp(2rem,4.4vw,4rem)] leading-[1.04]">
+          <h3 className="display text-[clamp(1.55rem,4.4vw,4rem)] leading-[1.04]">
             Now,{" "}
             <span className="italic font-normal text-copper-soft">
               meet the deck.

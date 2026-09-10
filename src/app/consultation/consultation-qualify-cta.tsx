@@ -5,12 +5,11 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
 import { useBookingModal } from "./consultation-booking-modal";
 import { ConsultationUrgencyBar } from "./consultation-urgency-bar";
-import { FUNNEL_HEADING } from "./funnel-styles";
 
 /**
- * ConsultationQualifyCta — section 6. The actual qualifier (budget /
+ * ConsultationQualifyCta â€” section 6. The actual qualifier (budget /
  * authority / need / timing / contact info) now lives in a full-screen
- * modal shared with the hero's CTA — this section is just the on-page
+ * modal shared with the hero's CTA â€” this section is just the on-page
  * teaser that opens it, so the multi-step form only ever exists once.
  */
 export function ConsultationQualifyCta() {
@@ -19,11 +18,10 @@ export function ConsultationQualifyCta() {
   return (
     <section
       id="qualify"
-      className="relative bg-canvas-2 py-28 md:py-36 scroll-mt-20"
+      className="relative bg-canvas-2 py-16 md:py-36 scroll-mt-20"
     >
       <div className="container-narrow text-center">
         <SectionHeader
-          className={FUNNEL_HEADING}
           align="center"
           eyebrow="One quick fit-check"
           title="Let's see if we're the right fit."

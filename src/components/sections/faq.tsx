@@ -15,7 +15,7 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="relative bg-canvas py-28 md:py-36 border-t border-hairline"
+      className="relative bg-canvas py-16 md:py-36 border-t border-hairline"
     >
       <div className="container-x grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
         <div className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start">

@@ -52,7 +52,7 @@ export function PolicyPage({
             <p className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-electric mb-5">
               {kicker}
             </p>
-            <h1 className="display text-[clamp(2.25rem,5vw,4.25rem)] text-ink leading-[1.04] mb-7 max-w-3xl">
+            <h1 className="display text-[clamp(1.7rem,5vw,4.25rem)] text-ink leading-[1.04] mb-7 max-w-3xl">
               {title}
             </h1>
             <p className="text-base md:text-lg text-ink-soft leading-[1.65] max-w-2xl mb-8">

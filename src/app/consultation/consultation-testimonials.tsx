@@ -5,22 +5,21 @@ import { Play } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
 import { cn } from "@/lib/utils";
-import { FUNNEL_HEADING } from "./funnel-styles";
 
 /**
- * ConsultationTestimonials — real client review videos, dot-paginated
- * slider. Only 2 real clips exist so far (public/reviewVideos/) — no
+ * ConsultationTestimonials â€” real client review videos, dot-paginated
+ * slider. Only 2 real clips exist so far (public/reviewVideos/) â€” no
  * fabricated names/quotes are attached to them (we don't know who's in
  * the footage yet), so the label stays a generic, honest "Verified
  * client" until the real name/company is provided. Swap `REVIEWS`
  * below once more clips land; the slider mechanism already scales.
  *
  * Both source clips are portrait/phone-recorded (measured 480x672 and
- * 528x944 — both close to a 9:16 vertical), so cards use a tall
+ * 528x944 â€” both close to a 9:16 vertical), so cards use a tall
  * aspect ratio instead of the old 4:5 photo-card shape.
  *
  * Active-dot tracking uses a native `scroll` listener (not
- * whileInView/IntersectionObserver) — it only needs to react to real
+ * whileInView/IntersectionObserver) â€” it only needs to react to real
  * user scroll input, so there's no viewport-detection timing to get
  * wrong.
  */
@@ -74,7 +73,7 @@ export function ConsultationTestimonials() {
     });
   }
 
-  // Only one clip plays at a time — starting one pauses every other.
+  // Only one clip plays at a time â€” starting one pauses every other.
   function handlePlay(index: number) {
     videoRefs.current.forEach((v, i) => {
       if (v && i !== index) v.pause();
@@ -82,7 +81,7 @@ export function ConsultationTestimonials() {
   }
 
   return (
-    <section id="testimonials" className="relative bg-obsidian text-canvas py-28 md:py-36 overflow-hidden">
+    <section id="testimonials" className="relative bg-obsidian text-canvas py-16 md:py-36 overflow-hidden">
       <div
         aria-hidden="true"
         className="absolute -top-32 -right-32 w-[32rem] h-[32rem] rounded-full pointer-events-none"
@@ -91,7 +90,6 @@ export function ConsultationTestimonials() {
 
       <div className="container-x relative z-10">
         <SectionHeader
-          className={FUNNEL_HEADING}
           invert
           align="center"
           eyebrow="Client voices"

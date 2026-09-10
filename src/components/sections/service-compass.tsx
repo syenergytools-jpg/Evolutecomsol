@@ -24,7 +24,7 @@ export function ServiceCompass() {
   const activeService = active !== null ? services[active] : null;
 
   return (
-    <section className="relative bg-canvas border-t border-hairline py-28 md:py-36 overflow-hidden">
+    <section className="relative bg-canvas border-t border-hairline py-16 md:py-36 overflow-hidden">
       <div className="container-x relative">
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-8 gap-x-12 mb-20 md:mb-24 items-end">
@@ -32,7 +32,7 @@ export function ServiceCompass() {
             <Reveal>
               <p className="eyebrow eyebrow-line mb-6">The compass</p>
             </Reveal>
-            <h2 className="display text-[clamp(2rem,4.6vw,4rem)] text-ink leading-[1.04]">
+            <h2 className="display text-[clamp(1.55rem,4.6vw,4rem)] text-ink leading-[1.04]">
               <StaggerWords text="Eight directions," />{" "}
               <StaggerWords
                 text="one"

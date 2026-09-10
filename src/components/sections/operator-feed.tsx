@@ -166,7 +166,7 @@ export function OperatorFeed() {
   }));
 
   return (
-    <section className="relative bg-canvas py-24 md:py-32 border-y border-hairline overflow-hidden">
+    <section className="relative bg-canvas py-14 md:py-32 border-y border-hairline overflow-hidden">
       <div
         aria-hidden="true"
         className="absolute inset-0 paper-grid opacity-30 pointer-events-none"
@@ -196,7 +196,7 @@ export function OperatorFeed() {
               </div>
             </Reveal>
 
-            <h2 className="display text-[clamp(2.25rem,5vw,4.5rem)] text-ink leading-[1.04] mb-7">
+            <h2 className="display text-[clamp(1.7rem,5vw,4.5rem)] text-ink leading-[1.04] mb-7">
               <StaggerWords text="Stores stay quiet." />
               <br />
               <StaggerWords

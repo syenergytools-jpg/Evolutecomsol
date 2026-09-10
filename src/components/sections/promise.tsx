@@ -22,7 +22,7 @@ export function Promise() {
   return (
     <section
       ref={ref}
-      className="relative bg-canvas py-32 md:py-44 overflow-hidden"
+      className="relative bg-canvas py-16 md:py-44 overflow-hidden"
     >
       {/* decorative shapes — like the lime stars in 2D Shape Interaction */}
       <span className="absolute top-20 left-12 opacity-60">
@@ -44,7 +44,7 @@ export function Promise() {
             The Evolut promise
           </p>
         </Reveal>
-        <p className="display text-[clamp(1.75rem,3.6vw,3rem)] leading-[1.18] text-center max-w-4xl mx-auto">
+        <p className="display text-[clamp(1.4rem,3.6vw,3rem)] leading-[1.18] text-center max-w-4xl mx-auto">
           {words.map((word, i) => {
             const start = i / words.length;
             const end = (i + 1) / words.length;

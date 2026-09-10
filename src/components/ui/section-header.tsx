@@ -25,10 +25,15 @@ export function SectionHeader({
   children?: ReactNode;
   className?: string;
 }) {
+  // Only the clamp FLOORS were lowered for mobile. Above roughly a
+  // 720px viewport the vw term already exceeds the old floor, so every
+  // size here renders identically to before on desktop — the change is
+  // confined to phones, where a 36px/44px heading was eating three
+  // lines of a 335px column.
   const sizeMap = {
-    sm: "text-[clamp(1.75rem,3.6vw,3rem)]",
-    md: "text-[clamp(2.25rem,5vw,4.5rem)]",
-    lg: "text-[clamp(2.75rem,6.4vw,6rem)]",
+    sm: "text-[clamp(1.5rem,3.6vw,3rem)]",
+    md: "text-[clamp(1.75rem,5vw,4.5rem)]",
+    lg: "text-[clamp(2rem,6.4vw,6rem)]",
   };
   return (
     <div
@@ -50,9 +55,14 @@ export function SectionHeader({
           </p>
         </Reveal>
       )}
+      {/* text-balance so a heading that wraps splits evenly instead of
+          dropping one orphan word onto the last line — the thing that
+          actually makes a wrapped heading look broken on a phone.
+          `leading-*` is deliberately absent: it does nothing on a
+          .display element (see the note in globals.css). */}
       <h2
         className={cn(
-          "display leading-[1.02] mb-5",
+          "display text-balance mb-5",
           sizeMap[size],
           invert ? "text-canvas" : "text-ink"
         )}

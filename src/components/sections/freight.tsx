@@ -18,7 +18,7 @@ export function Freight() {
   return (
     <section
       id="freight"
-      className="relative bg-canvas-2 py-28 md:py-36 overflow-hidden"
+      className="relative bg-canvas-2 py-16 md:py-36 overflow-hidden"
     >
       {/* moving SVG route lines as decorative element */}
       <svg

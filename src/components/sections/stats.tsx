@@ -47,7 +47,7 @@ function CountUp({
 
 export function Stats() {
   return (
-    <section className="relative bg-canvas py-24 md:py-32 border-y border-hairline">
+    <section className="relative bg-canvas py-14 md:py-32 border-y border-hairline">
       <div className="container-x">
         <Reveal>
           <p className="eyebrow eyebrow-line text-center mb-14 mx-auto w-fit">
@@ -89,7 +89,7 @@ export function Stats() {
                 </div>
 
                 {/* the big number — clamped tighter so 18,000+ doesn't overflow into next col */}
-                <p className="display text-[clamp(2.25rem,4.6vw,4.5rem)] text-ink leading-[0.95] mb-3 font-mono tracking-tight whitespace-nowrap">
+                <p className="display text-[clamp(1.7rem,4.6vw,4.5rem)] text-ink leading-[0.95] mb-3 font-mono tracking-tight whitespace-nowrap">
                   <CountUp
                     to={s.value}
                     isFloat={s.isFloat}

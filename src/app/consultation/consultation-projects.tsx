@@ -6,17 +6,16 @@ import { Reveal } from "@/components/ui/reveal";
 import { CountUp } from "@/components/ui/count-up";
 import { parseMetric } from "@/lib/parse-metric";
 import { funnelProducts } from "./funnel-products";
-import { FUNNEL_HEADING } from "./funnel-styles";
 import { cn } from "@/lib/utils";
 
 /**
- * ConsultationProjects — page-specific portfolio. Not the homepage's
+ * ConsultationProjects â€” page-specific portfolio. Not the homepage's
  * dense bento grid: four full-width, alternating editorial spotlights
  * so each result reads as a single big proof point instead of a wall
  * of tiles. `id="case-studies"` is kept so the hero's "See our
  * portfolio" anchor link still lands here.
  *
- * Reads `./funnel-products`, NOT `caseStudies` — this page shows full
+ * Reads `./funnel-products`, NOT `caseStudies` â€” this page shows full
  * product names and unabbreviated money figures, and that presentation
  * is deliberately isolated from the rest of the site. See that file for
  * the rules.
@@ -30,10 +29,9 @@ function AnimatedMetric({ value, className }: { value: string; className?: strin
 
 export function ConsultationProjects() {
   return (
-    <section id="case-studies" className="relative bg-canvas-2 py-28 md:py-36 scroll-mt-20">
+    <section id="case-studies" className="relative bg-canvas-2 py-16 md:py-36 scroll-mt-20">
       <div className="container-x">
         <SectionHeader
-          className={FUNNEL_HEADING}
           align="center"
           eyebrow="Selected work"
           title="Real brands. Real numbers."
@@ -78,7 +76,7 @@ export function ConsultationProjects() {
                       reversed && "md:order-1 md:text-right"
                     )}
                   >
-                    {/* Company on one line, product on the next — a
+                    {/* Company on one line, product on the next â€” a
                         single run-on line made "Glowco International LLC
                         Calm Carry" read as one long product name. Sized
                         down from the brand-only version, which was set
@@ -89,7 +87,7 @@ export function ConsultationProjects() {
                     </h3>
                     <p
                       className={cn(
-                        "display text-[clamp(2.5rem,5vw,4rem)] leading-none text-ink mb-2 tabular-nums",
+                        "display text-[clamp(1.8rem,5vw,4rem)] leading-none text-ink mb-2 tabular-nums",
                         !reversed && "text-copper",
                         reversed && "text-electric"
                       )}

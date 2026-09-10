@@ -54,7 +54,7 @@ const SLOTS: BentoSlot[] = [
 
 export function BentoBrand() {
   return (
-    <section className="relative bg-canvas py-24 md:py-32 border-y border-hairline overflow-hidden">
+    <section className="relative bg-canvas py-14 md:py-32 border-y border-hairline overflow-hidden">
       <div
         aria-hidden="true"
         className="absolute inset-0 paper-grid opacity-30 pointer-events-none"
@@ -67,7 +67,7 @@ export function BentoBrand() {
             <Reveal>
               <p className="eyebrow eyebrow-line mb-6">The bento</p>
             </Reveal>
-            <h2 className="display text-[clamp(2.25rem,5vw,4.5rem)] text-ink leading-[1.04]">
+            <h2 className="display text-[clamp(1.7rem,5vw,4.5rem)] text-ink leading-[1.04]">
               <StaggerWords text="One stack." />{" "}
               <StaggerWords
                 text="Nine moves."
@@ -153,7 +153,7 @@ function ActiveBrandsCard() {
         </span>
       </div>
       <div>
-        <p className="display text-[clamp(2.5rem,5vw,4rem)] leading-none mb-2 tabular-nums">
+        <p className="display text-[clamp(1.8rem,5vw,4rem)] leading-none mb-2 tabular-nums">
           <CountUp value={240} suffix="+" />
         </p>
         <p className="text-sm opacity-80">across 4 continents</p>
@@ -172,7 +172,7 @@ function RoasCard() {
         Avg ROAS · 90 days
       </p>
       <div>
-        <p className="display text-[clamp(2.5rem,5vw,4rem)] leading-none tabular-nums">
+        <p className="display text-[clamp(1.8rem,5vw,4rem)] leading-none tabular-nums">
           <CountUp value={3.4} suffix="×" decimals={1} />
         </p>
         <p className="text-emerald font-medium mt-2 inline-flex items-center gap-1.5">
@@ -198,7 +198,7 @@ function ManifestoCard() {
           Daily new briefs
         </p>
         <div className="flex items-end gap-3">
-          <span className="display text-[clamp(2.5rem,5vw,4rem)] leading-none text-ink tabular-nums">
+          <span className="display text-[clamp(1.8rem,5vw,4rem)] leading-none text-ink tabular-nums">
             <CountUp value={54} />
           </span>
           <span className="text-emerald font-medium mb-1.5 inline-flex items-center gap-1">
@@ -269,7 +269,7 @@ function FontCard() {
       <p className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-ink/65 mb-1">
         Voice
       </p>
-      <p className="display text-[clamp(1.85rem,3.4vw,2.4rem)] leading-none mb-1.5 text-ink">
+      <p className="display text-[clamp(1.45rem,3.4vw,2.4rem)] leading-none mb-1.5 text-ink">
         Geist
       </p>
       <p className="text-[0.78rem] text-ink/65 mb-auto">
@@ -342,7 +342,7 @@ function TrustedCard() {
       <p className="font-mono text-[0.62rem] uppercase tracking-[0.2em] mb-2 text-canvas/70">
         Trusted by
       </p>
-      <p className="display text-[clamp(1.85rem,3.2vw,2.4rem)] leading-none mb-4">
+      <p className="display text-[clamp(1.45rem,3.2vw,2.4rem)] leading-none mb-4">
         240+ brands
       </p>
 
@@ -382,7 +382,7 @@ function GmvCard() {
       <p className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-mute mb-3">
         GMV under management
       </p>
-      <p className="display text-[clamp(2rem,4vw,3rem)] leading-none mb-5 text-ink tabular-nums">
+      <p className="display text-[clamp(1.55rem,4vw,3rem)] leading-none mb-5 text-ink tabular-nums">
         <CountUp value={150} prefix="$" suffix="M+" />
       </p>
 

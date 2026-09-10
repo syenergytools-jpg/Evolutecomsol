@@ -177,7 +177,7 @@ function SectionWrapper({
   return (
     <section
       className={cn(
-        "relative py-20 md:py-28 border-b border-hairline",
+        "relative py-12 md:py-28 border-b border-hairline",
         dark ? "bg-obsidian text-canvas" : "bg-canvas text-ink",
         className
       )}
@@ -265,7 +265,7 @@ function Section01Hero({
             </Reveal>
             <SplitHeading
               as="h1"
-              className="display text-[clamp(2.5rem,6vw,5.5rem)] text-ink leading-[1.0] tracking-[-0.025em] mb-7"
+              className="display text-[clamp(1.8rem,6vw,5.5rem)] text-ink leading-[1.0] tracking-[-0.025em] mb-7"
             >
               {data.hero.title}{" "}
               <span className="italic font-normal text-copper">
@@ -348,7 +348,7 @@ function Section02Stats({ data }: { data: ServicePageData }) {
             const m = parseMetric(s.value);
             return (
               <div key={s.label}>
-                <p className="display text-[clamp(1.85rem,3.6vw,2.75rem)] leading-none text-ink mb-2 tabular-nums">
+                <p className="display text-[clamp(1.45rem,3.6vw,2.75rem)] leading-none text-ink mb-2 tabular-nums">
                   {m.animatable ? (
                     <CountUp
                       value={m.value}
@@ -380,7 +380,7 @@ function Section03Problem({ data }: { data: ServicePageData }) {
     <SectionWrapper number="03" eyebrow={data.problem.eyebrow}>
       <SplitHeading
         as="h2"
-        className="display text-[clamp(2rem,4.4vw,3.75rem)] leading-[1.04] text-ink mb-8 max-w-3xl"
+        className="display text-[clamp(1.55rem,4.4vw,3.75rem)] leading-[1.04] text-ink mb-8 max-w-3xl"
       >
         {data.problem.title}
       </SplitHeading>
@@ -401,7 +401,7 @@ function Section04Approach({ data }: { data: ServicePageData }) {
     <SectionWrapper number="04" eyebrow="Approach">
       <SplitHeading
         as="h2"
-        className="display text-[clamp(2rem,4vw,3.5rem)] leading-[1.04] text-ink mb-12 max-w-2xl"
+        className="display text-[clamp(1.55rem,4vw,3.5rem)] leading-[1.04] text-ink mb-12 max-w-2xl"
       >
         Four moves, in order.
       </SplitHeading>
@@ -468,7 +468,7 @@ function Section05Includes({ data }: { data: ServicePageData }) {
       <div ref={ref}>
         <SplitHeading
           as="h2"
-          className="display text-[clamp(2rem,4vw,3.5rem)] leading-[1.04] text-ink mb-12 max-w-2xl"
+          className="display text-[clamp(1.55rem,4vw,3.5rem)] leading-[1.04] text-ink mb-12 max-w-2xl"
         >
           Every lever, in one engagement.
         </SplitHeading>
@@ -503,7 +503,7 @@ function Section06Process({ data }: { data: ServicePageData }) {
         <div className="lg:col-span-7">
           <SplitHeading
             as="h2"
-            className="display text-[clamp(2rem,4vw,3.5rem)] leading-[1.04]"
+            className="display text-[clamp(1.55rem,4vw,3.5rem)] leading-[1.04]"
           >
             How the cycle runs.
           </SplitHeading>
@@ -577,7 +577,7 @@ function Section07Tools({
         <div className="lg:col-span-7">
           <SplitHeading
             as="h2"
-            className="display text-[clamp(2rem,4vw,3.5rem)] leading-[1.04] text-ink"
+            className="display text-[clamp(1.55rem,4vw,3.5rem)] leading-[1.04] text-ink"
           >
             What we run on.
           </SplitHeading>
@@ -656,7 +656,7 @@ function Section08Deliverable({
         <div className="lg:col-span-6">
           <SplitHeading
             as="h2"
-            className="display text-[clamp(2rem,4vw,3.5rem)] leading-[1.04] text-ink mb-7"
+            className="display text-[clamp(1.55rem,4vw,3.5rem)] leading-[1.04] text-ink mb-7"
           >
             {data.deliverable.title}
           </SplitHeading>
@@ -707,7 +707,7 @@ function SectionGallery({ data }: { data: ServicePageData }) {
     <SectionWrapper number="08b" eyebrow={g.eyebrow}>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 gap-x-12 mb-10 md:mb-14">
         <div className="lg:col-span-7">
-          <h2 className="display text-[clamp(1.85rem,3.5vw,2.85rem)] leading-[1.06] text-ink">
+          <h2 className="display text-[clamp(1.45rem,3.5vw,2.85rem)] leading-[1.06] text-ink">
             {g.title}
           </h2>
         </div>
@@ -782,7 +782,7 @@ function SectionVisualStory({ data }: { data: ServicePageData }) {
     <SectionWrapper number="04b" eyebrow={v.eyebrow} dark>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 gap-x-12 mb-10 md:mb-14">
         <div className="lg:col-span-7">
-          <h2 className="display text-[clamp(1.85rem,3.5vw,2.85rem)] leading-[1.06] text-canvas">
+          <h2 className="display text-[clamp(1.45rem,3.5vw,2.85rem)] leading-[1.06] text-canvas">
             {v.title}
           </h2>
         </div>
@@ -845,7 +845,7 @@ function Section09BigStat({ data }: { data: ServicePageData }) {
               {data.bigStat.label}
             </p>
           </Reveal>
-          <p className="display text-[clamp(3.5rem,9vw,8rem)] leading-[0.95] tracking-[-0.025em] text-canvas tabular-nums">
+          <p className="display text-[clamp(2.2rem,9vw,8rem)] leading-[0.95] tracking-[-0.025em] text-canvas tabular-nums">
             {m.animatable ? (
               <CountUp
                 value={m.value}
@@ -886,7 +886,7 @@ function Section10MiniCase({ data }: { data: ServicePageData }) {
             <p className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-copper mb-4">
               {data.miniCase.brand}
             </p>
-            <p className="display text-[clamp(1.85rem,3.4vw,2.85rem)] leading-[1.04] text-ink mb-4 tabular-nums">
+            <p className="display text-[clamp(1.45rem,3.4vw,2.85rem)] leading-[1.04] text-ink mb-4 tabular-nums">
               {data.miniCase.metric}
             </p>
             <p className="text-base text-ink-soft leading-[1.6] max-w-xl">
@@ -918,7 +918,7 @@ function Section11Engagement({ data }: { data: ServicePageData }) {
         <div className="lg:col-span-7">
           <SplitHeading
             as="h2"
-            className="display text-[clamp(2rem,4vw,3.5rem)] leading-[1.04] text-ink"
+            className="display text-[clamp(1.55rem,4vw,3.5rem)] leading-[1.04] text-ink"
           >
             Two ways to work together.
           </SplitHeading>
@@ -1038,7 +1038,7 @@ function Section12FAQ({ data }: { data: ServicePageData }) {
     <SectionWrapper number="12" eyebrow="FAQ">
       <SplitHeading
         as="h2"
-        className="display text-[clamp(2rem,4vw,3.5rem)] leading-[1.04] text-ink mb-12 max-w-2xl"
+        className="display text-[clamp(1.55rem,4vw,3.5rem)] leading-[1.04] text-ink mb-12 max-w-2xl"
       >
         The questions we hear most.
       </SplitHeading>
@@ -1105,7 +1105,7 @@ function Section14Comparison({ data }: { data: ServicePageData }) {
     <SectionWrapper number="14" eyebrow="Us vs. typical agency" dark>
       <SplitHeading
         as="h2"
-        className="display text-[clamp(2rem,4vw,3.5rem)] leading-[1.04] mb-10 max-w-2xl"
+        className="display text-[clamp(1.55rem,4vw,3.5rem)] leading-[1.04] mb-10 max-w-2xl"
       >
         The receipts, side by side.
       </SplitHeading>
@@ -1160,7 +1160,7 @@ function Section15Guarantees({ data }: { data: ServicePageData }) {
     <SectionWrapper number="15" eyebrow="Guarantees">
       <SplitHeading
         as="h2"
-        className="display text-[clamp(2rem,4vw,3.5rem)] leading-[1.04] text-ink mb-10 max-w-2xl"
+        className="display text-[clamp(1.55rem,4vw,3.5rem)] leading-[1.04] text-ink mb-10 max-w-2xl"
       >
         What we promise on day one.
       </SplitHeading>
@@ -1197,7 +1197,7 @@ function Section16Onboarding({ data }: { data: ServicePageData }) {
     <SectionWrapper number="16" eyebrow="Onboarding flow" dark>
       <SplitHeading
         as="h2"
-        className="display text-[clamp(2rem,4vw,3.5rem)] leading-[1.04] mb-12 max-w-2xl"
+        className="display text-[clamp(1.55rem,4vw,3.5rem)] leading-[1.04] mb-12 max-w-2xl"
       >
         From hello to cycle one.
       </SplitHeading>
@@ -1241,7 +1241,7 @@ function Section17Output({ data }: { data: ServicePageData }) {
         <div className="lg:col-span-5">
           <SplitHeading
             as="h2"
-            className="display text-[clamp(1.85rem,4vw,3.5rem)] leading-[1.05] text-ink mb-6"
+            className="display text-[clamp(1.45rem,4vw,3.5rem)] leading-[1.05] text-ink mb-6"
           >
             {data.output.title}
           </SplitHeading>
@@ -1293,7 +1293,7 @@ function Section18Related({ data }: { data: ServicePageData }) {
     <SectionWrapper number="18" eyebrow="Pairs well with">
       <SplitHeading
         as="h2"
-        className="display text-[clamp(2rem,4vw,3.5rem)] leading-[1.04] text-ink mb-12 max-w-2xl"
+        className="display text-[clamp(1.55rem,4vw,3.5rem)] leading-[1.04] text-ink mb-12 max-w-2xl"
       >
         The other moves.
       </SplitHeading>
@@ -1372,7 +1372,7 @@ function Section19Operator({
  * ============================================================== */
 function Section20Close({ data }: { data: ServicePageData }) {
   return (
-    <section className="relative bg-obsidian text-canvas py-20 md:py-28 overflow-hidden">
+    <section className="relative bg-obsidian text-canvas py-12 md:py-28 overflow-hidden">
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
@@ -1389,7 +1389,7 @@ function Section20Close({ data }: { data: ServicePageData }) {
         </Reveal>
         <SplitHeading
           as="h2"
-          className="display text-[clamp(2.5rem,7vw,6rem)] leading-[0.98] mb-7 max-w-3xl mx-auto"
+          className="display text-[clamp(1.8rem,7vw,6rem)] leading-[0.98] mb-7 max-w-3xl mx-auto"
         >
           {data.closeCta.title}
         </SplitHeading>

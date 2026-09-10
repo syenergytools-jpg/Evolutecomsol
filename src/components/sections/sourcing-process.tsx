@@ -24,7 +24,7 @@ export function SourcingProcess() {
     <section
       id="sourcing"
       ref={ref}
-      className="relative bg-canvas py-28 md:py-36 overflow-hidden"
+      className="relative bg-canvas py-16 md:py-36 overflow-hidden"
     >
       <div className="container-x">
         <SectionHeader

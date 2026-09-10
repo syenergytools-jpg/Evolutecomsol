@@ -6,14 +6,13 @@ import { Reveal } from "@/components/ui/reveal";
 import { PillButton } from "@/components/ui/pill-button";
 import { cn } from "@/lib/utils";
 import { useBookingModal } from "./consultation-booking-modal";
-import { FUNNEL_HEADING } from "./funnel-styles";
 
 /**
- * ConsultationWhyUs — page-specific "why us," written to convert, not
+ * ConsultationWhyUs â€” page-specific "why us," written to convert, not
  * just inform. Deliberately NOT the homepage's bordered 3-col card grid
  * or a tab switcher: a single-column zigzag list reads calmer and more
  * editorial, with everything visible at once and nothing hidden behind
- * a click. Ends in a CTA — this is the second ask in the funnel.
+ * a click. Ends in a CTA â€” this is the second ask in the funnel.
  */
 const REASONS: { title: string; detail: string; icon: LucideIcon }[] = [
   {
@@ -64,10 +63,9 @@ export function ConsultationWhyUs() {
   const { open } = useBookingModal();
 
   return (
-    <section className="relative bg-canvas py-28 md:py-36 overflow-hidden">
+    <section className="relative bg-canvas py-16 md:py-36 overflow-hidden">
       <div className="container-x relative">
         <SectionHeader
-          className={FUNNEL_HEADING}
           align="center"
           eyebrow="Why Evolut"
           title="Six reasons brands choose us."
@@ -82,7 +80,7 @@ export function ConsultationWhyUs() {
             return (
               <Reveal key={item.title} delay={0}>
                 <div className="relative">
-                  {/* always-on ambient wash behind the row — subtle, not just on hover */}
+                  {/* always-on ambient wash behind the row â€” subtle, not just on hover */}
                   <span
                     aria-hidden="true"
                     className="absolute inset-y-4 -inset-x-4 md:-inset-x-8 rounded-[2rem] opacity-[0.05] pointer-events-none"

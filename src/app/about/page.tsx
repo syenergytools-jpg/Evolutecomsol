@@ -26,13 +26,13 @@ export default function AboutPage() {
         <AboutHero />
 
         {/* Mission + visual */}
-        <section className="relative bg-canvas py-24 md:py-32">
+        <section className="relative bg-canvas py-14 md:py-32">
           <div className="container-x grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
               <Reveal>
                 <p className="eyebrow eyebrow-line mb-6">Mission</p>
               </Reveal>
-              <h2 className="display text-[clamp(2.25rem,5vw,4.5rem)] text-ink mb-7 leading-[1.05]">
+              <h2 className="display text-[clamp(1.7rem,5vw,4.5rem)] text-ink mb-7 leading-[1.05]">
                 Help your business succeed online
                 <span className="text-ink-soft italic font-normal"> with results-driven strategies and expert execution.</span>
               </h2>
@@ -83,13 +83,13 @@ export default function AboutPage() {
         <Stats />
 
         {/* Values */}
-        <section className="relative bg-canvas-2 py-24 md:py-32">
+        <section className="relative bg-canvas-2 py-14 md:py-32">
           <div className="container-x">
             <div className="max-w-3xl mb-14">
               <Reveal>
                 <p className="eyebrow eyebrow-line mb-6">How we operate</p>
               </Reveal>
-              <h2 className="display text-[clamp(2.25rem,5vw,4.25rem)] text-ink leading-[1.05]">
+              <h2 className="display text-[clamp(1.7rem,5vw,4.25rem)] text-ink leading-[1.05]">
                 Four operating principles, one accountable team.
               </h2>
             </div>
@@ -111,7 +111,7 @@ export default function AboutPage() {
             <Reveal>
               <p className="eyebrow eyebrow-line mb-5">The Evolut story</p>
             </Reveal>
-            <h2 className="display text-[clamp(2.25rem,5vw,4.25rem)] text-ink leading-[1.05] max-w-3xl">
+            <h2 className="display text-[clamp(1.7rem,5vw,4.25rem)] text-ink leading-[1.05] max-w-3xl">
               Eight years of operating, one playbook.
             </h2>
           </div>
@@ -132,13 +132,13 @@ export default function AboutPage() {
         </section>
 
         {/* World map — global reach */}
-        <section className="relative bg-canvas py-24 md:py-32">
+        <section className="relative bg-canvas py-14 md:py-32">
           <div className="container-x">
             <div className="max-w-3xl mb-12">
               <Reveal>
                 <p className="eyebrow eyebrow-line mb-6">Global reach</p>
               </Reveal>
-              <h2 className="display text-[clamp(2.25rem,5vw,4.25rem)] text-ink leading-[1.05]">
+              <h2 className="display text-[clamp(1.7rem,5vw,4.25rem)] text-ink leading-[1.05]">
                 One studio. Four continents. 240+ brands.
               </h2>
               <p className="mt-5 text-lg text-mute max-w-xl">
@@ -151,13 +151,13 @@ export default function AboutPage() {
         </section>
 
         {/* Philosophy */}
-        <section id="philosophy" className="relative bg-obsidian text-canvas py-24 md:py-32">
+        <section id="philosophy" className="relative bg-obsidian text-canvas py-14 md:py-32">
           <div className="container-x">
             <div className="max-w-3xl mb-14">
               <Reveal>
                 <p className="eyebrow eyebrow-line mb-5 text-canvas/60">Philosophy</p>
               </Reveal>
-              <h2 className="display text-[clamp(2.25rem,5vw,4.25rem)] text-canvas leading-[1.05]">
+              <h2 className="display text-[clamp(1.7rem,5vw,4.25rem)] text-canvas leading-[1.05]">
                 The brand is the moat. Everything else is plumbing.
               </h2>
             </div>
@@ -215,7 +215,7 @@ function AboutHero() {
               </p>
             </Reveal>
 
-            <h1 className="display text-[clamp(2.75rem,7vw,6rem)] leading-[0.96] mb-7">
+            <h1 className="display text-[clamp(1.9rem,7vw,6rem)] leading-[0.96] mb-7">
               When your ideas
               <br />
               take shape,

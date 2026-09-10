@@ -8,7 +8,7 @@ const PREMIUM_EASE = [0.16, 1, 0.3, 1] as const;
 
 export function DeepStats() {
   return (
-    <section className="relative bg-canvas py-28 md:py-36 border-t border-hairline">
+    <section className="relative bg-canvas py-16 md:py-36 border-t border-hairline">
       <div className="container-x">
         <div className="max-w-3xl mb-14">
           <SectionHeader
@@ -35,7 +35,7 @@ export function DeepStats() {
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-mute mb-4">
                 {stat.label}
               </p>
-              <p className="display text-[clamp(2.5rem,4.5vw,4rem)] text-ink leading-none mb-3">
+              <p className="display text-[clamp(1.8rem,4.5vw,4rem)] text-ink leading-none mb-3">
                 {stat.value}
               </p>
               <p className="text-sm text-ink-soft">{stat.note}</p>

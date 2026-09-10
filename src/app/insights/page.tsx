@@ -57,7 +57,7 @@ export default function InsightsPage() {
                     This week
                   </p>
                 </Reveal>
-                <h1 className="display text-[clamp(2.5rem,6vw,5.5rem)] text-ink leading-[0.98] mb-6">
+                <h1 className="display text-[clamp(1.8rem,6vw,5.5rem)] text-ink leading-[0.98] mb-6">
                   Field notes from
                   <br />
                   running{" "}
@@ -139,7 +139,7 @@ export default function InsightsPage() {
                   <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-electric mb-5">
                     {featured.category} · {featured.readTime} read
                   </p>
-                  <h2 className="display text-[clamp(2rem,4.5vw,3.75rem)] text-ink leading-[1.05] mb-5">
+                  <h2 className="display text-[clamp(1.55rem,4.5vw,3.75rem)] text-ink leading-[1.05] mb-5">
                     {featured.title}
                   </h2>
                   <p className="text-lg text-ink-soft leading-[1.6] max-w-xl">
@@ -161,13 +161,13 @@ export default function InsightsPage() {
         </section>
 
         {/* Grid of articles */}
-        <section className="relative bg-canvas-2 py-20 md:py-28">
+        <section className="relative bg-canvas-2 py-12 md:py-28">
           <div className="container-x">
             <div className="max-w-2xl mb-12">
               <Reveal>
                 <p className="eyebrow eyebrow-line mb-5">Recent</p>
               </Reveal>
-              <h3 className="display text-[clamp(1.75rem,3vw,2.5rem)] text-ink leading-[1.05]">
+              <h3 className="display text-[clamp(1.4rem,3vw,2.5rem)] text-ink leading-[1.05]">
                 Latest field notes.
               </h3>
             </div>
@@ -209,7 +209,7 @@ export default function InsightsPage() {
                 <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-canvas/60 mb-4">
                   Field notes — weekly
                 </p>
-                <h3 className="display text-[clamp(1.75rem,3.2vw,2.6rem)] text-canvas leading-[1.1]">
+                <h3 className="display text-[clamp(1.4rem,3.2vw,2.6rem)] text-canvas leading-[1.1]">
                   One playbook in your inbox each Tuesday.
                 </h3>
                 <p className="mt-4 text-canvas/70 max-w-md leading-relaxed">

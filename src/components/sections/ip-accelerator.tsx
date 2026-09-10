@@ -21,7 +21,7 @@ export function IpAccelerator() {
   return (
     <section
       id="ip-accelerator"
-      className="relative bg-obsidian text-canvas py-28 md:py-36 overflow-hidden"
+      className="relative bg-obsidian text-canvas py-16 md:py-36 overflow-hidden"
     >
       {/* ambient glow */}
       <div
@@ -58,7 +58,7 @@ export function IpAccelerator() {
 
           <p className="eyebrow mb-5 text-canvas/55">{eyebrow}</p>
 
-          <h2 className="display text-[clamp(2.25rem,4.6vw,4rem)] leading-[1.02] mb-6">
+          <h2 className="display text-[clamp(1.7rem,4.6vw,4rem)] leading-[1.02] mb-6">
             <StaggerWords text="Protect your brand" />
             <br />
             <StaggerWords

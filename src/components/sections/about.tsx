@@ -36,7 +36,7 @@ export function About() {
     <section
       id="about"
       ref={ref}
-      className="relative bg-canvas py-24 md:py-32 overflow-hidden"
+      className="relative bg-canvas py-14 md:py-32 overflow-hidden"
     >
       {/* decorative scatter */}
       <span className="absolute top-16 right-12 opacity-50">
@@ -54,7 +54,7 @@ export function About() {
         <Reveal>
           <p className="eyebrow eyebrow-line mb-6">About Evolut</p>
         </Reveal>
-        <h2 className="display text-[clamp(2.25rem,5vw,4.75rem)] text-ink leading-[1.02]">
+        <h2 className="display text-[clamp(1.7rem,5vw,4.75rem)] text-ink leading-[1.02]">
           <StaggerWords text="When your ideas take shape," />
           <br />
           <StaggerWords

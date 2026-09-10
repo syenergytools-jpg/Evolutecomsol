@@ -17,7 +17,10 @@ export function ConsultationHero() {
   return (
     <section
       id="hero"
-      className="relative bg-canvas overflow-hidden pt-28 md:pt-22 pb-20 md:pb-24"
+      // Tighter bottom padding on phones: at pb-20 the gap between the
+      // reassurance pill and the video section below ran to ~116px once
+      // that section's own top padding was added on top of it.
+      className="relative bg-canvas overflow-hidden pt-28 md:pt-22 pb-12 md:pb-24"
     >
       {/* backdrop — paper grid + soft warm/cool wash, same recipe as the homepage hero */}
       <div
@@ -45,9 +48,26 @@ export function ConsultationHero() {
               clamp is retuned from the sentence-case version: the max
               keeps "STOP GUESSING ON AMAZON." on one line inside the
               max-w-4xl column, the floor keeps it on one line at 375px.
-              Tracking is loosened from -0.02em because caps need more
-              room between letters than lowercase does. */}
-          <h1 className="display uppercase text-[clamp(1.15rem,5.9vw,4rem)] text-ink leading-[1.08] tracking-[-0.005em] text-balance">
+
+              Line-height and letter-spacing CANNOT be set with
+              `leading-*`/`tracking-*` here. `.display` (globals.css:133)
+              is UNLAYERED and hard-sets line-height 0.95 and
+              letter-spacing -0.04em; unlayered CSS beats Tailwind's
+              @layer utilities whatever the specificity, so those classes
+              are silently dead on any .display element. An inline style
+              does win, fed by a custom property so the value can still
+              be responsive through Tailwind variants. Caps also have no
+              descenders to open up the gap between lines on their own,
+              which is why mobile needs the loosest setting. */}
+          <h1
+            // No `text-balance`: the <br> already defines the intended
+            // break, so balancing can only introduce an unwanted second
+            // one inside "STOP GUESSING ON AMAZON.". The 5.5vw / 3.75rem
+            // clamp is what keeps that sentence on one line from 320px
+            // up — verified by measuring rendered line boxes, not by eye.
+            className="display uppercase text-[clamp(1.1rem,5.5vw,3.75rem)] text-ink [--h1-lh:1.3] sm:[--h1-lh:1.18] md:[--h1-lh:1.08]"
+            style={{ lineHeight: "var(--h1-lh)", letterSpacing: "-0.005em" }}
+          >
             <StaggerWords text="Stop guessing on Amazon." />
             <br />
             <StaggerWords
@@ -65,7 +85,7 @@ export function ConsultationHero() {
                 UNLAYERED `* { border-color: var(--hairline) }` that beats
                 every border-<color> utility in the project. */}
             <p
-              className="mt-6 md:mt-7 inline-block rounded-[1.25rem] border bg-copper/10 px-5 py-2.5 sm:px-6 sm:py-3 text-base sm:text-lg md:text-xl font-medium italic text-copper leading-[1.5] text-balance"
+              className="mt-7 md:mt-8 inline-block rounded-[1.25rem] border bg-copper/10 px-5 py-2.5 sm:px-6 sm:py-3 text-base sm:text-lg md:text-xl font-medium italic text-copper leading-[1.5] text-balance"
               style={{
                 borderColor: "color-mix(in oklab, var(--copper) 30%, transparent)",
               }}
@@ -75,7 +95,7 @@ export function ConsultationHero() {
           </Reveal>
 
           <Reveal delay={0.45}>
-            <p className="mt-5 md:mt-6 text-base sm:text-lg md:text-xl text-ink-soft leading-[1.6] max-w-2xl mx-auto text-balance">
+            <p className="mt-7 md:mt-6 text-base sm:text-lg md:text-xl text-ink-soft leading-[1.7] sm:leading-[1.6] max-w-2xl mx-auto text-balance">
               We find the products. Build the brand. Run the PPC. Scale the
               sales.
             </p>
@@ -85,7 +105,7 @@ export function ConsultationHero() {
         {/* Proof stats then the ask — no panel, no background, the
             layout alone carries it (consultation-cta-card.tsx). */}
         <Reveal delay={0.15}>
-          <ConsultationCtaCard className="mt-11 md:mt-14" />
+          <ConsultationCtaCard className="mt-7 md:mt-14" />
         </Reveal>
       </div>
     </section>

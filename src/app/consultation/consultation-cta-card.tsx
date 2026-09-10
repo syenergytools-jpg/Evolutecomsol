@@ -22,10 +22,15 @@ const PROOF = [
   // figure — both traceable to ./funnel-products and to the portfolio
   // section further down this page.
   { value: "$5.28M+", label: "Revenue managed" },
-  // 89+ has no source anywhere in the codebase; it is a client-supplied
-  // number. Nothing else on the site corroborates it, so don't "fix" it
-  // against site-config and don't reuse it elsewhere without asking.
+  // 89+ and $25.2M have no source anywhere in the codebase; both are
+  // client-supplied. Nothing else on the site corroborates them, so
+  // don't "fix" them against site-config and don't reuse them elsewhere
+  // without asking. NOTE: $25.2M "sales managed" sits awkwardly beside
+  // $5.28M+ "revenue managed" — revenue and sales read as the same
+  // thing to a visitor. Flagged to the client; likely one should
+  // replace the other rather than both running.
   { value: "89+", label: "Launches" },
+  { value: "$25.2M", label: "Sales managed" },
   { value: "Up to 412%", label: "Client growth" },
 ];
 
@@ -34,21 +39,16 @@ export function ConsultationCtaCard({ className }: { className?: string }) {
 
   return (
     <div className={cn("text-center", className)}>
-      {/* One credential line rather than the stat cards this replaced:
-          three claims read as a single sentence of proof, and three
-          cards side by side would be unreadably narrow on a phone. It
-          wraps to its own rows below sm, with the rules hidden there so
-          no separator is ever left dangling at the end of a line. */}
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-2 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-4">
-        {PROOF.map((p, i) => (
-          <span key={p.label} className="flex items-center gap-4">
-            {i > 0 && (
-              <span aria-hidden="true" className="hidden sm:block h-4 w-px bg-hairline-strong" />
-            )}
-            <span className="text-base sm:text-lg text-ink whitespace-nowrap">
-              <span className="font-semibold text-copper tabular-nums">{p.value}</span>{" "}
-              {p.label}
-            </span>
+      {/* A fixed 2x2 grid from sm up, not a wrapping flex row. With four
+          claims, free wrapping put three on the first line and left
+          "Up to 412% Client growth" orphaned on the second; a grid makes
+          the arrangement deterministic at every width. Single column on
+          phones. */}
+      <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-3.5 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-3">
+        {PROOF.map((p) => (
+          <span key={p.label} className="text-base sm:text-lg text-ink whitespace-nowrap">
+            <span className="font-semibold text-copper tabular-nums">{p.value}</span>{" "}
+            {p.label}
           </span>
         ))}
       </div>

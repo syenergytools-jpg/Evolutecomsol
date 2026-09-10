@@ -19,9 +19,17 @@ import { Reveal } from "@/components/ui/reveal";
  * spoken pitch, and muted autoplay would run the opening line past
  * everyone who scrolls in. `preload="metadata"` keeps that choice cheap:
  * the browser fetches the header, not the 42MB body, until someone
- * actually presses play. The `#t=0.1` fragment makes the browser seek to
- * the first frame and paint it, which gives us a poster image without
- * shipping a separate one.
+ * actually presses play.
+ *
+ * `poster` is a real frame (1.2s in) exported to
+ * public/funnel-intro-poster.jpg. An earlier version relied on a
+ * `#t=0.1` media fragment to make the browser paint the first frame
+ * itself — that is unreliable, and on the user's phone it left a black
+ * rectangle until play. An explicit poster is the only approach that
+ * works everywhere. To regenerate it after swapping the video: no
+ * ffmpeg exists in this environment, so the frame was pulled by
+ * decoding the video to a canvas in the browser and POSTing the JPEG to
+ * a throwaway dev route.
  *
  * Real platforms the team operates on daily — a short list rather than
  * every logo in site-config, and kept distinct from the stats in the
@@ -45,7 +53,8 @@ export function ConsultationVideo() {
         <div className="relative max-w-6xl mx-auto aspect-video rounded-[0.875rem] overflow-hidden bg-obsidian-soft">
           <video
             ref={videoRef}
-            src="/funnel-intro.mp4#t=0.1"
+            src="/funnel-intro.mp4"
+            poster="/funnel-intro-poster.jpg"
             preload="metadata"
             playsInline
             controls={started}

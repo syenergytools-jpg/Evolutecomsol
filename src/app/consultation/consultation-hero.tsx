@@ -63,7 +63,18 @@ export function ConsultationHero() {
           </h1>
 
           <Reveal delay={0.35}>
-            <p className="mt-6 md:mt-7 text-lg md:text-xl text-ink-soft leading-[1.6] max-w-2xl mx-auto">
+            {/* inline-block, not a full-width block: the tinted panel has
+                to hug the text, and the parent's text-center is what
+                centres it (auto margins do nothing on an inline-block).
+                Border set inline because globals.css line 86 has an
+                UNLAYERED `* { border-color: var(--hairline) }` that beats
+                every border-<color> utility in the project. */}
+            <p
+              className="mt-6 md:mt-7 inline-block max-w-2xl rounded-[1.25rem] border bg-copper/10 px-6 py-3.5 text-lg md:text-xl italic text-ink-soft leading-[1.6]"
+              style={{
+                borderColor: "color-mix(in oklab, var(--copper) 30%, transparent)",
+              }}
+            >
               We run Seller Central, Vendor Central, and FBA under one roof.
               Sourcing, listings, PPC, and Brand Registry included.
             </p>

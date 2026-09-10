@@ -59,7 +59,7 @@ export function ConsultationProjects() {
                   >
                     <Image
                       src={study.image}
-                      alt={study.name}
+                      alt={`${study.company} ${study.product}`}
                       fill
                       sizes="(max-width: 768px) 100vw, 48vw"
                       className="object-contain p-6 transition-transform duration-700 group-hover:scale-[1.04]"
@@ -76,11 +76,14 @@ export function ConsultationProjects() {
                       reversed && "md:order-1 md:text-right"
                     )}
                   >
-                    {/* Sized down from the brand-only version: full
-                        product names are 3-4x longer and were breaking
-                        awkwardly against the image column. */}
+                    {/* Company on one line, product on the next — a
+                        single run-on line made "Glowco International LLC
+                        Calm Carry" read as one long product name. Sized
+                        down from the brand-only version, which was set
+                        for words like "Gloco". */}
                     <h3 className="display text-[clamp(1.5rem,3vw,2.25rem)] text-ink leading-[1.15] mb-4 text-balance">
-                      {study.name}
+                      {study.company}
+                      <span className="block">{study.product}</span>
                     </h3>
                     <p
                       className={cn(

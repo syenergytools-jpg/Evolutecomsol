@@ -16,24 +16,20 @@ export function ConsultationQualifyCta() {
   const { open } = useBookingModal();
 
   return (
-    <section id="qualify" className="relative bg-canvas-2 py-28 md:py-36 scroll-mt-20">
+    <section
+      id="qualify"
+      className="relative bg-canvas-2 py-28 md:py-36 scroll-mt-20"
+    >
       <div className="container-narrow text-center">
         <SectionHeader
           align="center"
           eyebrow="One quick fit-check"
           title="Let's see if we're the right fit."
-          subtitle="Four quick questions, then pick a time — no surprises on the call."
           size="md"
         />
 
         <Reveal delay={0.15}>
           <div className="mt-10">
-            {/* risk reversal — at this point in the funnel the objection
-                isn't interest, it's "is this a sales call in disguise" */}
-            <p className="max-w-xl mx-auto text-base md:text-lg text-ink-soft leading-relaxed mb-8">
-              If we&apos;re not the right fit, we&apos;ll tell you honestly — and
-              point you somewhere better.
-            </p>
             <div className="mb-5 flex justify-center">
               <ConsultationUrgencyBar />
             </div>

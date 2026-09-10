@@ -28,8 +28,17 @@
 export type FunnelProduct = {
   /** Links to /work/<slug> — must match a real case study slug. */
   slug: string;
-  /** Full brand + product name, funnel-specific. */
-  name: string;
+  /**
+   * Client company, as they trade. Split from `product` on purpose: the
+   * portfolio card renders them on separate lines, and the hero stat
+   * label uses the company alone.
+   *
+   * Only Glowco's full legal name has been confirmed by the client —
+   * don't append "LLC"/"Inc" to the others on a guess.
+   */
+  company: string;
+  /** The product itself, shown on its own line under the company. */
+  product: string;
   category: string;
   image: string;
   metric: { value: string; label: string };
@@ -39,19 +48,21 @@ export type FunnelProduct = {
 export const funnelProducts: FunnelProduct[] = [
   {
     slug: "gloco-calm-carry-us",
-    name: "Glowco Calm Carry",
+    company: "Glowco International LLC",
+    product: "Calm Carry",
     category: "Wellness · Personal Care",
     image: "/stats/products/gloco/1.webp",
     // Client-supplied figure, whole dollars only. Note this is the
     // funnel's number: /work/gloco-calm-carry-us still shows the
     // $614,536.70 YTD snapshot from site-config.
-    metric: { value: "$5,287,932", label: "Sales · YTD" },
+    metric: { value: "$5,287,932", label: "Total sales" },
     outcome:
       "Sourced, photographed, listed, and scaled in one continuous loop. From first sample to a category-leading listing inside the year.",
   },
   {
     slug: "squirtz-water-enhancer-us",
-    name: "Squirtz Water Enhancer",
+    company: "Squirtz",
+    product: "Water Enhancer",
     category: "Beverage · CPG",
     image: "/stats/products/Squirtz_drink/1.webp",
     metric: { value: "+412%", label: "Revenue · 6 months" },
@@ -60,7 +71,8 @@ export const funnelProducts: FunnelProduct[] = [
   },
   {
     slug: "pawsteps-dog-ramp-us",
-    name: "PawSteps Foldable Dog Ramp",
+    company: "PawSteps",
+    product: "Foldable Dog Ramp",
     category: "Pets · Mobility",
     image: "/stats/products/Dog_Stand/1.jpg",
     metric: { value: "$1,298,588", label: "GMV · 12 months" },
@@ -69,7 +81,8 @@ export const funnelProducts: FunnelProduct[] = [
   },
   {
     slug: "shilajit-resin-au",
-    name: "Shilajit Co. Resin",
+    company: "Shilajit Co.",
+    product: "Resin",
     category: "Supplements · Nutrition",
     image: "/stats/products/shilajit/1.jpg",
     metric: { value: "5.2×", label: "GMV · 9 months" },

@@ -39,9 +39,15 @@ export function ConsultationUrgencyBar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "inline-flex flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full border border-hairline-strong bg-canvas px-5 py-2.5",
+        "inline-flex flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full border bg-copper/10 px-5 py-2.5",
         className
       )}
+      // Inline, not `border-copper/30`: globals.css line 86 has an
+      // UNLAYERED `* { border-color: var(--hairline) }`, and unlayered
+      // CSS beats Tailwind's @layer utilities regardless of specificity,
+      // so every border-<color> utility in this codebase silently falls
+      // back to --hairline. Same treatment as the hero's pill.
+      style={{ borderColor: "color-mix(in oklab, var(--copper) 30%, transparent)" }}
     >
       <span className="inline-flex items-center gap-2">
         <span className="relative inline-flex h-1.5 w-1.5">
@@ -56,7 +62,9 @@ export function ConsultationUrgencyBar({ className }: { className?: string }) {
         </span>
       </span>
 
-      <span aria-hidden="true" className="h-3 w-px bg-hairline-strong hidden sm:block" />
+      {/* copper-tinted, not grey — a neutral hairline reads as dirt on
+          the warm ground */}
+      <span aria-hidden="true" className="h-3 w-px bg-copper/30 hidden sm:block" />
 
       <span className="inline-flex items-center gap-1.5">
         <Users className="h-3.5 w-3.5 text-mute" strokeWidth={2.2} />

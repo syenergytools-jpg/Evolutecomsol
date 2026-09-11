@@ -23,9 +23,29 @@ import { cn } from "@/lib/utils";
  * user scroll input, so there's no viewport-detection timing to get
  * wrong.
  */
+/**
+ * Each clip needs an explicit `poster`, otherwise the card renders as a
+ * black rectangle until the visitor presses play — which is a poor look
+ * for the only social proof on the page. The posters are real frames
+ * exported to public/reviewVideos/*-poster.jpg.
+ *
+ * To regenerate after swapping a clip: there is no ffmpeg in this
+ * environment, so the frame is pulled by decoding the video to a canvas
+ * in the browser and POSTing the JPEG to a throwaway dev route. Sample a
+ * few timestamps first — review_1's opening second has a hand across the
+ * lens, so its poster is taken at 4s rather than the start.
+ */
 const REVIEWS = [
-  { src: "/reviewVideos/review_1.mp4", name: "Verified client" },
-  { src: "/reviewVideos/review_2.mp4", name: "Verified client" },
+  {
+    src: "/reviewVideos/review_1.mp4",
+    poster: "/reviewVideos/review_1-poster.jpg",
+    name: "Verified client",
+  },
+  {
+    src: "/reviewVideos/review_2.mp4",
+    poster: "/reviewVideos/review_2-poster.jpg",
+    name: "Verified client",
+  },
 ];
 
 export function ConsultationTestimonials() {
@@ -113,6 +133,7 @@ export function ConsultationTestimonials() {
               >
                 <VideoCard
                   src={r.src}
+                  poster={r.poster}
                   name={r.name}
                   onPlay={() => handlePlay(i)}
                   videoRef={(el) => {
@@ -146,11 +167,13 @@ export function ConsultationTestimonials() {
 
 function VideoCard({
   src,
+  poster,
   name,
   onPlay,
   videoRef,
 }: {
   src: string;
+  poster: string;
   name: string;
   onPlay: () => void;
   videoRef: (el: HTMLVideoElement | null) => void;
@@ -170,6 +193,7 @@ function VideoCard({
           videoRef(el);
         }}
         src={src}
+        poster={poster}
         playsInline
         preload="metadata"
         controls={started}

@@ -1,7 +1,10 @@
 import { getCurrentSession } from "@/lib/admin-auth";
 import {
+  describeSupabaseError,
+  diagnoseSupabaseConnection,
   getServiceClient,
   isSupabaseConfigured,
+  isTransportError,
   type ContactSubmissionRow,
 } from "@/lib/supabase";
 import { LoginForm } from "./login-form";
@@ -68,7 +71,7 @@ export default async function AdminPage({
         .limit(1000);
 
       if (allError) {
-        queryError = allError.message;
+        queryError = describeSupabaseError(allError);
       } else {
         allRows = (allData ?? []) as ContactSubmissionRow[];
 
@@ -85,15 +88,27 @@ export default async function AdminPage({
           if (filters.service !== "all") q = q.eq("service", filters.service);
           const { data, error } = await q;
           if (error) {
-            queryError = error.message;
+            queryError = describeSupabaseError(error);
           } else {
             rows = (data ?? []) as ContactSubmissionRow[];
           }
         }
       }
     } catch (e) {
-      queryError = e instanceof Error ? e.message : String(e);
+      // A thrown error here is almost always a transport failure (the
+      // project host not resolving), which arrives as a bare
+      // "TypeError: fetch failed" unless it is translated.
+      queryError = describeSupabaseError(e);
     }
+  }
+
+  // A transport failure arrives from supabase-js as a bare
+  // "TypeError: fetch failed" with the underlying reason stripped. One
+  // direct probe, only when something already went wrong, recovers it
+  // so the panel can say what to actually fix.
+  if (queryError && isTransportError(queryError)) {
+    const precise = await diagnoseSupabaseConnection();
+    if (precise) queryError = precise;
   }
 
   const stats = countStatuses(allRows);

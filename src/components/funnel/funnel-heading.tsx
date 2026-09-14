@@ -43,7 +43,7 @@ export function FunnelHeading({
     <div className={cn("max-w-3xl mx-auto text-center", className)}>
       {eyebrow && (
         <Reveal>
-          <p className="eyebrow eyebrow-line justify-center mb-5 text-canvas/55">
+          <p className="eyebrow justify-center mb-5 text-canvas/55">
             {eyebrow}
           </p>
         </Reveal>

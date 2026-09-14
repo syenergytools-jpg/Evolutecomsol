@@ -20,7 +20,7 @@ import { FunnelFooter } from "@/components/funnel/funnel-footer";
 import { amazonContent } from "./amazon-content";
 
 const DISCLAIMER =
-  "Evolut Ecommerce Solutions is an independent Amazon account management service. We are not affiliated with, endorsed by, or sponsored by Amazon.com, Inc. or its affiliates. Amazon, Seller Central, Vendor Central, and FBA are trademarks of Amazon.com, Inc. Results vary by product, category, and budget — nothing on this page is a guarantee of income, sales, or ranking.";
+  "Evolut Ecommerce Solutions is an independent Amazon account management service. We are not affiliated with, endorsed by, or sponsored by Amazon.com, Inc. or its affiliates. Amazon, Seller Central, Vendor Central, and FBA are trademarks of Amazon.com, Inc. Results vary by product, category, and budget, nothing on this page is a guarantee of income, sales, or ranking.";
 
 /**
  * AmazonFunnel — the actual page tree, as a Client Component with no

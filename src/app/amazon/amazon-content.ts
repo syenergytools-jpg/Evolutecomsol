@@ -18,29 +18,29 @@ export const amazonContent: FunnelContent = {
   accent: "copper",
 
   seo: {
-    title: "Amazon Account Management — Free Audit",
+    title: "Amazon Account Management: Free Audit",
     description:
-      "Done-for-you Amazon Seller Central, Vendor Central, and FBA management — listings, PPC, inventory, and brand protection, run by an operator team that has scaled 240+ Amazon brands.",
+      "Done-for-you Amazon Seller Central, Vendor Central, and FBA management: listings, PPC, inventory, and brand protection, run by an operator team that has scaled 240+ Amazon brands.",
   },
 
   urgency: {
     message:
-      "Now booking free Amazon account audits — see exactly what's costing you sales.",
+      "Now booking free Amazon account audits. See exactly what's costing you sales.",
   },
 
   hero: {
     eyebrow: "Amazon Account Management",
     headlineLead: "We Run Your Amazon Business.",
     headlineAccent: "You Keep the Upside.",
-    badge: "Built for Seller Central, Vendor Central & FBA — new or existing accounts.",
+    badge: "Built for Seller Central, Vendor Central & FBA, new or existing accounts.",
     subhead:
-      "Listings, PPC, inventory, and brand protection — run end to end by an operator team that's scaled 240+ Amazon brands, not a rep reading a dashboard.",
+      "Listings, PPC, inventory, and brand protection, run end to end by an operator team that's scaled 240+ Amazon brands, not a rep reading a dashboard.",
     disclaimer:
-      "This is a hands-on account management engagement, not a passive investment. Results depend on product, budget, and category — full terms are covered on the call.",
+      "This is a hands-on account management engagement, not a passive investment. Results depend on product, budget, and category. Full terms are covered on the call.",
     ctaLabel: "Book Your Free Amazon Audit",
     heroBadges: [
-      { src: "/badges/hero-badge-1.avif", alt: "Amazon SPN Certified — Service Provider Network", width: 1282, height: 297 },
-      { src: "/badges/hero-badge-2.avif", alt: "Trustpilot — 5 star rating", width: 1400, height: 700 },
+      { src: "/badges/hero-badge-1.avif", alt: "Amazon SPN Certified: Service Provider Network", width: 1282, height: 297 },
+      { src: "/badges/hero-badge-2.avif", alt: "Trustpilot: 5 star rating", width: 1400, height: 700 },
     ],
   },
 
@@ -55,11 +55,11 @@ export const amazonContent: FunnelContent = {
     eyebrow: "How it works",
     title: { lead: "The engagement,", accent: "in plain English." },
     paragraphs: [
-      "We plug into your Amazon account as your operator team — running listings, PPC, inventory, and pricing the way we'd run our own.",
+      "We plug into your Amazon account as your operator team, running listings, PPC, inventory, and pricing the way we'd run our own.",
       "You keep full ownership of your Seller Central or Vendor Central account and your brand. We're the team behind it, reporting to you every month in plain numbers.",
     ],
     distinction:
-      "This is hands-on account management. Not a course. Not a done-with-you template. Not equity in your business — it stays 100% yours.",
+      "This is hands-on account management. Not a course. Not a done-with-you template. Not equity in your business. It stays 100% yours.",
   },
 
   features: {
@@ -73,7 +73,7 @@ export const amazonContent: FunnelContent = {
         icon: Layers,
         title: "Channel optimization",
         detail:
-          "Vendor Central, Seller Central, and FBA — structured and run by people who've owned the P&L on all three, not just watched a dashboard.",
+          "Vendor Central, Seller Central, and FBA, structured and run by people who've owned the P&L on all three, not just watched a dashboard.",
       },
       {
         icon: Search,
@@ -91,7 +91,7 @@ export const amazonContent: FunnelContent = {
         icon: Megaphone,
         title: "Sponsored Products & PPC",
         detail:
-          "Manual campaigns layered with smart automation, structured around your real margin — not a flat ACoS target that ignores it.",
+          "Manual campaigns layered with smart automation, structured around your real margin, not a flat ACoS target that ignores it.",
       },
       {
         icon: TrendingUp,
@@ -117,7 +117,7 @@ export const amazonContent: FunnelContent = {
       items: [
         "You want a “set it and forget it” listing fix with zero ongoing ad budget.",
         "You're not open to an operator team having real access to run the account, not just advise on it.",
-        "You expect page-one rank in week one — real ACoS improvement takes a real testing cycle.",
+        "You expect page-one rank in week one. Real ACoS improvement takes a real testing cycle.",
         "You're looking for a one-time gig, not an ongoing management relationship.",
       ],
     },
@@ -127,7 +127,7 @@ export const amazonContent: FunnelContent = {
         "You already have, or are ready to launch, a Seller Central or Vendor Central account.",
         "You want an accountable team running PPC, listings, and inventory day to day.",
         "You think in 90-day cycles, not 90-hour hacks.",
-        "You want full visibility into ad spend, ACoS, and profit — not a black box.",
+        "You want full visibility into ad spend, ACoS, and profit, not a black box.",
       ],
     },
   },
@@ -142,17 +142,17 @@ export const amazonContent: FunnelContent = {
     items: [
       { ...testimonials[0], headline: "How Sarah 4×'d Revenue in 11 Months" },
       { ...testimonials[1], headline: "How Marcus Lifted Conversion 38% Overnight" },
-      { ...testimonials[4], headline: "How Olivia Sourced 22% Cheaper — and Launched in 6 Weeks" },
+      { ...testimonials[4], headline: "How Olivia Sourced 22% Cheaper and Launched in 6 Weeks" },
     ],
   },
 
   team: {
     eyebrow: "The people behind your account",
     title: { lead: "A dedicated team running", accent: "your Amazon business every day." },
-    subtitle: "Sourcing, listings, PPC, and account health — specialists, not generalists.",
+    subtitle: "Sourcing, listings, PPC, and account health. Specialists, not generalists.",
     badges: [
-      { src: "/badges/trust-badge-1.avif", alt: "Top 10 Ecommerce Leaders 2024 — Honored by Retail Business Review", width: 300, height: 300 },
-      { src: "/badges/trust-badge-2.avif", alt: "Top 10 Ecommerce Leaders 2025 — Honored by Retail Business Review", width: 300, height: 300 },
+      { src: "/badges/trust-badge-1.avif", alt: "Top 10 Ecommerce Leaders 2024: Honored by Retail Business Review", width: 300, height: 300 },
+      { src: "/badges/trust-badge-2.avif", alt: "Top 10 Ecommerce Leaders 2025: Honored by Retail Business Review", width: 300, height: 300 },
     ],
   },
 
@@ -166,15 +166,15 @@ export const amazonContent: FunnelContent = {
       },
       {
         q: "Which Amazon programs do you support?",
-        a: "Seller Central, Vendor Central, Vendor Express, and FBA — plus Sponsored Products, Sponsored Brands, Sponsored Display, and DSP for retargeting.",
+        a: "Seller Central, Vendor Central, Vendor Express, and FBA, plus Sponsored Products, Sponsored Brands, Sponsored Display, and DSP for retargeting.",
       },
       {
         q: "How fast can you start?",
-        a: "Discovery call within 48 hours. Audit delivered within 5 business days. Engagement starts as soon as scope is signed — typically week two.",
+        a: "Discovery call within 48 hours. Audit delivered within 5 business days. Engagement starts as soon as scope is signed, typically week two.",
       },
       {
         q: "What's the minimum engagement?",
-        a: "90 days. Less than that and we can't show you a real result — and we'd rather decline than over-promise.",
+        a: "90 days. Less than that and we can't show you a real result, and we'd rather decline than over-promise.",
       },
       {
         q: "What if it's not working?",
@@ -191,7 +191,7 @@ export const amazonContent: FunnelContent = {
     eyebrow: "Our commitment to you",
     title: { lead: "We stay accountable,", accent: "not just busy." },
     badge: { value: "30-DAY", label: "Exit clause after the first 90 days" },
-    body: "No fabricated guarantees here — just the terms we actually operate on, and have since day one.",
+    body: "No fabricated guarantees here, just the terms we actually operate on, and have since day one.",
     ctaLabel: "Book Your Free Amazon Audit",
     points: [
       {
@@ -207,7 +207,7 @@ export const amazonContent: FunnelContent = {
       {
         title: "Full transparency",
         detail:
-          "A monthly review of spend, ACoS, and inventory — walked through together, not buried in a dashboard you never open.",
+          "A monthly review of spend, ACoS, and inventory, walked through together, not buried in a dashboard you never open.",
       },
     ],
   },
@@ -217,7 +217,7 @@ export const amazonContent: FunnelContent = {
     subtitle:
       "Book a free audit. We'll review your listings, ads, and inventory honestly, and tell you what's actually costing you sales.",
     ctaLabel: "Book Your Free Amazon Audit",
-    note: "No pressure, no obligation — just a real operator walking through your account.",
+    note: "No pressure, no obligation, just a real operator walking through your account.",
   },
 
   stepCopy: [

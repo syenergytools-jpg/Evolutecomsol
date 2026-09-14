@@ -56,7 +56,7 @@ export function FunnelHero({ content }: { content: FunnelContent }) {
       <div className="container-x relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <Reveal>
-            <p className="eyebrow eyebrow-line justify-center text-canvas/55 mb-6">
+            <p className="eyebrow justify-center text-canvas/55 mb-6">
               {content.hero.eyebrow}
             </p>
           </Reveal>

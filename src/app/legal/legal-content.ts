@@ -1,3 +1,4 @@
+import { BadgeCheck, Scale, Zap, ShieldCheck, Store, Fingerprint } from "lucide-react";
 import { ipAccelerator, testimonials } from "@/lib/site-config";
 import type { FunnelContent } from "@/components/funnel/funnel-types";
 import type { FunnelProject } from "@/components/funnel/funnel-projects-data";
@@ -32,7 +33,7 @@ const legalProjects: FunnelProject[] = [
     image: "/stats/products/gloco/1.webp",
     metric: { value: "$5,287,932", label: "Total sales" },
     outcome:
-      "Brand Registry filed as part of the Amazon launch phase — protection in place before the review ramp even began.",
+      "Brand Registry filed as part of the Amazon launch phase, protection in place before the review ramp even began.",
   },
   {
     slug: "shilajit-resin-au",
@@ -58,21 +59,28 @@ export const legalContent: FunnelContent = {
   accent: "lime",
 
   seo: {
-    title: "Trademark Filing & Amazon Brand Registry — Free Call",
+    title: "Trademark Filing & Amazon Brand Registry: Free Call",
     description:
-      "Trademark filing and Amazon IP Accelerator, run end to end — matched with a vetted IP law firm, Brand Registry unlocked early, and ongoing infringement monitoring.",
+      "Trademark filing and Amazon IP Accelerator, run end to end, matched with a vetted IP law firm, Brand Registry unlocked early, and ongoing infringement monitoring.",
   },
 
   urgency: {
-    message: "Now booking free brand-protection calls — see how fast you can unlock Brand Registry.",
+    message: "Now booking free brand-protection calls. See how fast you can unlock Brand Registry.",
   },
 
   hero: {
     eyebrow: "Trademark & Amazon Brand Protection",
     headlineLead: "Protect Your Brand",
     headlineAccent: "Before the Trademark Even Registers.",
-    badge: "Trademark filing + Amazon Brand Registry — run end to end, by one team.",
-    subhead: ipAccelerator.subtitle,
+    badge: "Trademark filing + Amazon Brand Registry, run end to end, by one team.",
+    // Literal, not `ipAccelerator.subtitle` — that field (site-config.ts)
+    // is shared with the homepage's <IpAccelerator/> section and its
+    // original text uses an em dash; duplicating it here (same reasoning
+    // funnel-products.ts/amazon-content.ts already use for other shared
+    // fields) lets this page's copy be edited without touching the
+    // homepage's.
+    subhead:
+      "Amazon's IP Accelerator connects brands with vetted IP law firms and unlocks Brand Registry protections early, months before a trademark certificate would normally arrive. We run the whole path for you, from filing to enforcement.",
     disclaimer:
       "This covers trademark filing coordination and Amazon's IP Accelerator program, not legal representation itself. You're matched with a vetted, independent IP law firm who handles the filing.",
     ctaLabel: "Book Your Free Brand Protection Call",
@@ -82,7 +90,7 @@ export const legalContent: FunnelContent = {
     // SPN/Trustpilot badges /amazon shows. See funnel-types.ts's note on
     // `hero.heroBadges` being page-specific.
     heroBadges: [
-      { src: "/badges/legal-hero-badge.png", alt: "Advocacy Legal Services, Law Compliance & Legal Protection, Advocacy Legal Assistance — certified seals", width: 520, height: 173 },
+      { src: "/badges/legal-hero-badge.png", alt: "Advocacy Legal Services, Law Compliance & Legal Protection, Advocacy Legal Assistance: certified seals", width: 520, height: 173 },
     ],
   },
 
@@ -92,7 +100,7 @@ export const legalContent: FunnelContent = {
     eyebrow: "How it works",
     title: { lead: "The filing,", accent: "in plain English." },
     paragraphs: [
-      "We run your trademark filing and Amazon IP Accelerator enrollment end to end — matched with a vetted, Amazon-approved IP law firm at pre-negotiated rates, so you're not hunting for one or guessing at legal fees.",
+      "We run your trademark filing and Amazon IP Accelerator enrollment end to end, matched with a vetted, Amazon-approved IP law firm at pre-negotiated rates, so you're not hunting for one or guessing at legal fees.",
       "Brand Registry unlocks early, months before your trademark certificate would normally arrive, so your listings get real protection while the filing is still in examination.",
     ],
     distinction:
@@ -104,11 +112,48 @@ export const legalContent: FunnelContent = {
     title: { lead: "Everything your brand protection needs,", accent: "run by one team." },
     subtitle: "Six things that start unlocking the moment your filing begins, not after it finishes.",
     ctaLabel: "See If You Qualify",
-    items: ipAccelerator.benefits.map((b) => ({
-      icon: b.icon,
-      title: b.title,
-      detail: b.detail,
-    })),
+    // Literal, not `ipAccelerator.benefits.map(...)` — 3 of those 6
+    // detail strings (site-config.ts) use an em dash, and that object is
+    // shared with the homepage's <IpAccelerator/> section (same reason
+    // `subhead` above is a literal, not `ipAccelerator.subtitle`).
+    items: [
+      {
+        icon: BadgeCheck,
+        title: "Early Brand Registry access",
+        detail:
+          "Unlock Amazon Brand Registry while your trademark is still pending, no waiting 6–12 months for the certificate to start protecting your listings.",
+      },
+      {
+        icon: Scale,
+        title: "Vetted IP law firms",
+        detail:
+          "We match you with Amazon-approved trademark attorneys at pre-negotiated, transparent rates. No hunting, no surprise legal bills.",
+      },
+      {
+        icon: Zap,
+        title: "Faster trademark filing",
+        detail:
+          "Your name and logo are drafted and filed in days, the mark enters examination while your protected listings go live.",
+      },
+      {
+        icon: ShieldCheck,
+        title: "Counterfeit & hijacker defense",
+        detail:
+          "Transparency codes, Project Zero, and automated takedowns keep copycats and unauthorized sellers off your detail pages.",
+      },
+      {
+        icon: Store,
+        title: "Full brand toolkit unlocked",
+        detail:
+          "A+ Content, Brand Store, Sponsored Brands, Posts, and Vine, the entire Brand Registry suite, set up and ready to convert.",
+      },
+      {
+        icon: Fingerprint,
+        title: "Ongoing IP monitoring",
+        detail:
+          "We watch your marks, renewals, and infringements across marketplaces so protection never lapses as you scale.",
+      },
+    ],
   },
 
   qualify: {
@@ -118,10 +163,10 @@ export const legalContent: FunnelContent = {
     not: {
       heading: "This is NOT for you if...",
       items: [
-        "You already hold a registered trademark and full Brand Registry access — there's nothing left to unlock here.",
-        "You're not selling a physical, brandable product — this program is built around Amazon listings and physical goods.",
-        "You want to skip legal counsel entirely — we match you to a vetted IP attorney, we don't replace one.",
-        "You need registration finalized overnight — trademark examination takes months regardless of who files it.",
+        "You already hold a registered trademark and full Brand Registry access, there's nothing left to unlock here.",
+        "You're not selling a physical, brandable product, this program is built around Amazon listings and physical goods.",
+        "You want to skip legal counsel entirely, we match you to a vetted IP attorney, we don't replace one.",
+        "You need registration finalized overnight, trademark examination takes months regardless of who files it.",
       ],
     },
     is: {
@@ -150,7 +195,14 @@ export const legalContent: FunnelContent = {
     // If a real trademark/Brand-Registry client testimonial (with photo)
     // is ever supplied, add it here instead of reusing another page's.
     items: [
-      { ...testimonials[2], headline: "Why Priya Chose Evolut After Three Other Agencies" },
+      {
+        ...testimonials[2],
+        // Literal override: the source quote (site-config.ts, shared
+        // with /shopify and /consultation) uses an em dash.
+        quote:
+          "We tried three agencies before Evolut. They're the first team that operated like operators, not just executors. Real opinions, real numbers.",
+        headline: "Why Priya Chose Evolut After Three Other Agencies",
+      },
     ],
   },
 
@@ -162,7 +214,7 @@ export const legalContent: FunnelContent = {
     // and /shopify's generic "Top 10 Ecommerce Leaders" award isn't
     // relevant here; these credential seals are.
     badges: [
-      { src: "/badges/legal-hero-badge.png", alt: "Advocacy Legal Services, Law Compliance & Legal Protection, Advocacy Legal Assistance — certified seals", width: 520, height: 173, className: "h-28 md:h-36" },
+      { src: "/badges/legal-hero-badge.png", alt: "Advocacy Legal Services, Law Compliance & Legal Protection, Advocacy Legal Assistance: certified seals", width: 520, height: 173, className: "h-28 md:h-36" },
     ],
   },
 
@@ -172,7 +224,7 @@ export const legalContent: FunnelContent = {
     items: [
       {
         q: "What's the difference between a trademark and Amazon Brand Registry?",
-        a: "A trademark is the legal registration of your brand name or logo with a government IP office. Brand Registry is Amazon's program that unlocks brand-protection tools on the platform — IP Accelerator lets you enroll in Brand Registry early, using a pending application instead of waiting for the certificate.",
+        a: "A trademark is the legal registration of your brand name or logo with a government IP office. Brand Registry is Amazon's program that unlocks brand-protection tools on the platform. IP Accelerator lets you enroll in Brand Registry early, using a pending application instead of waiting for the certificate.",
       },
       {
         q: "How long does trademark registration take?",
@@ -180,11 +232,11 @@ export const legalContent: FunnelContent = {
       },
       {
         q: "Do I need a trademark before I can sell on Amazon?",
-        a: "No — you can sell without one. But without Brand Registry, you have far fewer defenses against copycat listings and hijackers, which is exactly the gap this program closes.",
+        a: "No. You can sell without one. But without Brand Registry, you have far fewer defenses against copycat listings and hijackers, which is exactly the gap this program closes.",
       },
       {
         q: "Do you replace my need for a lawyer?",
-        a: "No. We match you with a vetted, Amazon-approved IP law firm at pre-negotiated rates and coordinate the whole process — the filing itself is handled by licensed counsel, as it should be.",
+        a: "No. We match you with a vetted, Amazon-approved IP law firm at pre-negotiated rates and coordinate the whole process. The filing itself is handled by licensed counsel, as it should be.",
       },
       {
         q: "Where are you based?",
@@ -197,13 +249,13 @@ export const legalContent: FunnelContent = {
     eyebrow: "Our commitment to you",
     title: { lead: "We stay on it,", accent: "not just on the invoice." },
     badge: { value: "24/7", label: "Ongoing IP monitoring, not just at filing" },
-    body: "No fabricated guarantees here — just the terms we actually operate on, and have since day one.",
+    body: "No fabricated guarantees here, just the terms we actually operate on, and have since day one.",
     ctaLabel: "Book Your Free Brand Protection Call",
     points: [
       {
         title: "Objection resolution included",
         detail:
-          "If your application gets an office action or objection, we stay on it with you — not an extra invoice for something that's common and normal.",
+          "If your application gets an office action or objection, we stay on it with you, not an extra invoice for something that's common and normal.",
       },
       {
         title: "Ongoing IP monitoring",
@@ -213,7 +265,7 @@ export const legalContent: FunnelContent = {
       {
         title: "Vetted counsel, transparent pricing",
         detail:
-          "Pre-negotiated rates with Amazon-approved IP firms — no hunting, no surprise legal bills.",
+          "Pre-negotiated rates with Amazon-approved IP firms, no hunting, no surprise legal bills.",
       },
     ],
   },
@@ -223,7 +275,7 @@ export const legalContent: FunnelContent = {
     subtitle:
       "Book a free call. We'll map the fastest path to Brand Registry for your specific brand and category.",
     ctaLabel: "Book Your Free Brand Protection Call",
-    note: "No pressure, no obligation — just a clear next step for your filing.",
+    note: "No pressure, no obligation, just a clear next step for your filing.",
   },
 
   stepCopy: [

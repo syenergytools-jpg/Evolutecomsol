@@ -31,7 +31,7 @@ const shopifyProjects: FunnelProject[] = [
     image: "/glowco-hero.png",
     metric: { value: "$5,287,932", label: "Total sales" },
     outcome:
-      "CalmCarry's direct-to-consumer storefront — the same brand behind the six-figure Amazon listing, its own home on Shopify.",
+      "CalmCarry's direct-to-consumer storefront, the same brand behind the six-figure Amazon listing, its own home on Shopify.",
     href: "https://www.theglowcompany.co/",
   },
   {
@@ -42,7 +42,7 @@ const shopifyProjects: FunnelProject[] = [
     image: "/reviewboost-hero.png",
     metric: { value: "+26,987", label: "Customers" },
     outcome:
-      "Tap-to-review cards, plaques, and stands for local businesses — storefront, catalog, and checkout, built on Shopify.",
+      "Tap-to-review cards, plaques, and stands for local businesses, storefront, catalog, and checkout, built on Shopify.",
     href: "https://reviewboostcard.com/",
   },
   {
@@ -71,13 +71,13 @@ export const shopifyContent: FunnelContent = {
   accent: "emerald",
 
   seo: {
-    title: "Shopify & Headless Development — Free Scope Call",
+    title: "Shopify & Headless Development: Free Scope Call",
     description:
-      "Custom Shopify themes, MERN-stack apps, and headless Hydrogen storefronts — built to convert and to survive launch-day traffic, by one engineering team from wireframe to post-launch support.",
+      "Custom Shopify themes, MERN-stack apps, and headless Hydrogen storefronts, built to convert and to survive launch-day traffic, by one engineering team from wireframe to post-launch support.",
   },
 
   urgency: {
-    message: "Now booking Shopify & headless build consultations — get a free scope and quote.",
+    message: "Now booking Shopify & headless build consultations. Get a free scope and quote.",
   },
 
   hero: {
@@ -86,9 +86,9 @@ export const shopifyContent: FunnelContent = {
     headlineAccent: "That Actually Convert.",
     badge: "Custom themes, headless Hydrogen builds, and the integrations that make a store run.",
     subhead:
-      "From startup to enterprise — we build Shopify stores and MERN-stack apps engineered to convert, and to survive launch-day traffic, not just look good in a portfolio screenshot.",
+      "From startup to enterprise, we build Shopify stores and MERN-stack apps engineered to convert, and to survive launch-day traffic, not just look good in a portfolio screenshot.",
     disclaimer:
-      "This is a project-based build engagement. Timelines vary by scope — a firm quote and delivery date are confirmed on the call, not promised here.",
+      "This is a project-based build engagement. Timelines vary by scope, a firm quote and delivery date are confirmed on the call, not promised here.",
     ctaLabel: "Book Your Free Build Consultation",
     // Shopify-specific real credentials (client-supplied), distinct from
     // the Amazon SPN/Trustpilot badges /amazon and /legal show — see
@@ -118,7 +118,7 @@ export const shopifyContent: FunnelContent = {
     eyebrow: "How it works",
     title: { lead: "The build,", accent: "in plain English." },
     paragraphs: [
-      "We design, build, and integrate your Shopify or headless Hydrogen storefront — theme, apps, payments, and CRM — as one team from first wireframe to launch day.",
+      "We design, build, and integrate your Shopify or headless Hydrogen storefront: theme, apps, payments, and CRM, as one team from first wireframe to launch day.",
       "You own the store, the code, and the Shopify account. We're the build team behind it, then the team you call when something needs to change.",
     ],
     distinction:
@@ -142,7 +142,7 @@ export const shopifyContent: FunnelContent = {
         icon: Code2,
         title: "MERN-stack web applications",
         detail:
-          "MongoDB, Express, React, Node — for the custom apps and internal tools a stock theme can't do.",
+          "MongoDB, Express, React, Node, for the custom apps and internal tools a stock theme can't do.",
       },
       {
         icon: Zap,
@@ -154,19 +154,19 @@ export const shopifyContent: FunnelContent = {
         icon: Plug,
         title: "Payment, CRM & email integrations",
         detail:
-          "Stripe, HubSpot, Salesforce, Mailchimp — wired in properly, not bolted on after launch.",
+          "Stripe, HubSpot, Salesforce, Mailchimp, wired in properly, not bolted on after launch.",
       },
       {
         icon: Gauge,
         title: "Core Web Vitals tuning",
         detail:
-          "Load speed and responsiveness tuned so Google — and your actual customers — don't bounce before checkout.",
+          "Load speed and responsiveness tuned so Google, and your actual customers, don't bounce before checkout.",
       },
       {
         icon: LifeBuoy,
         title: "Post-launch support & iteration",
         detail:
-          "The team that built it stays reachable after launch — for fixes, new features, and the next migration.",
+          "The team that built it stays reachable after launch, for fixes, new features, and the next migration.",
       },
     ],
   },
@@ -180,7 +180,7 @@ export const shopifyContent: FunnelContent = {
       items: [
         "You want a same-day drag-and-drop site with zero engineering behind it.",
         "You need it live tomorrow, with no scoping call first.",
-        "You're not planning to integrate real payments, CRM, or email — just a static brochure page.",
+        "You're not planning to integrate real payments, CRM, or email, just a static brochure page.",
         "You want the cheapest theme install, not a store built to handle real traffic.",
       ],
     },
@@ -188,7 +188,7 @@ export const shopifyContent: FunnelContent = {
       heading: "This IS for you if...",
       items: [
         "You want a store engineered to survive launch-day and sale-day traffic spikes.",
-        "You need real integrations — Stripe, HubSpot, Mailchimp — done right the first time.",
+        "You need real integrations: Stripe, HubSpot, Mailchimp, done right the first time.",
         "You care about Core Web Vitals, SEO, and load speed, not just how it looks in a screenshot.",
         "You want one team from first wireframe to post-launch support.",
       ],
@@ -209,17 +209,24 @@ export const shopifyContent: FunnelContent = {
     // 2-card split over inventing overlap or fabricating a 3rd).
     items: [
       { ...testimonials[3], headline: "How James Shipped a Headless Store in 6 Weeks" },
-      { ...testimonials[2], headline: "Why Priya Chose Evolut After Three Other Agencies" },
+      {
+        ...testimonials[2],
+        // Literal override: the source quote (site-config.ts, shared
+        // with /legal and /consultation) uses an em dash.
+        quote:
+          "We tried three agencies before Evolut. They're the first team that operated like operators, not just executors. Real opinions, real numbers.",
+        headline: "Why Priya Chose Evolut After Three Other Agencies",
+      },
     ],
   },
 
   team: {
     eyebrow: "The people behind your build",
     title: { lead: "A dedicated engineering team,", accent: "not a freelancer roulette." },
-    subtitle: "Design, development, integrations, and post-launch support — the same team throughout.",
+    subtitle: "Design, development, integrations, and post-launch support, the same team throughout.",
     badges: [
-      { src: "/badges/trust-badge-1.avif", alt: "Top 10 Ecommerce Leaders 2024 — Honored by Retail Business Review", width: 300, height: 300 },
-      { src: "/badges/trust-badge-2.avif", alt: "Top 10 Ecommerce Leaders 2025 — Honored by Retail Business Review", width: 300, height: 300 },
+      { src: "/badges/trust-badge-1.avif", alt: "Top 10 Ecommerce Leaders 2024: Honored by Retail Business Review", width: 300, height: 300 },
+      { src: "/badges/trust-badge-2.avif", alt: "Top 10 Ecommerce Leaders 2025: Honored by Retail Business Review", width: 300, height: 300 },
     ],
   },
 
@@ -229,7 +236,7 @@ export const shopifyContent: FunnelContent = {
     items: [
       {
         q: "Do you build themes, headless (Hydrogen), or both?",
-        a: "Both — we scope the right approach for your catalog size and growth plan on the call, then build exactly that.",
+        a: "Both. We scope the right approach for your catalog size and growth plan on the call, then build exactly that.",
       },
       {
         q: "Can you migrate our existing store without downtime?",
@@ -258,18 +265,18 @@ export const shopifyContent: FunnelContent = {
     eyebrow: "Our commitment to you",
     title: { lead: "We stay accountable,", accent: "not just busy." },
     badge: { value: "~6 WKS", label: "Average build time, start to launch" },
-    body: "No fabricated guarantees here — just the terms we actually operate on, and have since day one.",
+    body: "No fabricated guarantees here, just the terms we actually operate on, and have since day one.",
     ctaLabel: "Book Your Free Build Consultation",
     points: [
       {
         title: "Fixed scope, fixed price",
         detail:
-          "You get a firm quote and timeline after the scope call — no open-ended hourly billing that creeps.",
+          "You get a firm quote and timeline after the scope call, no open-ended hourly billing that creeps.",
       },
       {
         title: "One accountable team",
         detail:
-          "Design, development, and integrations under one roof — no handoff between five different freelancers.",
+          "Design, development, and integrations under one roof, no handoff between five different freelancers.",
       },
       {
         title: "Post-launch support included",
@@ -282,9 +289,9 @@ export const shopifyContent: FunnelContent = {
   finalCta: {
     title: { lead: "Ready for a Shopify store", accent: "that actually holds up?" },
     subtitle:
-      "Book a free build consultation. We'll scope your project honestly — including what it should cost and how long it should take.",
+      "Book a free build consultation. We'll scope your project honestly, including what it should cost and how long it should take.",
     ctaLabel: "Book Your Free Build Consultation",
-    note: "No pressure, no obligation — just a real engineer walking through your project.",
+    note: "No pressure, no obligation, just a real engineer walking through your project.",
   },
 
   stepCopy: [

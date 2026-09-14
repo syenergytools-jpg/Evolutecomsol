@@ -101,7 +101,7 @@ export function FunnelBookingModalProvider({
                 exit={{ opacity: 0, y: 16 }}
                 transition={{ duration: 0.35, delay: 0.05, ease: PREMIUM_EASE }}
               >
-                <p className="eyebrow eyebrow-line justify-center mb-6 text-center">
+                <p className="eyebrow justify-center mb-6 text-center">
                   One quick fit-check
                 </p>
                 <FunnelForm content={content} />

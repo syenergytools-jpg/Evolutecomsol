@@ -20,7 +20,7 @@ import { FunnelFooter } from "@/components/funnel/funnel-footer";
 import { shopifyContent } from "./shopify-content";
 
 const DISCLAIMER =
-  "Evolut Ecommerce Solutions is an independent Shopify development partner. We are not affiliated with, endorsed by, or sponsored by Shopify Inc. Shopify and Hydrogen are trademarks of Shopify Inc. Timelines and costs vary by project scope — nothing on this page is a fixed quote until confirmed in writing.";
+  "Evolut Ecommerce Solutions is an independent Shopify development partner. We are not affiliated with, endorsed by, or sponsored by Shopify Inc. Shopify and Hydrogen are trademarks of Shopify Inc. Timelines and costs vary by project scope, nothing on this page is a fixed quote until confirmed in writing.";
 
 /**
  * ShopifyFunnel — Client Component with no props from page.tsx; see

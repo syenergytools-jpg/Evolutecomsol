@@ -33,14 +33,16 @@ export function FunnelFeatureGrid({ content }: { content: FunnelContent }) {
             return (
               <Reveal key={item.title} delay={(i % 3) * 0.08}>
                 <div className="group h-full rounded-[1.5rem] border border-canvas/10 bg-canvas/[0.03] p-6 md:p-7 transition-colors duration-300 hover:bg-canvas/[0.06]">
-                  <span
-                    className={`grid place-items-center h-12 w-12 md:h-14 md:w-14 rounded-2xl ${accent.tint} ${accent.fg} mb-5 transition-transform duration-300 group-hover:scale-105`}
-                  >
-                    <Icon className="h-6 w-6 md:h-7 md:w-7" strokeWidth={1.8} />
-                  </span>
-                  <h3 className="text-xl md:text-2xl font-semibold text-canvas leading-snug mb-3">
-                    {item.title}
-                  </h3>
+                  <div className="flex items-center gap-4 mb-4">
+                    <span
+                      className={`shrink-0 grid place-items-center h-12 w-12 md:h-14 md:w-14 rounded-2xl ${accent.tint} ${accent.fg} transition-transform duration-300 group-hover:scale-105`}
+                    >
+                      <Icon className="h-6 w-6 md:h-7 md:w-7" strokeWidth={1.8} />
+                    </span>
+                    <h3 className="text-xl md:text-2xl font-semibold text-canvas leading-snug">
+                      {item.title}
+                    </h3>
+                  </div>
                   <p className="text-base md:text-[1.05rem] text-canvas/60 leading-relaxed transition-colors duration-300">
                     {item.detail}
                   </p>

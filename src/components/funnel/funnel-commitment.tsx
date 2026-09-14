@@ -75,15 +75,14 @@ export function FunnelCommitment({ content }: { content: FunnelContent }) {
           {content.commitment.points.map((point, i) => (
             <Reveal key={point.title} delay={0.1 + i * 0.08}>
               <div className="group h-full rounded-2xl border border-canvas/10 bg-canvas/[0.03] p-6 transition-colors duration-300 hover:bg-canvas/[0.06]">
-                <span className={`grid place-items-center h-10 w-10 rounded-full ${accent.tint} ${accent.fg} mb-4 transition-transform duration-300 group-hover:scale-105`}>
-                  <ShieldCheck className="h-5 w-5" strokeWidth={2} />
-                </span>
-                <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-canvas/40 mb-2">
-                  0{i + 1}
-                </p>
-                <h3 className="text-lg md:text-xl font-semibold text-canvas mb-2">
-                  {point.title}
-                </h3>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className={`shrink-0 grid place-items-center h-10 w-10 rounded-full ${accent.tint} ${accent.fg} transition-transform duration-300 group-hover:scale-105`}>
+                    <ShieldCheck className="h-5 w-5" strokeWidth={2} />
+                  </span>
+                  <h3 className="text-lg md:text-xl font-semibold text-canvas">
+                    {point.title}
+                  </h3>
+                </div>
                 <p className="text-base text-canvas/55 leading-relaxed">{point.detail}</p>
               </div>
             </Reveal>

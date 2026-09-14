@@ -34,7 +34,7 @@ export function FunnelHeader({ accent }: { accent: FunnelAccent }) {
     <header className="sticky top-0 z-50 bg-obsidian/90 backdrop-blur-xl border-b border-canvas/10">
       <div className="container-x flex items-center justify-between h-16 md:h-20">
         <div className="shrink-0 -ml-1 rounded-xl bg-canvas p-1.5">
-          <Logo variant="mark" size="sm" alt="Evolut" />
+          <Logo variant="mark" size="md" alt="Evolut" />
         </div>
 
         <div className="flex items-center gap-3">

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
+import { cn } from "@/lib/utils";
 import { FunnelHeading } from "./funnel-heading";
 import { funnelAccent } from "./funnel-theme";
 import type { FunnelContent } from "./funnel-types";
@@ -12,11 +13,11 @@ import type { FunnelContent } from "./funnel-types";
  * matches `aspect-video` almost exactly, so `object-cover` crops
  * nothing meaningful) rather than the earlier per-operator headshot
  * grid, matching the reference site's one-photo team section. Followed
- * by the client's real "Top 10 Ecommerce Leaders" award badges
- * (public/badges/trust-badge-{1,2}.avif, honored by Retail Business
- * Review, 2024 and 2025). Both are `loading="eager"` — see the same
- * note in funnel-hero.tsx on why an image inside a <Reveal> can't
- * reliably rely on native lazy-loading.
+ * by `content.team.badges` — real, page-specific credential badges
+ * (e.g. /amazon and /shopify's "Top 10 Ecommerce Leaders" award vs.
+ * /legal's own credential seals, see each *-content.ts). All
+ * `loading="eager"` — see the same note in funnel-hero.tsx on why an
+ * image inside a <Reveal> can't reliably rely on native lazy-loading.
  */
 export function FunnelTeam({ content }: { content: FunnelContent }) {
   const accent = funnelAccent[content.accent];
@@ -52,22 +53,17 @@ export function FunnelTeam({ content }: { content: FunnelContent }) {
 
         <Reveal delay={0.18}>
           <div className="mt-12 md:mt-16 flex flex-wrap items-center justify-center gap-14 md:gap-24">
-            <Image
-              src="/badges/trust-badge-1.avif"
-              alt="Top 10 Ecommerce Leaders 2024 — Honored by Retail Business Review"
-              width={300}
-              height={300}
-              loading="eager"
-              className="h-36 md:h-44 w-auto rounded-lg"
-            />
-            <Image
-              src="/badges/trust-badge-2.avif"
-              alt="Top 10 Ecommerce Leaders 2025 — Honored by Retail Business Review"
-              width={300}
-              height={300}
-              loading="eager"
-              className="h-36 md:h-44 w-auto rounded-lg"
-            />
+            {content.team.badges.map((badge) => (
+              <Image
+                key={badge.src}
+                src={badge.src}
+                alt={badge.alt}
+                width={badge.width}
+                height={badge.height}
+                loading="eager"
+                className={cn(badge.className ?? "h-36 md:h-44", "w-auto rounded-lg")}
+              />
+            ))}
           </div>
         </Reveal>
       </div>

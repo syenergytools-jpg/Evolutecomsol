@@ -44,7 +44,7 @@ export function FunnelProjects({ content }: { content: FunnelContent }) {
           accent={content.accent}
           eyebrow="Selected work"
           title={{ lead: "Real brands.", accent: "Real numbers." }}
-          subtitle="Four engagements, and the work behind each number."
+          subtitle={`${content.projects.length} engagement${content.projects.length === 1 ? "" : "s"}, and the work behind each number.`}
         />
 
         <div className="mt-14 md:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 max-w-5xl mx-auto">

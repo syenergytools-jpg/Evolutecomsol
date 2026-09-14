@@ -10,7 +10,7 @@ import type { CSSProperties } from "react";
  * reference" comes from using three saturated hues across the three
  * pages instead of one muted copper everywhere.
  */
-export type FunnelAccent = "electric" | "copper" | "emerald";
+export type FunnelAccent = "electric" | "copper" | "emerald" | "lime";
 
 export const funnelAccent: Record<
   FunnelAccent,
@@ -52,6 +52,18 @@ export const funnelAccent: Record<
     hex: "var(--emerald)",
     glow: "rgba(16,185,129,0.45)",
     glowSoft: "rgba(16,185,129,0.22)",
+  },
+  lime: {
+    fg: "text-lime",
+    tint: "bg-lime/10",
+    tintStrong: "bg-lime/15",
+    // Lime is a bright yellow-green — every existing bg-lime use
+    // site-wide (tech-stack.tsx, services.tsx, avatar.tsx, etc.) pairs
+    // it with dark ink text, never white, for contrast.
+    solid: "bg-lime hover:bg-lime/85 text-ink",
+    hex: "var(--lime)",
+    glow: "rgba(217,255,60,0.45)",
+    glowSoft: "rgba(217,255,60,0.22)",
   },
 };
 

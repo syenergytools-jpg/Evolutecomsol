@@ -200,10 +200,16 @@ export const shopifyContent: FunnelContent = {
     title: { lead: "Real stores.", accent: "Real builds." },
     // Headlines extract a number already stated verbatim in each real
     // quote — see amazon-content.ts's testimonials for the same note.
+    // Only 5 real client testimonials exist site-wide (site-config.ts) —
+    // James's is the only one actually about a Shopify/headless build;
+    // Priya's is the one generic enough to also honestly sit here.
+    // Sarah/Marcus/Olivia's quotes are all Amazon-specific and belong to
+    // /amazon only — don't re-add one here "to make it 3" without a real
+    // new Shopify testimonial to back it (user was asked, chose this
+    // 2-card split over inventing overlap or fabricating a 3rd).
     items: [
       { ...testimonials[3], headline: "How James Shipped a Headless Store in 6 Weeks" },
       { ...testimonials[2], headline: "Why Priya Chose Evolut After Three Other Agencies" },
-      { ...testimonials[0], headline: "How Sarah 4×'d Revenue in 11 Months" },
     ],
   },
 
@@ -211,6 +217,10 @@ export const shopifyContent: FunnelContent = {
     eyebrow: "The people behind your build",
     title: { lead: "A dedicated engineering team,", accent: "not a freelancer roulette." },
     subtitle: "Design, development, integrations, and post-launch support — the same team throughout.",
+    badges: [
+      { src: "/badges/trust-badge-1.avif", alt: "Top 10 Ecommerce Leaders 2024 — Honored by Retail Business Review", width: 300, height: 300 },
+      { src: "/badges/trust-badge-2.avif", alt: "Top 10 Ecommerce Leaders 2025 — Honored by Retail Business Review", width: 300, height: 300 },
+    ],
   },
 
   faq: {

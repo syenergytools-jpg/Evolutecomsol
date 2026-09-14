@@ -150,6 +150,10 @@ export const amazonContent: FunnelContent = {
     eyebrow: "The people behind your account",
     title: { lead: "A dedicated team running", accent: "your Amazon business every day." },
     subtitle: "Sourcing, listings, PPC, and account health — specialists, not generalists.",
+    badges: [
+      { src: "/badges/trust-badge-1.avif", alt: "Top 10 Ecommerce Leaders 2024 — Honored by Retail Business Review", width: 300, height: 300 },
+      { src: "/badges/trust-badge-2.avif", alt: "Top 10 Ecommerce Leaders 2025 — Honored by Retail Business Review", width: 300, height: 300 },
+    ],
   },
 
   faq: {

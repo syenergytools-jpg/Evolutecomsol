@@ -1,6 +1,50 @@
 import { ipAccelerator, testimonials } from "@/lib/site-config";
-import { funnelProjects } from "@/components/funnel/funnel-projects-data";
 import type { FunnelContent } from "@/components/funnel/funnel-types";
+import type { FunnelProject } from "@/components/funnel/funnel-projects-data";
+
+/**
+ * Legal-specific "Real brands. Real numbers." set — of the 6 real case
+ * studies in site-config.ts's `caseStudies`, only Gloco and Shilajit
+ * Co. actually carry `channels: [...,"trademark",...]` (Squirtz,
+ * Detailcraft, PawSteps, and Pacelane don't have any real trademark/
+ * Brand Registry work to point to). Same real numbers and images as
+ * funnel-projects-data.ts's shared set (that file's `funnelProjects`
+ * still powers /amazon), but `outcome` is rewritten here to lead with
+ * each brand's real Brand Registry milestone — verbatim from
+ * site-config's own `timeline`/`outcome`/`stats` fields for these two,
+ * not a new claim:
+ *   - Gloco: timeline phase "04 · Launch" — "Sponsored Products +
+ *     Brands, Brand Registry filed, review velocity ramp."
+ *   - Shilajit Co.: `stats` includes `{value:"Approved",
+ *     label:"Brand Registry"}` and outcome "...Brand Registry filed and
+ *     approved."
+ * Only 2 real trademark-tagged engagements exist — don't pad this back
+ * to 4 by re-adding Squirtz/PawSteps, which have no real trademark
+ * angle (same "ask rather than pad with irrelevant content" call as
+ * round 18's testimonials).
+ */
+const legalProjects: FunnelProject[] = [
+  {
+    slug: "gloco-calm-carry-us",
+    company: "Glowco International LLC",
+    product: "Calm Carry",
+    category: "Wellness · Personal Care",
+    image: "/stats/products/gloco/1.webp",
+    metric: { value: "$5,287,932", label: "Total sales" },
+    outcome:
+      "Brand Registry filed as part of the Amazon launch phase — protection in place before the review ramp even began.",
+  },
+  {
+    slug: "shilajit-resin-au",
+    company: "Shilajit Co.",
+    product: "Resin",
+    category: "Supplements · Nutrition",
+    image: "/stats/products/shilajit/1.jpg",
+    metric: { value: "5.2×", label: "GMV · 9 months" },
+    outcome:
+      "AU/NZ market entry, compliance-checked labeling, and Brand Registry filed and approved before the first sale.",
+  },
+];
 
 /**
  * /legal funnel content — trademark filing + Amazon IP Accelerator /
@@ -11,7 +55,7 @@ import type { FunnelContent } from "@/components/funnel/funnel-types";
  */
 export const legalContent: FunnelContent = {
   slug: "legal",
-  accent: "electric",
+  accent: "lime",
 
   seo: {
     title: "Trademark Filing & Amazon Brand Registry — Free Call",
@@ -32,9 +76,13 @@ export const legalContent: FunnelContent = {
     disclaimer:
       "This covers trademark filing coordination and Amazon's IP Accelerator program, not legal representation itself. You're matched with a vetted, independent IP law firm who handles the filing.",
     ctaLabel: "Book Your Free Brand Protection Call",
+    // Legal-specific real credential seals (client-supplied) — Advocacy
+    // Legal Services, Law Compliance / Legal Protection, and Advocacy
+    // Legal Assistance, one combined graphic — distinct from the Amazon
+    // SPN/Trustpilot badges /amazon shows. See funnel-types.ts's note on
+    // `hero.heroBadges` being page-specific.
     heroBadges: [
-      { src: "/badges/hero-badge-1.avif", alt: "Amazon SPN Certified — Service Provider Network", width: 1282, height: 297 },
-      { src: "/badges/hero-badge-2.avif", alt: "Trustpilot — 5 star rating", width: 1400, height: 700 },
+      { src: "/badges/legal-hero-badge.png", alt: "Advocacy Legal Services, Law Compliance & Legal Protection, Advocacy Legal Assistance — certified seals", width: 520, height: 173 },
     ],
   },
 
@@ -90,15 +138,19 @@ export const legalContent: FunnelContent = {
   testimonials: {
     eyebrow: "Client voices",
     title: { lead: "Brands who trust us", accent: "with more than just ads." },
-    // Headlines extract a number already stated verbatim in each real
-    // quote — see amazon-content.ts's testimonials for the same note.
-    // None of the 5 site-config testimonials mention trademark/IP work
-    // directly, so these lean on general trust rather than a specific
-    // (and unverifiable) filing outcome.
+    // Only 5 real client testimonials exist site-wide (site-config.ts),
+    // and none mentions trademark/IP/Brand Registry work directly —
+    // Priya's is the one generic enough ("real opinions, real numbers",
+    // no channel mentioned) to honestly sit here too, shared with
+    // /shopify. Marcus's and James's quotes are specific to Amazon
+    // photography/conversion and Shopify/headless work respectively —
+    // moved off this page entirely rather than kept "for a full 3" with
+    // no real relevance. User was asked and chose this single-card
+    // section over inventing a legal-specific quote or forcing overlap.
+    // If a real trademark/Brand-Registry client testimonial (with photo)
+    // is ever supplied, add it here instead of reusing another page's.
     items: [
       { ...testimonials[2], headline: "Why Priya Chose Evolut After Three Other Agencies" },
-      { ...testimonials[1], headline: "How Marcus Lifted Conversion 38% Overnight" },
-      { ...testimonials[3], headline: "How James Shipped a Headless Store in 6 Weeks" },
     ],
   },
 
@@ -106,6 +158,12 @@ export const legalContent: FunnelContent = {
     eyebrow: "The people coordinating your filing",
     title: { lead: "One team,", accent: "coordinating your filing start to finish." },
     subtitle: "Matched with vetted IP counsel, monitored by us long after the certificate arrives.",
+    // Reuses the same legal-hero-badge.png shown in the hero — /amazon
+    // and /shopify's generic "Top 10 Ecommerce Leaders" award isn't
+    // relevant here; these credential seals are.
+    badges: [
+      { src: "/badges/legal-hero-badge.png", alt: "Advocacy Legal Services, Law Compliance & Legal Protection, Advocacy Legal Assistance — certified seals", width: 520, height: 173, className: "h-28 md:h-36" },
+    ],
   },
 
   faq: {
@@ -182,5 +240,5 @@ export const legalContent: FunnelContent = {
     },
   ],
 
-  projects: funnelProjects,
+  projects: legalProjects,
 };

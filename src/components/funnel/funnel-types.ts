@@ -42,6 +42,15 @@ export type FunnelStepCopy = {
   sub?: string;
 };
 
+export type FunnelBadge = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  /** Overrides the shared default rendered size — omit to keep it. */
+  className?: string;
+};
+
 /**
  * Full content contract for one funnel page. Every /legal, /amazon,
  * /shopify page is the SAME set of section components
@@ -73,7 +82,7 @@ export type FunnelContent = {
      *  `className` optionally overrides the default rendered height
      *  (e.g. Shopify's seals read better larger than the Amazon
      *  SPN/Trustpilot wordmarks) — omit to keep the shared default. */
-    heroBadges: { src: string; alt: string; width: number; height: number; className?: string }[];
+    heroBadges: FunnelBadge[];
   };
   stats: FunnelStat[];
   explainer: {
@@ -105,6 +114,11 @@ export type FunnelContent = {
     eyebrow: string;
     title: FunnelHeadingText;
     subtitle: string;
+    /** Credential/trust badges shown below the team photo —
+     *  page-specific (e.g. legal's own credential seals aren't relevant
+     *  on /amazon or /shopify's "Top 10 Ecommerce Leaders" award, and
+     *  vice versa). See funnel-team.tsx. */
+    badges: FunnelBadge[];
   };
   faq: {
     eyebrow: string;

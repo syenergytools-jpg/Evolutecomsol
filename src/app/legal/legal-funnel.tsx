@@ -3,7 +3,6 @@
 import { FunnelFontScope } from "@/components/funnel/funnel-font-scope";
 import { FunnelBookingModalProvider } from "@/components/funnel/funnel-booking-modal";
 import { FunnelUrgencyBar } from "@/components/funnel/funnel-urgency-bar";
-import { FunnelHeader } from "@/components/funnel/funnel-header";
 import { FunnelHero } from "@/components/funnel/funnel-hero";
 import { FunnelTrustMarquee } from "@/components/funnel/funnel-trust-marquee";
 import { FunnelStatsBar } from "@/components/funnel/funnel-stats-bar";
@@ -33,7 +32,6 @@ export function LegalFunnel() {
     <FunnelFontScope>
       <FunnelBookingModalProvider content={legalContent}>
         <FunnelUrgencyBar message={legalContent.urgency.message} accent={legalContent.accent} />
-        <FunnelHeader accent={legalContent.accent} />
         <main>
           <FunnelHero content={legalContent} />
           <FunnelTrustMarquee content={legalContent} />

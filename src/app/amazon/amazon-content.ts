@@ -38,9 +38,12 @@ export const amazonContent: FunnelContent = {
     disclaimer:
       "This is a hands-on account management engagement, not a passive investment. Results depend on product, budget, and category. Full terms are covered on the call.",
     ctaLabel: "Book Your Free Amazon Audit",
+    // Smaller pre-`sm:`: at the shared default h-16, this wide SPN
+    // wordmark + the Trustpilot mark together overflowed a 375px row
+    // and wrapped to 2 lines.
     heroBadges: [
-      { src: "/badges/hero-badge-1.avif", alt: "Amazon SPN Certified: Service Provider Network", width: 1282, height: 297 },
-      { src: "/badges/hero-badge-2.avif", alt: "Trustpilot: 5 star rating", width: 1400, height: 700 },
+      { src: "/badges/hero-badge-1.avif", alt: "Amazon SPN Certified: Service Provider Network", width: 1282, height: 297, className: "h-12 sm:h-16 md:h-20" },
+      { src: "/badges/hero-badge-2.avif", alt: "Trustpilot: 5 star rating", width: 1400, height: 700, className: "h-12 sm:h-16 md:h-20" },
     ],
   },
 

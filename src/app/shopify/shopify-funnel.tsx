@@ -3,7 +3,6 @@
 import { FunnelFontScope } from "@/components/funnel/funnel-font-scope";
 import { FunnelBookingModalProvider } from "@/components/funnel/funnel-booking-modal";
 import { FunnelUrgencyBar } from "@/components/funnel/funnel-urgency-bar";
-import { FunnelHeader } from "@/components/funnel/funnel-header";
 import { FunnelHero } from "@/components/funnel/funnel-hero";
 import { FunnelTrustMarquee } from "@/components/funnel/funnel-trust-marquee";
 import { FunnelStatsBar } from "@/components/funnel/funnel-stats-bar";
@@ -33,7 +32,6 @@ export function ShopifyFunnel() {
     <FunnelFontScope>
       <FunnelBookingModalProvider content={shopifyContent}>
         <FunnelUrgencyBar message={shopifyContent.urgency.message} accent={shopifyContent.accent} />
-        <FunnelHeader accent={shopifyContent.accent} />
         <main>
           <FunnelHero content={shopifyContent} />
           <FunnelTrustMarquee content={shopifyContent} />

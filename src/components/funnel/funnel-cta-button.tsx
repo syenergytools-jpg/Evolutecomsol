@@ -25,12 +25,22 @@ export function FunnelCtaButton({
   className?: string;
 }) {
   const accentClasses = funnelAccent[accent];
+  // `.btn-pill` in globals.css sets `padding`/`font-size` directly and is
+  // UNLAYERED (not inside @layer utilities) — same trap as this file's
+  // border-color/`.display` gotchas elsewhere in this codebase, so a
+  // plain `px-*`/`py-*`/`text-*` class here is silently defeated
+  // regardless of `size`. Custom properties + inline `style` beat it
+  // (inline style always wins), same workaround already used for
+  // border-color. `lg` is responsive (smaller pre-`sm:`) because its
+  // longest real label ("Book Your Free Brand Protection Call") doesn't
+  // fit the 375px pill on one line at the old fixed size, and a
+  // 2-line pill breaks the stadium shape and the icon's centering.
   const sizing =
     size === "lg"
-      ? "px-7 py-4 text-[1rem]"
+      ? "[--btn-pad-y:0.875rem] [--btn-pad-x:1.25rem] [--btn-font:0.9rem] sm:[--btn-pad-y:1rem] sm:[--btn-pad-x:1.75rem] sm:[--btn-font:1rem]"
       : size === "sm"
-      ? "px-4 py-2 text-[0.85rem]"
-      : "px-6 py-3 text-[0.95rem]";
+      ? "[--btn-pad-y:0.5rem] [--btn-pad-x:1rem] [--btn-font:0.85rem]"
+      : "[--btn-pad-y:0.75rem] [--btn-pad-x:1.5rem] [--btn-font:0.95rem]";
 
   return (
     <button type="button" onClick={onClick} className="inline-flex">
@@ -41,6 +51,7 @@ export function FunnelCtaButton({
           sizing,
           className
         )}
+        style={{ padding: "var(--btn-pad-y) var(--btn-pad-x)", fontSize: "var(--btn-font)" }}
       >
         <span className="font-semibold">{children}</span>
         <span className="relative inline-flex h-5 w-5 items-center justify-center overflow-hidden">

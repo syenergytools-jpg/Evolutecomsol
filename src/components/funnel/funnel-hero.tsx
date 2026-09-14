@@ -136,19 +136,21 @@ export function FunnelHero({ content }: { content: FunnelContent }) {
         </Reveal>
 
         {/* Real, page-specific trust badges (content.hero.heroBadges —
-            e.g. Amazon SPN Certified + Trustpilot on /amazon and /legal,
-            Shopify Certified + Software Development on /shopify) —
-            replaces the earlier redundant 240+/18,000+/3.4×/9 mini-stats
-            (those numbers are still shown, once, in <FunnelStatsBar/>
-            below). `loading="eager"` is deliberate: these sit inside a
-            <Reveal>, which renders its child at opacity:0 until its own
-            in-view check fires — the browser was deprioritizing
-            (sometimes indefinitely, in testing) the native lazy-load
-            fetch for an <img> inside an invisible ancestor, racing the
-            reveal animation against an image that hadn't started
-            loading yet. */}
+            e.g. Amazon SPN Certified + Trustpilot on /amazon, the legal
+            credential seals on /legal, Shopify Certified + Software
+            Development on /shopify) — replaces the earlier redundant
+            240+/18,000+/3.4×/9 mini-stats (those numbers are still
+            shown, once, in <FunnelStatsBar/> below). `loading="eager"`
+            is deliberate: these sit inside a <Reveal>, which renders its
+            child at opacity:0 until its own in-view check fires — the
+            browser was deprioritizing (sometimes indefinitely, in
+            testing) the native lazy-load fetch for an <img> inside an
+            invisible ancestor, racing the reveal animation against an
+            image that hadn't started loading yet. Gap is tighter
+            pre-`sm:` — Amazon's SPN wordmark + Trustpilot mark together
+            wrapped to 2 lines at the old gap-8 on a 375px screen. */}
         <Reveal delay={0.2}>
-          <div className="mt-12 md:mt-16 flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <div className="mt-12 md:mt-16 flex flex-wrap items-center justify-center gap-4 sm:gap-8 md:gap-12">
             {content.hero.heroBadges.map((badge) => (
               <Image
                 key={badge.src}

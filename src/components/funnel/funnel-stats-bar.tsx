@@ -48,7 +48,10 @@ export function FunnelStatsBar({ content }: { content: FunnelContent }) {
                 className="group rounded-[1.25rem] border border-canvas/10 bg-canvas/[0.03] px-4 py-7 md:px-6 md:py-9 transition-colors duration-300 hover:bg-canvas/[0.06]"
                 style={{ boxShadow: `0 16px 40px -20px rgba(0,0,0,0.7), 0 10px 28px -12px ${accent.glowSoft}` }}
               >
-                <p className={`display text-[clamp(1.9rem,4.6vw,3.25rem)] leading-none transition-transform duration-300 group-hover:scale-105 ${accent.fg}`}>
+                {/* Floor lowered from 1.9rem: at mobile 2-col widths, the
+                    old floor overflowed/clipped longer values like
+                    "Approved" and forced "End-to-end" onto 2 lines. */}
+                <p className={`display text-[clamp(1.3rem,4.6vw,3.25rem)] leading-none transition-transform duration-300 group-hover:scale-105 ${accent.fg}`}>
                   <AnimatedStat value={s.value} />
                 </p>
                 <p className="mt-2.5 font-mono text-[0.68rem] sm:text-[0.74rem] uppercase tracking-[0.12em] text-canvas/55 leading-snug">

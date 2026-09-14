@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import type { FunnelAccent } from "./funnel-theme";
 import type { FunnelHeadingText } from "./funnel-heading";
+import type { FunnelProject } from "./funnel-projects-data";
 
 export type FunnelFeature = {
   icon: LucideIcon;
@@ -66,6 +67,13 @@ export type FunnelContent = {
     subhead: string;
     disclaimer: string;
     ctaLabel: string;
+    /** Trust badges shown below the CTA — real credentials only, and
+     *  page-specific (e.g. Shopify's own "Shopify Certified" seal isn't
+     *  relevant on /amazon or /legal). See funnel-hero.tsx.
+     *  `className` optionally overrides the default rendered height
+     *  (e.g. Shopify's seals read better larger than the Amazon
+     *  SPN/Trustpilot wordmarks) — omit to keep the shared default. */
+    heroBadges: { src: string; alt: string; width: number; height: number; className?: string }[];
   };
   stats: FunnelStat[];
   explainer: {
@@ -121,4 +129,9 @@ export type FunnelContent = {
     note: string;
   };
   stepCopy: FunnelStepCopy[];
+  /** "Real brands. Real numbers." project cards — page-specific (see
+   *  funnel-projects-data.ts's note: /amazon and /legal share the same
+   *  4 Amazon/FBA case studies, /shopify shows its own real Shopify
+   *  builds instead). */
+  projects: FunnelProject[];
 };

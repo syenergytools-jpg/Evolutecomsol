@@ -1,4 +1,5 @@
 import { ipAccelerator, testimonials } from "@/lib/site-config";
+import { funnelProjects } from "@/components/funnel/funnel-projects-data";
 import type { FunnelContent } from "@/components/funnel/funnel-types";
 
 /**
@@ -31,6 +32,10 @@ export const legalContent: FunnelContent = {
     disclaimer:
       "This covers trademark filing coordination and Amazon's IP Accelerator program, not legal representation itself. You're matched with a vetted, independent IP law firm who handles the filing.",
     ctaLabel: "Book Your Free Brand Protection Call",
+    heroBadges: [
+      { src: "/badges/hero-badge-1.avif", alt: "Amazon SPN Certified — Service Provider Network", width: 1282, height: 297 },
+      { src: "/badges/hero-badge-2.avif", alt: "Trustpilot — 5 star rating", width: 1400, height: 700 },
+    ],
   },
 
   stats: ipAccelerator.stats.map((s) => ({ value: s.value, label: s.label })),
@@ -176,4 +181,6 @@ export const legalContent: FunnelContent = {
       sub: "No spam. No hard pitch. Just a plan.",
     },
   ],
+
+  projects: funnelProjects,
 };

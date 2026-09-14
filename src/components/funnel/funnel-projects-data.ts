@@ -13,12 +13,12 @@
  * full unabbreviated dollar amounts, not the same rounding as the main
  * site's /work pages).
  *
- * Shown identically across all three funnel pages (Amazon/Shopify/
- * Legal) rather than filtered per page — none of these 4 case studies
- * is tagged "shopify" in site-config's real `channels` data, so a
- * Shopify-specific subset would have nothing honest to show; these are
- * the company's flagship proof points regardless of which page a
- * visitor entered through.
+ * Used as-is by /amazon and /legal (via `FunnelContent.projects` in
+ * their own *-content.ts). /shopify shows a DIFFERENT, Shopify-specific
+ * set instead — see shopify-content.ts — because these 4 are Amazon/FBA
+ * engagements (none tagged "shopify" in site-config's real `channels`
+ * data), and a real, honest Shopify-specific set of client stores now
+ * exists to show instead of a filtered subset of these.
  * ------------------------------------------------------------------ */
 
 export type FunnelProject = {
@@ -30,6 +30,12 @@ export type FunnelProject = {
   image: string;
   metric: { value: string; label: string };
   outcome: string;
+  /** Overrides the default `/work/<slug>` link with a real external
+   *  URL (e.g. the live storefront itself) — used for real client sites
+   *  that don't have their own /work case-study page. Opens in a new
+   *  tab; card copy switches from "View case study" to "Visit live
+   *  store" when this is set. See funnel-projects.tsx. */
+  href?: string;
 };
 
 export const funnelProjects: FunnelProject[] = [

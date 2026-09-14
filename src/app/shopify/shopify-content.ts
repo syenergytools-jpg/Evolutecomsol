@@ -1,6 +1,62 @@
 import { Palette, Code2, Zap, Plug, Gauge, LifeBuoy } from "lucide-react";
 import { testimonials } from "@/lib/site-config";
 import type { FunnelContent } from "@/components/funnel/funnel-types";
+import type { FunnelProject } from "@/components/funnel/funnel-projects-data";
+
+/**
+ * Shopify-specific "Real brands. Real numbers." set — real Shopify
+ * stores, not the Amazon/FBA case studies /amazon and /legal share (see
+ * funnel-projects-data.ts). Each card links straight to the live store
+ * (no /work/<slug> case-study page exists for these) and each metric is
+ * the store's OWN publicly-published stat, pulled from its live
+ * homepage — never a number invented for this page:
+ *   - Glowco: reuses the existing, already-verified "$5,287,932 Total
+ *     sales" figure shown elsewhere on this site for the same real
+ *     brand (CalmCarry) — this is its Shopify DTC storefront.
+ *   - ReviewBoost: "+26,987 customers", stated on reviewboostcard.com's
+ *     own homepage.
+ *   - TinyCraft: "4.9/5 from 1,000+ builders", stated on tinycraft.co's
+ *     own homepage.
+ * Hero images are real homepage screenshots supplied directly (client
+ * assets, same as the badges — see funnel-hero.tsx's heroBadges note).
+ * A 4th store (repulabs.com.au) was scoped but dropped per explicit
+ * request — don't re-add it without asking again.
+ */
+const shopifyProjects: FunnelProject[] = [
+  {
+    slug: "glowco-shopify",
+    company: "Glowco",
+    product: "CalmCarry",
+    category: "Wellness · Personal Care",
+    image: "/glowco-hero.png",
+    metric: { value: "$5,287,932", label: "Total sales" },
+    outcome:
+      "CalmCarry's direct-to-consumer storefront — the same brand behind the six-figure Amazon listing, its own home on Shopify.",
+    href: "https://www.theglowcompany.co/",
+  },
+  {
+    slug: "reviewboost-shopify",
+    company: "ReviewBoost",
+    product: "NFC & QR Review Cards",
+    category: "Local Business · Reputation Tech",
+    image: "/reviewboost-hero.png",
+    metric: { value: "+26,987", label: "Customers" },
+    outcome:
+      "Tap-to-review cards, plaques, and stands for local businesses — storefront, catalog, and checkout, built on Shopify.",
+    href: "https://reviewboostcard.com/",
+  },
+  {
+    slug: "tinycraft-shopify",
+    company: "TinyCraft",
+    product: "Miniature Build Kits",
+    category: "Hobby · DIY Kits",
+    image: "/tinycraft-hero.png",
+    metric: { value: "4.9★", label: "From 1,000+ builders" },
+    outcome:
+      "80+ book-nook, tiny-room, and paint-by-numbers kits, organized into one fast, browsable Shopify catalog.",
+    href: "https://tinycraft.co/",
+  },
+];
 
 /**
  * /shopify funnel content. The "6 wks" build-time stat traces to the
@@ -34,6 +90,15 @@ export const shopifyContent: FunnelContent = {
     disclaimer:
       "This is a project-based build engagement. Timelines vary by scope — a firm quote and delivery date are confirmed on the call, not promised here.",
     ctaLabel: "Book Your Free Build Consultation",
+    // Shopify-specific real credentials (client-supplied), distinct from
+    // the Amazon SPN/Trustpilot badges /amazon and /legal show — see
+    // funnel-types.ts's note on `hero.heroBadges` being page-specific.
+    // Sized larger than the shared default: these are square seals, not
+    // wide wordmarks, so they read small at the default badge height.
+    heroBadges: [
+      { src: "/badges/shopify-hero-badge.png", alt: "Shopify Certified", width: 516, height: 490, className: "h-24 md:h-32" },
+      { src: "/badges/shopify-hero-badge-2.png", alt: "Software Development certification", width: 447, height: 447, className: "h-24 md:h-32" },
+    ],
   },
 
   stats: [
@@ -225,4 +290,6 @@ export const shopifyContent: FunnelContent = {
       sub: "No spam. No hard pitch. Just a plan.",
     },
   ],
+
+  projects: shopifyProjects,
 };

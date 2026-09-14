@@ -1,5 +1,6 @@
 import { Layers, Search, Package, Megaphone, TrendingUp, Target } from "lucide-react";
 import { testimonials } from "@/lib/site-config";
+import { funnelProjects } from "@/components/funnel/funnel-projects-data";
 import type { FunnelContent } from "@/components/funnel/funnel-types";
 
 /**
@@ -37,6 +38,10 @@ export const amazonContent: FunnelContent = {
     disclaimer:
       "This is a hands-on account management engagement, not a passive investment. Results depend on product, budget, and category — full terms are covered on the call.",
     ctaLabel: "Book Your Free Amazon Audit",
+    heroBadges: [
+      { src: "/badges/hero-badge-1.avif", alt: "Amazon SPN Certified — Service Provider Network", width: 1282, height: 297 },
+      { src: "/badges/hero-badge-2.avif", alt: "Trustpilot — 5 star rating", width: 1400, height: 700 },
+    ],
   },
 
   stats: [
@@ -224,4 +229,6 @@ export const amazonContent: FunnelContent = {
       sub: "No spam. No hard pitch. Just a plan.",
     },
   ],
+
+  projects: funnelProjects,
 };

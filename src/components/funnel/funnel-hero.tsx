@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import { Play } from "lucide-react";
 import { StaggerWords, Reveal } from "@/components/ui/reveal";
+import { cn } from "@/lib/utils";
 import { funnelAccent, accentBorder } from "./funnel-theme";
 import { FunnelCtaButton } from "./funnel-cta-button";
 import { useFunnelBookingModal } from "./funnel-booking-modal";
@@ -134,34 +135,31 @@ export function FunnelHero({ content }: { content: FunnelContent }) {
           </div>
         </Reveal>
 
-        {/* Real Amazon SPN certification + Trustpilot rating, supplied by
-            the client as public/badges/hero-badge-{1,2}.avif — replaces
-            the earlier redundant 240+/18,000+/3.4×/9 mini-stats (those
-            numbers are still shown, once, in <FunnelStatsBar/> below).
-            `loading="eager"` is deliberate: these sit inside a <Reveal>,
-            which renders its child at opacity:0 until its own in-view
-            check fires — the browser was deprioritizing (sometimes
-            indefinitely, in testing) the native lazy-load fetch for an
-            <img> inside an invisible ancestor, racing the reveal
-            animation against an image that hadn't started loading yet. */}
+        {/* Real, page-specific trust badges (content.hero.heroBadges —
+            e.g. Amazon SPN Certified + Trustpilot on /amazon and /legal,
+            Shopify Certified + Software Development on /shopify) —
+            replaces the earlier redundant 240+/18,000+/3.4×/9 mini-stats
+            (those numbers are still shown, once, in <FunnelStatsBar/>
+            below). `loading="eager"` is deliberate: these sit inside a
+            <Reveal>, which renders its child at opacity:0 until its own
+            in-view check fires — the browser was deprioritizing
+            (sometimes indefinitely, in testing) the native lazy-load
+            fetch for an <img> inside an invisible ancestor, racing the
+            reveal animation against an image that hadn't started
+            loading yet. */}
         <Reveal delay={0.2}>
-          <div className="mt-12 md:mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-10">
-            <Image
-              src="/badges/hero-badge-1.avif"
-              alt="Amazon SPN Certified — Service Provider Network"
-              width={1282}
-              height={297}
-              loading="eager"
-              className="h-14 md:h-[4.5rem] w-auto rounded-lg"
-            />
-            <Image
-              src="/badges/hero-badge-2.avif"
-              alt="Trustpilot — 5 star rating"
-              width={1400}
-              height={700}
-              loading="eager"
-              className="h-20 md:h-24 w-auto rounded-lg"
-            />
+          <div className="mt-12 md:mt-16 flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            {content.hero.heroBadges.map((badge) => (
+              <Image
+                key={badge.src}
+                src={badge.src}
+                alt={badge.alt}
+                width={badge.width}
+                height={badge.height}
+                loading="eager"
+                className={cn(badge.className ?? "h-16 md:h-20", "w-auto rounded-lg")}
+              />
+            ))}
           </div>
         </Reveal>
       </div>

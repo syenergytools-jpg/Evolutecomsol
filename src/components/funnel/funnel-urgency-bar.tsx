@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Zap, Users } from "lucide-react";
-import { funnelAccent } from "./funnel-theme";
+import { Users } from "lucide-react";
 import {
   bookedTodayLabel,
   bookedTodayLabelShort,
@@ -11,7 +10,6 @@ import {
   useBookedToday,
 } from "./funnel-stats-hooks";
 import { useFunnelBookingModal } from "./funnel-booking-modal";
-import type { FunnelAccent } from "./funnel-theme";
 
 function formatCountdown(ms: number): string {
   const { hours, minutes } = splitDuration(ms);
@@ -20,22 +18,15 @@ function formatCountdown(ms: number): string {
 
 /**
  * FunnelUrgencyBar — top-of-page announcement strip, the reference
- * site's exact opening beat ("⚡ Have $30K–$100K..."). The lightning +
- * one-line message is page-specific copy; the real-time countdown and
- * booked-today count are the honest mechanism already proven on
- * /consultation — no invented "N of M spots left" (see
- * consultation-urgency-bar.tsx's own note on why that number can't be
- * made honest, and this project's decision to never fabricate one).
+ * site's exact opening beat. The one-line message is page-specific
+ * copy; the real-time countdown and booked-today count are the honest
+ * mechanism already proven on /consultation — no invented "N of M spots
+ * left" (see consultation-urgency-bar.tsx's own note on why that number
+ * can't be made honest, and this project's decision to never fabricate
+ * one).
  */
-export function FunnelUrgencyBar({
-  message,
-  accent,
-}: {
-  message: string;
-  accent: FunnelAccent;
-}) {
+export function FunnelUrgencyBar({ message }: { message: string }) {
   const { open } = useFunnelBookingModal();
-  const accentClasses = funnelAccent[accent];
   const [msLeft, setMsLeft] = useState(() => msUntilMidnight());
   const bookedToday = useBookedToday();
 
@@ -51,7 +42,6 @@ export function FunnelUrgencyBar({
       className="block w-full bg-obsidian border-b border-canvas/10 py-2.5 px-4 text-center hover:bg-obsidian-soft transition-colors"
     >
       <span className="inline-flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 text-[0.8rem] sm:text-sm">
-        <Zap className={`h-3.5 w-3.5 shrink-0 ${accentClasses.fg}`} strokeWidth={2.4} fill="currentColor" />
         <span className="font-medium text-canvas">{message}</span>
 
         <span aria-hidden="true" className="hidden sm:inline h-3 w-px bg-canvas/20 mx-1" />

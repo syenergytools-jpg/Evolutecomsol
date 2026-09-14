@@ -31,7 +31,7 @@ export function ShopifyFunnel() {
   return (
     <FunnelFontScope>
       <FunnelBookingModalProvider content={shopifyContent}>
-        <FunnelUrgencyBar message={shopifyContent.urgency.message} accent={shopifyContent.accent} />
+        <FunnelUrgencyBar message={shopifyContent.urgency.message} />
         <main>
           <FunnelHero content={shopifyContent} />
           <FunnelTrustMarquee content={shopifyContent} />

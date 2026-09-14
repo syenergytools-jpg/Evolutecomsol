@@ -31,7 +31,7 @@ export function LegalFunnel() {
   return (
     <FunnelFontScope>
       <FunnelBookingModalProvider content={legalContent}>
-        <FunnelUrgencyBar message={legalContent.urgency.message} accent={legalContent.accent} />
+        <FunnelUrgencyBar message={legalContent.urgency.message} />
         <main>
           <FunnelHero content={legalContent} />
           <FunnelTrustMarquee content={legalContent} />

@@ -35,7 +35,7 @@ export function AmazonFunnel() {
   return (
     <FunnelFontScope>
       <FunnelBookingModalProvider content={amazonContent}>
-        <FunnelUrgencyBar message={amazonContent.urgency.message} accent={amazonContent.accent} />
+        <FunnelUrgencyBar message={amazonContent.urgency.message} />
         <main>
           <FunnelHero content={amazonContent} />
           <FunnelTrustMarquee content={amazonContent} />

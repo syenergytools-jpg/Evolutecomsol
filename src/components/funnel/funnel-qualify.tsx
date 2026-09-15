@@ -27,52 +27,55 @@ export function FunnelQualify({ content }: { content: FunnelContent }) {
           title={content.qualify.title}
         />
 
-        <div className="mt-14 md:mt-16 max-w-4xl mx-auto grid md:grid-cols-2 gap-5 md:gap-6">
-          <Reveal>
-            <div className="h-full rounded-[1.5rem] border border-canvas/10 bg-canvas/[0.03] p-7 md:p-8 transition-colors duration-300 hover:bg-canvas/[0.05]">
-              <h3 className="text-xl md:text-2xl font-semibold text-canvas mb-5">
-                {content.qualify.not.heading}
-              </h3>
-              <ul className="space-y-4">
-                {content.qualify.not.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-0.5 grid place-items-center h-5 w-5 rounded-full bg-canvas/10 text-canvas/50 shrink-0">
-                      <X className="h-3 w-3" strokeWidth={2.5} />
-                    </span>
-                    <span className="text-base md:text-[1.05rem] text-canvas/60 leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
+        {/* One shared Reveal instead of three separately-staggered ones —
+            the whole "is this for you" block (both panels + CTA) fades
+            in together as a single, clearly-visible 0→100% opacity move
+            as the section is scrolled to, rather than each piece
+            triggering its own quieter, less noticeable micro-fade. */}
+        <Reveal y={40}>
+          <div>
+            <div className="mt-14 md:mt-16 max-w-4xl mx-auto grid md:grid-cols-2 gap-5 md:gap-6">
+              <div className="h-full rounded-[1.5rem] border border-canvas/10 bg-canvas/[0.03] p-7 md:p-8 transition-colors duration-300 hover:bg-canvas/[0.05]">
+                <h3 className="text-xl md:text-2xl font-semibold text-canvas mb-5">
+                  {content.qualify.not.heading}
+                </h3>
+                <ul className="space-y-4">
+                  {content.qualify.not.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-0.5 grid place-items-center h-5 w-5 rounded-full bg-canvas/10 text-canvas/50 shrink-0">
+                        <X className="h-3 w-3" strokeWidth={2.5} />
+                      </span>
+                      <span className="text-base md:text-[1.05rem] text-canvas/60 leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          <Reveal delay={0.1}>
-            <div
-              className="h-full rounded-[1.5rem] border p-7 md:p-8 transition-colors duration-300"
-              style={{ borderColor: "color-mix(in oklab, var(--emerald) 30%, transparent)", background: "color-mix(in oklab, var(--emerald) 8%, transparent)" }}
-            >
-              <h3 className="text-xl md:text-2xl font-semibold text-canvas mb-5">
-                {content.qualify.is.heading}
-              </h3>
-              <ul className="space-y-4">
-                {content.qualify.is.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-0.5 grid place-items-center h-5 w-5 rounded-full bg-emerald/15 text-emerald shrink-0">
-                      <Check className="h-3 w-3" strokeWidth={3} />
-                    </span>
-                    <span className="text-base md:text-[1.05rem] text-canvas/80 leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div
+                className="h-full rounded-[1.5rem] border p-7 md:p-8 transition-colors duration-300"
+                style={{ borderColor: "color-mix(in oklab, var(--emerald) 30%, transparent)", background: "color-mix(in oklab, var(--emerald) 8%, transparent)" }}
+              >
+                <h3 className="text-xl md:text-2xl font-semibold text-canvas mb-5">
+                  {content.qualify.is.heading}
+                </h3>
+                <ul className="space-y-4">
+                  {content.qualify.is.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-0.5 grid place-items-center h-5 w-5 rounded-full bg-emerald/15 text-emerald shrink-0">
+                        <Check className="h-3 w-3" strokeWidth={3} />
+                      </span>
+                      <span className="text-base md:text-[1.05rem] text-canvas/80 leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </Reveal>
-        </div>
 
-        <Reveal delay={0.15}>
-          <div className="mt-12 md:mt-14 text-center">
-            <FunnelCtaButton accent={content.accent} onClick={open} size="lg">
-              {content.qualify.ctaLabel}
-            </FunnelCtaButton>
+            <div className="mt-12 md:mt-14 text-center">
+              <FunnelCtaButton accent={content.accent} onClick={open} size="lg">
+                {content.qualify.ctaLabel}
+              </FunnelCtaButton>
+            </div>
           </div>
         </Reveal>
       </div>

@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Reveal } from "@/components/ui/reveal";
 import { cn } from "@/lib/utils";
 import { FunnelHeading } from "./funnel-heading";
 import { FunnelTestimonialCard } from "./funnel-testimonial-card";
 import type { FunnelContent } from "./funnel-types";
+
+const AUTO_ADVANCE_MS = 5000;
 
 /**
  * Fan-out transforms per card count (only 1–3 are used across these 3
@@ -48,6 +50,7 @@ const STACK_PRESETS: Record<number, { classes: string[]; frontIndex: number }> =
 export function FunnelTestimonials({ content }: { content: FunnelContent }) {
   const items = content.testimonials.items;
   const [order, setOrder] = useState(items);
+  const [paused, setPaused] = useState(false);
   const preset = STACK_PRESETS[order.length];
 
   function bringToFront(index: number) {
@@ -57,6 +60,20 @@ export function FunnelTestimonials({ content }: { content: FunnelContent }) {
     next.splice(preset.frontIndex, 0, picked);
     setOrder(next);
   }
+
+  // Auto-loop: cycle every card through the front slot on its own, on a
+  // timer, so the stack keeps moving even if nobody clicks it — clicking
+  // still works too, and resets this timer (via the `order` dependency)
+  // rather than fighting it. Skipped for a single card (nothing to
+  // cycle to) and for prefers-reduced-motion.
+  useEffect(() => {
+    if (!preset || order.length < 2 || paused) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setInterval(() => {
+      setOrder((prev) => [...prev.slice(1), prev[0]]);
+    }, AUTO_ADVANCE_MS);
+    return () => clearInterval(id);
+  }, [order, preset, paused]);
 
   return (
     <section className="relative bg-obsidian-soft py-16 md:py-32 overflow-hidden">
@@ -75,7 +92,12 @@ export function FunnelTestimonials({ content }: { content: FunnelContent }) {
             // shorter cards (e.g. the 2-card pages) and left visible
             // empty space below the stack. Back card(s) are `absolute`,
             // positioned against that same box, peeking out behind it.
-            <div className="relative mx-auto mt-16 md:mt-24 max-w-md sm:max-w-lg pb-6" style={{ perspective: "1200px" }}>
+            <div
+              className="relative mx-auto mt-16 md:mt-24 max-w-md sm:max-w-lg pb-6"
+              style={{ perspective: "1200px" }}
+              onMouseEnter={() => setPaused(true)}
+              onMouseLeave={() => setPaused(false)}
+            >
               {order.map((t, i) => {
                 const isFront = i === preset.frontIndex;
                 return (

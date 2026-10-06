@@ -52,6 +52,47 @@ export type FunnelBadge = {
 };
 
 /**
+ * One Seller Central "Sales Dashboard" screenshot, shown as a card in the
+ * fanned stack in funnel-sales-proof.tsx. Any figure quoted in `alt` is
+ * typed exactly as the screenshot shows it, with Amazon's own metric
+ * labels — nothing rounded or renamed.
+ */
+export type FunnelSalesSnapshot = {
+  /** Short card title, e.g. "12 months". */
+  label: string;
+  /** Exact date range the dashboard was filtered to, e.g. "Oct 1, 2025 – Sep 30, 2026". */
+  range: string;
+  image: { src: string; alt: string; width: number; height: number };
+};
+
+/**
+ * Optional "sales dashboard proof" block — screenshots + a screen
+ * recording of a real Seller Central account. Only /amazon sets it; it
+ * can stand in for the testimonial card stack in the same slot (see the
+ * SHOW_REVIEWS switch in src/app/amazon/amazon-funnel.tsx).
+ */
+export type FunnelSalesProof = {
+  eyebrow: string;
+  title: FunnelHeadingText;
+  subtitle: string;
+  /** Account + marketplace the screenshots belong to, e.g. "CalmCarry · United States". */
+  account: string;
+  snapshots: FunnelSalesSnapshot[];
+  video: {
+    src: string;
+    eyebrow: string;
+    title: FunnelHeadingText;
+    /** Plain description of what the recording shows. */
+    caption: string;
+    /** Display string, e.g. "1:10 · No audio". */
+    meta: string;
+    /** Intrinsic size of the file — sets the player's aspect ratio. */
+    width: number;
+    height: number;
+  };
+};
+
+/**
  * Full content contract for one funnel page. Every /legal, /amazon,
  * /shopify page is the SAME set of section components
  * (funnel-hero.tsx, funnel-qualify.tsx, etc.) rendered against a
@@ -110,6 +151,8 @@ export type FunnelContent = {
     title: FunnelHeadingText;
     items: FunnelTestimonial[];
   };
+  /** Seller Central sales-dashboard proof — /amazon only; see FunnelSalesProof. */
+  salesProof?: FunnelSalesProof;
   team: {
     eyebrow: string;
     title: FunnelHeadingText;

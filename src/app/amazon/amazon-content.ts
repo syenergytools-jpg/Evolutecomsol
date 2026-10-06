@@ -149,6 +149,65 @@ export const amazonContent: FunnelContent = {
     ],
   },
 
+  // Fills the same "Real accounts. Real operators." slot while
+  // SHOW_REVIEWS is false in amazon-funnel.tsx (the testimonials above
+  // stay fully populated for when it's flipped back). Shown as the same
+  // fanned, auto-looping card stack the testimonials use, one screenshot
+  // per card, in order: the first snapshot is the card that opens in
+  // front. Any figure quoted in an `alt` below is copied exactly from its
+  // screenshot in /public/sales_stats, using Seller Central's own metric
+  // labels. Screenshots 2 and 3 carry red highlight boxes drawn on the
+  // original, so nothing here claims they're unedited.
+  salesProof: {
+    eyebrow: "Straight from Seller Central",
+    title: { lead: "Real accounts.", accent: "Real operators." },
+    subtitle:
+      "Sales Dashboard screenshots and a walkthrough recording from the CalmCarry account on the US marketplace.",
+    account: "CalmCarry · United States",
+    snapshots: [
+      {
+        label: "12 months",
+        range: "Oct 1, 2025 – Sep 30, 2026",
+        image: {
+          src: "/sales_stats/image_3.jpeg",
+          alt: "Seller Central Sales Dashboard for the CalmCarry US account, October 1, 2025 to September 30, 2026: $1,750,887.80 ordered product sales across 46,756 order items.",
+          width: 1439,
+          height: 736,
+        },
+      },
+      {
+        label: "Year to date",
+        range: "Jan 1 – Sep 30, 2026",
+        image: {
+          src: "/sales_stats/image_2.jpeg",
+          alt: "Seller Central Sales Dashboard for the CalmCarry US account, January 1 to September 30, 2026: $1,259,421.10 ordered product sales across 33,748 order items.",
+          width: 1439,
+          height: 731,
+        },
+      },
+      {
+        label: "September",
+        range: "Sep 1 – Sep 30, 2026",
+        image: {
+          src: "/sales_stats/image_1.jpeg",
+          alt: "Seller Central Sales Dashboard for the CalmCarry US account, September 1 to September 30, 2026: $119,377.84 ordered product sales across 2,865 order items.",
+          width: 1438,
+          height: 735,
+        },
+      },
+    ],
+    video: {
+      // Filename typo ("rocording") is the file's real name on disk.
+      src: "/sales_stats/screen_rocording.mp4",
+      eyebrow: "Screen recording",
+      title: { lead: "The dashboard,", accent: "in motion." },
+      caption: "Walking through the Sales Dashboard in Seller Central.",
+      meta: "1:10 · No audio",
+      width: 736,
+      height: 480,
+    },
+  },
+
   team: {
     eyebrow: "The people behind your account",
     title: { lead: "A dedicated team running", accent: "your Amazon business every day." },

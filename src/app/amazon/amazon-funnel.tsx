@@ -10,6 +10,7 @@ import { FunnelExplainer } from "@/components/funnel/funnel-explainer";
 import { FunnelFeatureGrid } from "@/components/funnel/funnel-feature-grid";
 import { FunnelQualify } from "@/components/funnel/funnel-qualify";
 import { FunnelTestimonials } from "@/components/funnel/funnel-testimonials";
+import { FunnelSalesProof } from "@/components/funnel/funnel-sales-proof";
 import { FunnelTeam } from "@/components/funnel/funnel-team";
 import { FunnelFaq } from "@/components/funnel/funnel-faq";
 import { FunnelProjects } from "@/components/funnel/funnel-projects";
@@ -20,6 +21,19 @@ import { amazonContent } from "./amazon-content";
 
 const DISCLAIMER =
   "Evolut Ecommerce Solutions is an independent Amazon account management service. We are not affiliated with, endorsed by, or sponsored by Amazon.com, Inc. or its affiliates. Amazon, Seller Central, Vendor Central, and FBA are trademarks of Amazon.com, Inc. Results vary by product, category, and budget, nothing on this page is a guarantee of income, sales, or ranking.";
+
+/**
+ * Which block fills the "Real accounts. Real operators." slot.
+ *
+ *   false → the Seller Central sales-dashboard proof (screenshots + screen
+ *           recording from /public/sales_stats, content in
+ *           `amazonContent.salesProof`).
+ *   true  → the client-review card stack, exactly as it was.
+ *
+ * The review component and `amazonContent.testimonials` are deliberately
+ * left fully intact, so bringing the reviews back is just flipping this.
+ */
+const SHOW_REVIEWS = false;
 
 /**
  * AmazonFunnel — the actual page tree, as a Client Component with no
@@ -43,7 +57,11 @@ export function AmazonFunnel() {
           <FunnelExplainer content={amazonContent} />
           <FunnelFeatureGrid content={amazonContent} />
           <FunnelQualify content={amazonContent} />
-          <FunnelTestimonials content={amazonContent} />
+          {SHOW_REVIEWS ? (
+            <FunnelTestimonials content={amazonContent} />
+          ) : (
+            <FunnelSalesProof content={amazonContent} />
+          )}
           <FunnelTeam content={amazonContent} />
           <FunnelFaq content={amazonContent} />
           <FunnelProjects content={amazonContent} />

@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Hero } from "@/components/sections/hero";
+import { PartnerBrands } from "@/components/sections/partner-brands";
 import { Services } from "@/components/sections/services";
 import { IpAccelerator } from "@/components/sections/ip-accelerator";
 import { WhyUs } from "@/components/sections/why-us";
@@ -13,6 +14,7 @@ import { Footer } from "@/components/sections/footer";
 /**
  * Evolut homepage — tells the full story the site needs to cover:
  *   • Hero           — value prop / who we are
+ *   • PartnerBrands  — affiliated partner logos, the next beat of the hero's trust strip
  *   • Services       — all 8 service lines (detailed offerings → detail pages)
  *   • IpAccelerator  — Amazon IP Accelerator program (→ /services/trademark)
  *   • WhyUs          — core offerings, benefits & expertise
@@ -38,6 +40,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <PartnerBrands />
         <Services />
         <IpAccelerator />
         <WhyUs />

@@ -404,6 +404,71 @@ export const trustedLogos = [
   "eBay",
 ];
 
+/* ------------------------------------------------------------------ *
+ * Affiliated partners — the logo band under the homepage hero
+ * (src/components/sections/partner-brands.tsx).
+ *
+ * Adding or swapping a logo: put the file in /public/partners and make
+ * `logo` match its name and extension exactly, case included (Linux
+ * hosting is strict about it). If the file is missing or the path is
+ * wrong, the tile shows the partner's name as text instead of a broken
+ * image.
+ *
+ * On desktop every partner shares one row, which reads well up to about
+ * eight; past that the tiles get too narrow.
+ * ------------------------------------------------------------------ */
+export type Partner = {
+  name: string;
+  /** Path under /public. */
+  logo: string;
+  /** Makes the tile a link: an internal path or an absolute URL. */
+  href?: string;
+  /** "large" gives a compact mark (a square seal, say) more height than
+   *  the wordmark default. */
+  logoSize?: "default" | "large";
+  /** Darkens a pale logo that nearly vanishes on the white tile. */
+  darken?: boolean;
+};
+
+export const partners: Partner[] = [
+  {
+    name: "BJK University",
+    logo: "/bjk1_logo.png",
+    href: "https://bjkuniversity.com/",
+    // A pale grey seal that all but vanishes on a white tile. `darken`
+    // is a CSS filter, so the file itself is untouched; drop it if the
+    // file is ever replaced with a darker version.
+    logoSize: "large",
+    darken: true,
+  },
+  {
+    name: "Cultured Foods",
+    logo: "/partners/cultured-food-logo.png",
+    href: "https://culturedfoods.eu/",
+    // No website confirmed yet; add an `href` once it is known.
+  },
+  {
+    name: "Calm Carry",
+    logo: "/partners/CalmCarryLogo.png",
+    href: "https://www.theglowcompany.co/",
+  },
+  {
+    name: "+PlusHLTH",
+    logo: "/partners/PlusHLTH-logo.jpg",
+    href: "https://www.plushlth.com/",
+  },
+  {
+    name: "Glowco International",
+    logo: "/gloco_logo.avif",
+    href: "/work/gloco-calm-carry-us",
+  },
+  {
+    name: "CV Sciences",
+    logo: "/partners/CV-Sciences-logo.png",
+    href: "https://www.cvsciences.com/",
+  },
+];
+
 export const whyUs = [
   {
     title: "Operators, not executors",

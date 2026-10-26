@@ -464,7 +464,7 @@ export const partners: Partner[] = [
   },
   {
     name: "CV Sciences",
-    logo: "/partners/CV-Sciences-logo.png",
+    logo: "/partners/CVSciencesLogo.png",
     href: "https://www.cvsciences.com/",
   },
 ];

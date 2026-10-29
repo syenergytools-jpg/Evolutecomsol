@@ -101,7 +101,7 @@ export function ConsultationTestimonials() {
   }
 
   return (
-    <section id="testimonials" className="relative bg-obsidian text-canvas py-16 md:py-36 overflow-hidden">
+    <section id="testimonials" className="funnel-theme relative bg-obsidian text-canvas py-16 md:py-36 overflow-hidden">
       <div
         aria-hidden="true"
         className="absolute -top-32 -right-32 w-[32rem] h-[32rem] rounded-full pointer-events-none"

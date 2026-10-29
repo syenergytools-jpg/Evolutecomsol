@@ -167,7 +167,7 @@ function ActiveBrandsCard() {
  * ============================================================== */
 function RoasCard() {
   return (
-    <div className="bg-obsidian text-canvas h-full p-6 md:p-7 flex flex-col justify-between">
+    <div className="funnel-theme bg-obsidian text-canvas h-full p-6 md:p-7 flex flex-col justify-between">
       <p className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-canvas/55">
         Avg ROAS · 90 days
       </p>

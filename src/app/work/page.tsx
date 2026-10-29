@@ -91,7 +91,7 @@ export default function WorkIndexPage() {
             style={{
               background:
                 "radial-gradient(60% 50% at 100% 0%, rgba(232,112,74,0.08) 0%, transparent 60%), " +
-                "radial-gradient(50% 45% at 0% 100%, rgba(0,102,255,0.06) 0%, transparent 60%)",
+                "radial-gradient(50% 45% at 0% 100%, rgba(232,112,74,0.05) 0%, transparent 60%)",
             }}
           />
 
@@ -194,7 +194,9 @@ function BentoCell({
     <Link
       href={`/work/${study.slug}`}
       className={cn(
-        "group relative rounded-[1.5rem] md:rounded-[1.75rem] overflow-hidden border transition-all duration-500",
+        // `funnel-theme` pins the original palette so each per-tone card keeps
+        // its designed light-on-dark contrast on the now-dark page.
+        "funnel-theme group relative rounded-[1.5rem] md:rounded-[1.75rem] overflow-hidden border transition-all duration-500",
         tone.bg,
         tone.fg,
         tone.border,

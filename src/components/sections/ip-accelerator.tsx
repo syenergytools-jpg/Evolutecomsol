@@ -21,7 +21,7 @@ export function IpAccelerator() {
   return (
     <section
       id="ip-accelerator"
-      className="relative bg-obsidian text-canvas py-16 md:py-36 overflow-hidden"
+      className="funnel-theme relative bg-obsidian text-canvas py-16 md:py-36 overflow-hidden"
     >
       {/* ambient glow */}
       <div
@@ -30,7 +30,7 @@ export function IpAccelerator() {
         style={{
           background:
             "radial-gradient(55% 45% at 12% 8%, rgba(232,112,74,0.16) 0%, transparent 60%), " +
-            "radial-gradient(45% 40% at 92% 100%, rgba(0,102,255,0.14) 0%, transparent 60%)",
+            "radial-gradient(45% 40% at 92% 100%, rgba(232,112,74,0.10) 0%, transparent 60%)",
         }}
       />
       {/* faint grid */}

@@ -65,9 +65,9 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(60% 50% at 100% 100%, rgba(232,112,74,0.16) 0%, transparent 60%), " +
-            "radial-gradient(50% 45% at 0% 0%, rgba(0,102,255,0.08) 0%, transparent 60%), " +
-            "radial-gradient(45% 60% at 75% 50%, rgba(192,197,202,0.18) 0%, transparent 70%)",
+            "radial-gradient(60% 50% at 100% 100%, rgba(232,112,74,0.18) 0%, transparent 60%), " +
+            "radial-gradient(50% 45% at 0% 0%, rgba(232,112,74,0.07) 0%, transparent 60%), " +
+            "radial-gradient(45% 60% at 75% 50%, rgba(192,197,202,0.12) 0%, transparent 70%)",
         }}
       />
 
@@ -77,7 +77,7 @@ export function Hero() {
         className="absolute -top-32 -left-32 w-[640px] h-[640px] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(0,102,255,0.05), transparent 65%)",
+            "radial-gradient(circle, rgba(232,112,74,0.06), transparent 65%)",
           filter: "blur(40px)",
         }}
         animate={{ x: [0, 32, 0], y: [0, 24, 0] }}
@@ -284,7 +284,10 @@ function RightCollage() {
       initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1, ease: PREMIUM_EASE, delay: 0.4 }}
-      className="lg:col-span-7 relative w-full min-h-[28rem] md:min-h-[34rem] lg:min-h-[40rem]"
+      // `funnel-theme` pins the original palette so the central logo card
+      // and the floating UI cards stay light "glass" cards on the now-dark
+      // hero — keeping the chrome logo legible and the cards readable.
+      className="funnel-theme lg:col-span-7 relative w-full min-h-[28rem] md:min-h-[34rem] lg:min-h-[40rem]"
     >
       {/* Hex-grid faint background */}
       <HexGrid className="absolute inset-0 opacity-[0.55] text-chrome-3/35" />

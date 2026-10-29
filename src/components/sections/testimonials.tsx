@@ -27,7 +27,7 @@ export function Testimonials() {
   const prev = () => setActive((i) => (i - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section id="testimonials" className="relative bg-obsidian text-canvas py-16 md:py-36 overflow-hidden">
+    <section id="testimonials" className="funnel-theme relative bg-obsidian text-canvas py-16 md:py-36 overflow-hidden">
       {/* sparkles dust */}
       <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" aria-hidden="true">
         <SparklesCore particleColor="#dfe3e8" particleDensity={30} speed={0.25} particleSize={{ min: 0.3, max: 0.9 }} />
@@ -37,7 +37,7 @@ export function Testimonials() {
       <Meteors number={10} color="rgba(232,112,74,0.5)" />
 
       {/* gradient blobs */}
-      <div className="gradient-blob" style={{ width: 520, height: 520, left: "-15%", top: "20%", background: "radial-gradient(circle, rgba(0,102,255,0.4), transparent 70%)", opacity: 0.4 }} />
+      <div className="gradient-blob" style={{ width: 520, height: 520, left: "-15%", top: "20%", background: "radial-gradient(circle, rgba(232,112,74,0.32), transparent 70%)", opacity: 0.4 }} />
       <div className="gradient-blob" style={{ width: 460, height: 460, right: "-12%", bottom: "10%", background: "radial-gradient(circle, rgba(232,112,74,0.4), transparent 70%)", opacity: 0.4, animationDelay: "-8s" }} />
 
       <div className="container-x relative z-10">

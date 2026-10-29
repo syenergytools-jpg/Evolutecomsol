@@ -49,12 +49,15 @@ const TILES: TileSpec[] = [
 
 // Accent → icon-chip skin. Dark accents flip to a light chip so they
 // read against the tile's obsidian scrim.
+// These chips sit on the dark image scrim of each tile, so the "light"
+// values are pinned to theme-independent white/obsidian rather than the
+// canvas/ink tokens (which now flip with the dark site theme).
 const ACCENT_CHIP: Record<Service["accent"], string> = {
-  electric: "bg-electric text-canvas",
-  copper: "bg-copper text-canvas",
-  obsidian: "bg-canvas text-ink",
-  chrome: "bg-chrome-2 text-ink",
-  lime: "bg-lime text-ink",
+  electric: "bg-electric text-white",
+  copper: "bg-copper text-white",
+  obsidian: "bg-white text-obsidian",
+  chrome: "bg-chrome-2 text-obsidian",
+  lime: "bg-lime text-obsidian",
 };
 
 const bySlug = (slug: string): Service =>
@@ -184,13 +187,13 @@ function ServiceTile({
           >
             <Icon className="h-[1.05rem] w-[1.05rem]" strokeWidth={2} />
           </span>
-          <span className="font-mono text-[0.62rem] tracking-[0.18em] text-canvas/60">
+          <span className="font-mono text-[0.62rem] tracking-[0.18em] text-white/60">
             {n}
           </span>
         </div>
 
         {/* Bottom — title + blurb + explore */}
-        <div className="relative p-5 md:p-6 text-canvas">
+        <div className="relative p-5 md:p-6 text-white">
           <h3
             className={cn(
               "display leading-[1.1]",
@@ -203,7 +206,7 @@ function ServiceTile({
           </h3>
           <p
             className={cn(
-              "mt-2 text-canvas/70 leading-snug",
+              "mt-2 text-white/70 leading-snug",
               tile.feature
                 ? "text-sm md:text-base max-w-[42ch]"
                 : "text-[0.85rem] max-w-[34ch]"
@@ -217,7 +220,7 @@ function ServiceTile({
               {service.features.slice(0, 3).map((f) => (
                 <span
                   key={f}
-                  className="rounded-full border border-canvas/25 bg-canvas/5 backdrop-blur-sm px-3 py-1 text-[0.68rem] text-canvas/80"
+                  className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm px-3 py-1 text-[0.68rem] text-white/80"
                 >
                   {f.split(" — ")[0].split(" (")[0]}
                 </span>
@@ -225,7 +228,7 @@ function ServiceTile({
             </div>
           )}
 
-          <span className="mt-4 inline-flex items-center gap-1.5 font-mono text-[0.6rem] uppercase tracking-[0.16em] text-canvas/65 group-hover:text-canvas transition-colors">
+          <span className="mt-4 inline-flex items-center gap-1.5 font-mono text-[0.6rem] uppercase tracking-[0.16em] text-white/65 group-hover:text-white transition-colors">
             Explore
             <ArrowUpRight
               className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -253,7 +256,7 @@ function CtaTile({ reduce }: { reduce: boolean }) {
     >
       <Link
         href="/services"
-        className="relative flex h-full flex-col justify-between rounded-2xl overflow-hidden bg-ink text-canvas p-6 md:p-7 transition-shadow duration-500 hover:shadow-[0_26px_55px_-24px_rgba(15,17,21,0.5)]"
+        className="relative flex h-full flex-col justify-between rounded-2xl overflow-hidden bg-obsidian text-white p-6 md:p-7 border border-hairline transition-shadow duration-500 hover:shadow-[0_26px_55px_-24px_rgba(0,0,0,0.6)]"
       >
         {/* Warm accent glow */}
         <div
@@ -264,7 +267,7 @@ function CtaTile({ reduce }: { reduce: boolean }) {
               "radial-gradient(circle, rgba(232,112,74,0.35), transparent 70%)",
           }}
         />
-        <p className="relative font-mono text-[0.6rem] uppercase tracking-[0.2em] text-canvas/55">
+        <p className="relative font-mono text-[0.6rem] uppercase tracking-[0.2em] text-white/55">
           The full stack
         </p>
         <div className="relative">
@@ -273,7 +276,7 @@ function CtaTile({ reduce }: { reduce: boolean }) {
             <br />
             eight services
           </p>
-          <span className="inline-flex items-center gap-2 rounded-full bg-canvas text-ink px-5 py-2.5 text-sm font-medium transition-all group-hover:gap-3">
+          <span className="inline-flex items-center gap-2 rounded-full bg-copper text-white px-5 py-2.5 text-sm font-medium transition-all group-hover:gap-3">
             See services
             <ArrowUpRight className="h-4 w-4" strokeWidth={2} />
           </span>

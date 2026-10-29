@@ -7,29 +7,46 @@
    ========================================================================== */
 
 :root {
-  /* Surfaces */
-  --canvas: #f4f1ea;
-  --canvas-2: #ece8dd;
-  --surface: #ffffff;
+  /* ----------------------------------------------------------------------
+     SITE THEME — dark + copper, matching the /amazon funnel.
+     The whole main site (and every subpage except the /amazon, /shopify
+     and /legal funnels, which are pinned back to the original light values
+     via `.funnel-theme` below) renders dark. The token ROLES are unchanged
+     — `canvas` is still "the page surface", `ink` is still "the primary
+     text" — only their VALUES flip, so the hundreds of existing
+     `bg-canvas` / `text-ink` / `border-hairline` utilities retheme in
+     place. `--electric` is remapped to copper so the site's former blue
+     brand accent now reads as the funnel's copper.
+     ---------------------------------------------------------------------- */
+
+  /* Surfaces — dark. Exactly the two tones the /amazon funnel alternates
+     between: #0a0a0b (obsidian, the darkest/default band) and #14141a
+     (obsidian-soft, the lifted band that gives the page its contrast).
+     `canvas` == `obsidian` so pinned and un-pinned dark sections read as
+     one seamless ground; `canvas-2`/`obsidian-soft` are the lifted band;
+     `surface` is one more step up so cards stay legible on both. */
+  --canvas: #0a0a0b;
+  --canvas-2: #14141a;
+  --surface: #1a1a22;
   --obsidian: #0a0a0b;
   --obsidian-soft: #14141a;
 
-  /* Ink */
-  --ink: #0f1115;
-  --ink-soft: #2a2d35;
-  --mute: #6b7280;
-  --hairline: #e7e3d8;
-  --hairline-strong: #d8d2c2;
-  --hairline-dark: #1f1f24;
+  /* Ink — now light (text / foreground) */
+  --ink: #f4f1ea;
+  --ink-soft: #c4c7ce;
+  --mute: #8a8f99;
+  --hairline: #2a2a31;
+  --hairline-strong: #3a3a44;
+  --hairline-dark: #2e2e36;
 
-  /* Brand accents */
+  /* Brand accents — copper primary (electric remapped from blue → copper) */
   --chrome-1: #f5f7fa;
   --chrome-2: #c0c5ca;
   --chrome-3: #8b9096;
   --chrome-4: #4d5258;
 
-  --electric: #0066ff;
-  --electric-glow: #3d8bff;
+  --electric: #e8704a;
+  --electric-glow: #f4a585;
   --copper: #e8704a;
   --copper-soft: #f4a585;
   --lime: #d9ff3c;
@@ -48,6 +65,48 @@
   --r-lg: 24px;
   --r-xl: 32px;
   --r-2xl: 40px;
+}
+
+/* ------------------------------------------------------------------------
+   ORIGINAL (LIGHT-THEME) TOKEN PIN — `.funnel-theme` restores every colour
+   token to the site's pre-dark values for the subtree it wraps. Two uses:
+
+     1. The /amazon, /shopify and /legal funnel pages — applied on the
+        <FunnelFontScope> wrapper around all three — so they stay
+        pixel-identical to before while the rest of the site goes dark.
+     2. The main site's already-dark sections (e.g. the IP-Accelerator and
+        Spotlight-Stats bands), which were authored as `bg-obsidian` +
+        `text-canvas`. Pinning them here reproduces their original dark
+        look under the new dark theme, instead of flipping `text-canvas`
+        to a dark value.
+
+   This works because globals.css uses Tailwind v4's `@theme inline`: every
+   `bg-canvas` / `text-ink` / `border-hairline` utility resolves
+   `var(--token)` against the nearest scope at render time. It sets ONLY
+   custom properties (no background/color), so it is safe to add to an
+   element that already carries a `bg-*` utility. Do not change the funnel
+   values; they are those three pages' locked look.
+   ------------------------------------------------------------------------ */
+.funnel-theme {
+  --canvas: #f4f1ea;
+  --canvas-2: #ece8dd;
+  --surface: #ffffff;
+  --obsidian: #0a0a0b;
+  --obsidian-soft: #14141a;
+
+  --ink: #0f1115;
+  --ink-soft: #2a2d35;
+  --mute: #6b7280;
+  --hairline: #e7e3d8;
+  --hairline-strong: #d8d2c2;
+  --hairline-dark: #1f1f24;
+
+  --electric: #0066ff;
+  --electric-glow: #3d8bff;
+  --copper: #e8704a;
+  --copper-soft: #f4a585;
+  --lime: #d9ff3c;
+  --emerald: #10b981;
 }
 
 @theme inline {
@@ -85,6 +144,7 @@
 
 * { border-color: var(--hairline); }
 
+/* site theme: dark + copper */
 html {
   background: var(--canvas);
   color: var(--ink);

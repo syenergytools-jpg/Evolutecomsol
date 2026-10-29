@@ -102,7 +102,7 @@ export function ConsultationServices() {
   const { open } = useBookingModal();
 
   return (
-    <section id="services" className="relative bg-obsidian py-16 md:py-36 overflow-hidden scroll-mt-20">
+    <section id="services" className="funnel-theme relative bg-obsidian py-16 md:py-36 overflow-hidden scroll-mt-20">
       {/* soft warm wash top-left, cool bottom-right â€” same backdrop
           language as the hero, inverted for the dark ground */}
       <div
@@ -111,7 +111,7 @@ export function ConsultationServices() {
         style={{
           background:
             "radial-gradient(45% 40% at 12% 0%, rgba(232,112,74,0.15) 0%, transparent 62%), " +
-            "radial-gradient(45% 40% at 100% 100%, rgba(0,102,255,0.12) 0%, transparent 62%)",
+            "radial-gradient(45% 40% at 100% 100%, rgba(232,112,74,0.09) 0%, transparent 62%)",
         }}
       />
 

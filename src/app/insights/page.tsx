@@ -204,7 +204,7 @@ export default function InsightsPage() {
         {/* Newsletter */}
         <section className="relative bg-canvas py-20">
           <div className="container-x">
-            <div className="rounded-3xl border border-hairline bg-obsidian text-canvas p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="funnel-theme rounded-3xl border border-hairline bg-obsidian text-canvas p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-canvas/60 mb-4">
                   Field notes — weekly

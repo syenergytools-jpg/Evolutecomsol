@@ -94,7 +94,10 @@ function PartnerTile({ partner }: { partner: Partner }) {
   const [logoFailed, setLogoFailed] = useState(false);
 
   const tileClass = cn(
-    "group relative flex h-24 w-full items-center justify-center border bg-surface px-4 md:h-28 xl:px-5",
+    // `funnel-theme` pins the light palette so the logo tiles stay white
+    // on the now-dark band — partner logos arrive with white/transparent
+    // backgrounds and dark marks, so a dark tile would hide them.
+    "funnel-theme group relative flex h-24 w-full items-center justify-center border bg-surface px-4 md:h-28 xl:px-5",
     "shadow-[0_1px_2px_rgba(15,17,21,0.04)] transition-[transform,box-shadow] duration-500",
     TILE_EASE,
     "hover:-translate-y-1 hover:shadow-[0_0_0_1px_rgba(232,112,74,0.3),0_22px_44px_-24px_rgba(15,17,21,0.35)]"

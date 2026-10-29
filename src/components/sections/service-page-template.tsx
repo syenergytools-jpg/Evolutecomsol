@@ -178,7 +178,7 @@ function SectionWrapper({
     <section
       className={cn(
         "relative py-12 md:py-28 border-b border-hairline",
-        dark ? "bg-obsidian text-canvas" : "bg-canvas text-ink",
+        dark ? "funnel-theme bg-obsidian text-canvas" : "bg-canvas text-ink",
         className
       )}
     >
@@ -946,7 +946,9 @@ function Section11Engagement({ data }: { data: ServicePageData }) {
               ease: PREMIUM_EASE,
             }}
             className={cn(
-              "relative rounded-[1.75rem] p-7 md:p-9 border flex flex-col",
+              // pinned so the featured (light) card and the dark cards both
+              // keep their designed contrast on the now-dark page.
+              "funnel-theme relative rounded-[1.75rem] p-7 md:p-9 border flex flex-col",
               i === 0
                 ? "bg-surface border-hairline-strong"
                 : "bg-obsidian text-canvas border-transparent"
@@ -1252,7 +1254,7 @@ function Section17Output({ data }: { data: ServicePageData }) {
           </Reveal>
         </div>
         <Reveal delay={0.3} className="lg:col-span-7 min-w-0">
-          <div className="rounded-[1.5rem] bg-obsidian text-canvas/85 p-5 sm:p-6 md:p-8 shadow-[0_30px_70px_-30px_rgba(15,17,21,0.32)]">
+          <div className="funnel-theme rounded-[1.5rem] bg-obsidian text-canvas/85 p-5 sm:p-6 md:p-8 shadow-[0_30px_70px_-30px_rgba(15,17,21,0.32)]">
             {/* Faux terminal title bar */}
             <div className="flex items-center gap-2 mb-5 pb-4 border-b border-canvas/10">
               <span className="h-2.5 w-2.5 rounded-full bg-copper/80" />
@@ -1372,7 +1374,7 @@ function Section19Operator({
  * ============================================================== */
 function Section20Close({ data }: { data: ServicePageData }) {
   return (
-    <section className="relative bg-obsidian text-canvas py-12 md:py-28 overflow-hidden">
+    <section className="funnel-theme relative bg-obsidian text-canvas py-12 md:py-28 overflow-hidden">
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"

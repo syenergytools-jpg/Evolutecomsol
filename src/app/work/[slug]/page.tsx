@@ -578,7 +578,7 @@ function CaseSection({
     <section
       className={cn(
         "relative py-12 md:py-28 border-b border-hairline",
-        dark ? "bg-obsidian text-canvas" : "bg-canvas text-ink"
+        dark ? "funnel-theme bg-obsidian text-canvas" : "bg-canvas text-ink"
       )}
     >
       <div className="container-x">

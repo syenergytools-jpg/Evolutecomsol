@@ -11,7 +11,7 @@ export function ConsultationFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-obsidian">
+    <footer className="funnel-theme relative bg-obsidian">
       <div className="container-x py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <Logo variant="mark" size="sm" alt="Evolut" />

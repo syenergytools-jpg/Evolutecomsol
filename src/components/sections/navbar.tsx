@@ -8,14 +8,34 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { X, ArrowUpRight, ChevronDown } from "lucide-react";
-import { Logo } from "@/components/ui/logo";
 import { navItems, services } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 // Services shown in the navbar. Shopify & MERN is intentionally excluded
 // from nav (it still lives on the homepage Services grid + its detail page).
 const NAV_SERVICES = services.filter((s) => s.slug !== "shopify");
+
+/**
+ * NavLogo — white Evolut lockup, used ONLY in the navbar (header +
+ * drawer) because the shared <Logo> renders /logo.png with
+ * mix-blend-multiply for the old light canvas, which disappears on the
+ * dark navbar. Everywhere else still uses <Logo>. Asset is 666×375 with
+ * transparent padding, so it's sized by height and left to scale wide.
+ */
+function NavLogo() {
+  return (
+    <Image
+      src="/logos/logo_white.png"
+      alt="Evolut Ecommerce Solutions"
+      width={666}
+      height={375}
+      priority
+      className="h-16 w-auto object-contain md:h-20"
+    />
+  );
+}
 
 /**
  * Navbar — wordmark left, "Services" hover-dropdown + Menu + Talk to us
@@ -84,7 +104,7 @@ export function Navbar() {
         <div className="container-x flex items-center justify-between h-16 md:h-20">
           {/* Left — wordmark */}
           <Link href="/" className="relative shrink-0 -ml-1">
-            <Logo />
+            <NavLogo />
           </Link>
 
           {/* Right — Services dropdown + Menu + Talk to us */}
@@ -270,7 +290,7 @@ export function Navbar() {
             >
               <div className="container-x flex items-center justify-between h-16 md:h-20 shrink-0">
                 <Link href="/" onClick={() => setOpen(false)}>
-                  <Logo />
+                  <NavLogo />
                 </Link>
                 <button
                   onClick={() => setOpen(false)}

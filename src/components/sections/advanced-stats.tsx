@@ -248,7 +248,7 @@ export function AdvancedStats() {
           </div>
 
           {/* Donut breakdown */}
-          <div className="relative rounded-[1.5rem] bg-obsidian text-canvas p-6 md:p-7 overflow-hidden">
+          <div className="funnel-theme relative rounded-[1.5rem] bg-obsidian text-canvas p-6 md:p-7 overflow-hidden">
             <p className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-canvas/55 mb-5">
               GMV mix · by service line
             </p>

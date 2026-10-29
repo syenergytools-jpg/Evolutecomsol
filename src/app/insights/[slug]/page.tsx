@@ -51,7 +51,7 @@ export default async function InsightPage({
       <Navbar />
       <main className="bg-canvas">
         {/* Hero */}
-        <section className="relative bg-obsidian text-canvas pt-32 md:pt-40 pb-20 md:pb-24 overflow-hidden">
+        <section className="funnel-theme relative bg-obsidian text-canvas pt-32 md:pt-40 pb-20 md:pb-24 overflow-hidden">
           <div
             aria-hidden="true"
             className="absolute inset-0 pointer-events-none opacity-50"

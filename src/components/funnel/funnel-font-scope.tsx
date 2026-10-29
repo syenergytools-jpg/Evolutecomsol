@@ -14,8 +14,11 @@ export function FunnelFontScope({ children }: { children: ReactNode }) {
     ["--font-geist-mono" as string]: funnelFont.style.fontFamily,
   };
 
+  // `funnel-theme` (globals.css) pins the colour tokens back to the
+  // site's original light-theme values, so these funnel pages keep their
+  // locked look while the rest of the site is dark + copper.
   return (
-    <div className={funnelFont.className} style={vars}>
+    <div className={`funnel-theme ${funnelFont.className}`} style={vars}>
       {children}
     </div>
   );

@@ -371,7 +371,7 @@ function ContactBody() {
           ))}
 
           <Reveal delay={0.25}>
-            <div className="rounded-3xl bg-obsidian text-canvas p-7 mt-8">
+            <div className="funnel-theme rounded-3xl bg-obsidian text-canvas p-7 mt-8">
               <div className="inline-flex items-center gap-2 mb-4 rounded-full border border-canvas/20 px-3 py-1.5">
                 <Sparkles className="h-3.5 w-3.5 text-copper" />
                 <span className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-canvas/80">

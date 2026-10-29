@@ -39,7 +39,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-obsidian text-canvas overflow-hidden">
+    <footer className="funnel-theme relative bg-obsidian text-canvas overflow-hidden">
       {/* Single subtle copper gradient sweep at the top */}
       <div
         aria-hidden="true"

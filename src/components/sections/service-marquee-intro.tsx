@@ -39,7 +39,7 @@ export function ServiceMarqueeIntro() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-obsidian text-canvas overflow-hidden py-16 md:py-40"
+      className="funnel-theme relative bg-obsidian text-canvas overflow-hidden py-16 md:py-40"
     >
       {/* DEPTH 0 — soft grain only */}
       <div

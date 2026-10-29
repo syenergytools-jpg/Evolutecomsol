@@ -151,7 +151,7 @@ export default function AboutPage() {
         </section>
 
         {/* Philosophy */}
-        <section id="philosophy" className="relative bg-obsidian text-canvas py-14 md:py-32">
+        <section id="philosophy" className="funnel-theme relative bg-obsidian text-canvas py-14 md:py-32">
           <div className="container-x">
             <div className="max-w-3xl mb-14">
               <Reveal>
@@ -188,7 +188,7 @@ export default function AboutPage() {
  * ------------------------------------------------------------------ */
 function AboutHero() {
   return (
-    <section className="relative bg-obsidian text-canvas overflow-hidden">
+    <section className="funnel-theme relative bg-obsidian text-canvas overflow-hidden">
       {/* Full-bleed studio backdrop */}
       <div className="absolute inset-0">
         <Image

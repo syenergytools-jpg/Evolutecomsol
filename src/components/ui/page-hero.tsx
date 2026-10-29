@@ -25,11 +25,11 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="relative isolate overflow-hidden bg-obsidian text-canvas pt-36 pb-24 md:pt-44 md:pb-32">
+    <section className="relative isolate overflow-hidden bg-obsidian text-white pt-36 pb-24 md:pt-44 md:pb-32">
       {/* DEPTH 0 */}
       <div className="absolute inset-0 spotlight-gradient" aria-hidden="true" />
       <GridPattern
-        className="text-canvas/[0.05] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_70%)]"
+        className="text-white/[0.05] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_70%)]"
         width={56}
         height={56}
       />
@@ -50,10 +50,10 @@ export function PageHero({
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: PREMIUM_EASE }}
-            className="inline-flex items-center gap-2 rounded-full border border-canvas/15 bg-canvas/[0.04] px-3 py-1.5 backdrop-blur mb-6"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3 py-1.5 backdrop-blur mb-6"
           >
             <Sparkles className="h-3.5 w-3.5 text-electric" />
-            <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-canvas/80">
+            <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-white/80">
               {eyebrow}
             </span>
           </motion.div>
@@ -62,7 +62,7 @@ export function PageHero({
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: PREMIUM_EASE, delay: 0.1 }}
-          className="display text-[clamp(1.7rem,6vw,5.5rem)] text-canvas leading-[1.0]"
+          className="display text-[clamp(1.7rem,6vw,5.5rem)] text-white leading-[1.0]"
         >
           {title}
         </motion.h1>
@@ -71,7 +71,7 @@ export function PageHero({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, ease: PREMIUM_EASE, delay: 0.25 }}
-            className="mt-6 max-w-2xl text-base md:text-lg text-canvas/70 leading-[1.6]"
+            className="mt-6 max-w-2xl text-base md:text-lg text-white/70 leading-[1.6]"
           >
             {subtitle}
           </motion.p>

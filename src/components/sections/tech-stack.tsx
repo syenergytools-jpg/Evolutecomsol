@@ -68,7 +68,7 @@ export function TechStack() {
   return (
     <section
       id="shopify"
-      className="relative bg-obsidian text-canvas py-14 md:py-32 overflow-hidden"
+      className="funnel-theme relative bg-obsidian text-canvas py-14 md:py-32 overflow-hidden"
     >
       {/* atmospheric blobs */}
       <div

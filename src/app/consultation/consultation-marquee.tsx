@@ -29,7 +29,7 @@ export function ConsultationMarquee() {
   const reduce = useReducedMotion();
 
   return (
-    <div className="relative bg-obsidian py-5 md:py-6 border-y border-canvas/10 overflow-hidden fade-edges">
+    <div className="funnel-theme relative bg-obsidian py-5 md:py-6 border-y border-canvas/10 overflow-hidden fade-edges">
       <div
         className={cn(
           "flex gap-10 whitespace-nowrap",

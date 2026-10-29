@@ -71,7 +71,7 @@ const BOXES: Box[] = [
 
 export function SpotlightStats() {
   return (
-    <section className="relative bg-obsidian text-canvas py-14 md:py-32 border-y border-canvas/10 overflow-hidden">
+    <section className="funnel-theme relative bg-obsidian text-canvas py-14 md:py-32 border-y border-canvas/10 overflow-hidden">
       {/* Quiet grain */}
       <div
         aria-hidden="true"

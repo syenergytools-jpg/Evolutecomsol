@@ -30,9 +30,9 @@ function NavLogo() {
       src="/logos/logo_white.png"
       alt="Evolut Ecommerce Solutions"
       width={429}
-      height={108}
+      height={78}
       priority
-      className="h-12 w-auto object-contain md:h-[3rem]"
+      className="h-10 w-auto object-contain md:h-[3rem]"
     />
   );
 }

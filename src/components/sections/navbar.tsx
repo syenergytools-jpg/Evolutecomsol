@@ -29,10 +29,10 @@ function NavLogo() {
     <Image
       src="/logos/logo_white.png"
       alt="Evolut Ecommerce Solutions"
-      width={666}
-      height={375}
+      width={429}
+      height={108}
       priority
-      className="h-16 w-auto object-contain md:h-20"
+      className="h-12 w-auto object-contain md:h-[3rem]"
     />
   );
 }
@@ -98,10 +98,10 @@ export function Navbar() {
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
           scrolled || servicesOpen
             ? "bg-canvas/85 backdrop-blur-xl border-b border-hairline"
-            : "bg-transparent border-b border-transparent"
+            : "bg-transparent border-b border-transparent",
         )}
       >
-        <div className="container-x flex items-center justify-between h-16 md:h-20">
+        <div className="container-x flex items-center justify-between h-16 md:h-24">
           {/* Left — wordmark */}
           <Link href="/" className="relative shrink-0 -ml-1">
             <NavLogo />
@@ -125,14 +125,14 @@ export function Navbar() {
                   "group hidden md:inline-flex items-center gap-1.5 px-3 py-2 text-[0.85rem] font-medium transition-colors rounded-full",
                   servicesOpen
                     ? "text-ink bg-ink/[0.04]"
-                    : "text-ink hover:text-ink-soft"
+                    : "text-ink hover:text-ink-soft",
                 )}
               >
                 Services
                 <ChevronDown
                   className={cn(
                     "h-3.5 w-3.5 transition-transform duration-300",
-                    servicesOpen && "rotate-180"
+                    servicesOpen && "rotate-180",
                   )}
                   strokeWidth={2.2}
                 />
@@ -183,7 +183,7 @@ export function Navbar() {
                               <span
                                 className={cn(
                                   "grid place-items-center h-9 w-9 rounded-lg shrink-0 transition-colors",
-                                  accentChip(s.accent)
+                                  accentChip(s.accent),
                                 )}
                               >
                                 <Icon className="h-4 w-4" strokeWidth={1.8} />
@@ -231,7 +231,10 @@ export function Navbar() {
               href="/services/trademark"
               className="hidden md:inline-flex items-center gap-1.5 px-3 py-2 text-[0.85rem] font-medium text-ink hover:text-ink-soft transition-colors rounded-full"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-copper" aria-hidden="true" />
+              <span
+                className="h-1.5 w-1.5 rounded-full bg-copper"
+                aria-hidden="true"
+              />
               IP Accelerator
             </Link>
 
@@ -288,7 +291,7 @@ export function Navbar() {
               className="fixed inset-0 z-[70] flex flex-col overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="container-x flex items-center justify-between h-16 md:h-20 shrink-0">
+              <div className="container-x flex items-center justify-between h-16 md:h-24 shrink-0">
                 <Link href="/" onClick={() => setOpen(false)}>
                   <NavLogo />
                 </Link>
@@ -406,7 +409,7 @@ function DrawerNavItem({
             <ChevronDown
               className={cn(
                 "h-5 w-5 transition-transform duration-300",
-                expanded && "rotate-180"
+                expanded && "rotate-180",
               )}
               strokeWidth={2}
             />
@@ -452,7 +455,7 @@ function DrawerNavItem({
                         <span
                           className={cn(
                             "grid place-items-center h-9 w-9 rounded-lg shrink-0 transition-colors",
-                            accentChip(s.accent)
+                            accentChip(s.accent),
                           )}
                         >
                           <Icon className="h-4 w-4" strokeWidth={1.8} />
@@ -487,7 +490,9 @@ function accentChip(accent: string): string {
     case "copper":
       return "bg-copper/12 text-copper group-hover:bg-copper/20";
     case "obsidian":
-      return "bg-obsidian/8 text-obsidian group-hover:bg-obsidian/12";
+      // Neutral/monochrome service accent: on the dark navbar a dark
+      // `text-obsidian` icon was invisible, so it renders as a light mark.
+      return "bg-white/[0.08] text-white group-hover:bg-white/[0.14]";
     case "lime":
       return "bg-lime/30 text-ink group-hover:bg-lime/40";
     case "chrome":

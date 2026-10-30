@@ -37,14 +37,55 @@ type TileSpec = {
 // spans tile the 12-col grid exactly across four bands — see the row
 // math in the layout below.
 const TILES: TileSpec[] = [
-  { slug: "amazon",      image: "/images/services/amazon.webp",      span: "sm:col-span-2 lg:col-span-6 lg:row-span-2", minH: "min-h-[19rem] lg:min-h-0", feature: true },
-  { slug: "photography", image: "/images/services/photography.webp", span: "sm:col-span-2 lg:col-span-6",              minH: "min-h-[15rem] lg:min-h-0" },
-  { slug: "ppc",         image: "/images/services/ppc.webp",         span: "lg:col-span-3",                            minH: "min-h-[15rem] lg:min-h-0" },
-  { slug: "bol",         image: "/images/services/bol.webp",         span: "lg:col-span-3",                            minH: "min-h-[15rem] lg:min-h-0" },
-  { slug: "sourcing",    image: "/images/services/sourcing.webp",    span: "lg:col-span-4",                            minH: "min-h-[15rem] lg:min-h-0" },
-  { slug: "shopify",     image: "/images/services/shopify.webp",     span: "lg:col-span-4",                            minH: "min-h-[15rem] lg:min-h-0" },
-  { slug: "freight",     image: "/images/services/freight.webp",     span: "lg:col-span-4",                            minH: "min-h-[15rem] lg:min-h-0" },
-  { slug: "trademark",   image: "/images/services/trademark.webp",   span: "lg:col-span-8",                            minH: "min-h-[15rem] lg:min-h-0" },
+  {
+    slug: "amazon",
+    image: "/images/services/amazon.png",
+    span: "sm:col-span-2 lg:col-span-6 lg:row-span-2",
+    minH: "min-h-[19rem] lg:min-h-0",
+    feature: true,
+  },
+  {
+    slug: "photography",
+    image: "/images/services/photography.webp",
+    span: "sm:col-span-2 lg:col-span-6",
+    minH: "min-h-[15rem] lg:min-h-0",
+  },
+  {
+    slug: "ppc",
+    image: "/images/services/ppc.webp",
+    span: "lg:col-span-3",
+    minH: "min-h-[15rem] lg:min-h-0",
+  },
+  {
+    slug: "bol",
+    image: "/images/services/bol.webp",
+    span: "lg:col-span-3",
+    minH: "min-h-[15rem] lg:min-h-0",
+  },
+  {
+    slug: "sourcing",
+    image: "/images/services/sourcing.webp",
+    span: "lg:col-span-4",
+    minH: "min-h-[15rem] lg:min-h-0",
+  },
+  {
+    slug: "shopify",
+    image: "/images/services/shopify.webp",
+    span: "lg:col-span-4",
+    minH: "min-h-[15rem] lg:min-h-0",
+  },
+  {
+    slug: "freight",
+    image: "/images/services/freight.webp",
+    span: "lg:col-span-4",
+    minH: "min-h-[15rem] lg:min-h-0",
+  },
+  {
+    slug: "trademark",
+    image: "/images/services/trademark.webp",
+    span: "lg:col-span-8",
+    minH: "min-h-[15rem] lg:min-h-0",
+  },
 ];
 
 // Accent → icon-chip skin. Dark accents flip to a light chip so they
@@ -97,8 +138,8 @@ export function Services() {
             <Reveal delay={0.25}>
               <p className="text-base md:text-lg text-ink-soft leading-[1.65] max-w-md lg:ml-auto">
                 Each service runs as part of one accountable team — sourcing,
-                listings, photography, ads, freight, trademark. Compounding,
-                not handing off.
+                listings, photography, ads, freight, trademark. Compounding, not
+                handing off.
               </p>
             </Reveal>
           </div>
@@ -182,7 +223,7 @@ function ServiceTile({
           <span
             className={cn(
               "grid place-items-center h-9 w-9 rounded-xl shadow-sm",
-              ACCENT_CHIP[service.accent]
+              ACCENT_CHIP[service.accent],
             )}
           >
             <Icon className="h-[1.05rem] w-[1.05rem]" strokeWidth={2} />
@@ -199,7 +240,7 @@ function ServiceTile({
               "display leading-[1.1]",
               tile.feature
                 ? "text-[clamp(1.6rem,2.4vw,2.4rem)]"
-                : "text-[clamp(1.15rem,1.5vw,1.45rem)]"
+                : "text-[clamp(1.15rem,1.5vw,1.45rem)]",
             )}
           >
             {service.title}
@@ -209,7 +250,7 @@ function ServiceTile({
               "mt-2 text-white/70 leading-snug",
               tile.feature
                 ? "text-sm md:text-base max-w-[42ch]"
-                : "text-[0.85rem] max-w-[34ch]"
+                : "text-[0.85rem] max-w-[34ch]",
             )}
           >
             {service.blurb}

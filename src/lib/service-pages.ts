@@ -186,7 +186,7 @@ export const servicePages: Record<string, ServicePageData> = {
       body: "End-to-end Amazon operations for brands that have outgrown a freelance solution. Listings, ads, inventory, and brand registry — run by operators who've scaled past 8 figures.",
       primaryCta: { label: "Brief our Amazon team", href: "/contact?service=amazon" },
       secondaryCta: { label: "See case studies", href: "/work" },
-      image: "/services/amazon.png",
+      image: "/images/services/amazon.png",
     },
     stats: [
       { value: "240+", label: "Active accounts managed" },

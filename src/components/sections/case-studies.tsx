@@ -160,7 +160,7 @@ export function CaseStudies() {
           <BentoCard
             study={rest[0] /* Squirtz */}
             className="lg:col-span-5 lg:row-span-2"
-            variant="metric-stack"
+            variant="split-image"
           />
 
           {/* Row 3 — three quarters */}

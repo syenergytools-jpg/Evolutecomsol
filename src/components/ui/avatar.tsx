@@ -22,7 +22,7 @@ const toneBg: Record<AvatarTone, string> = {
   ink: "bg-ink text-canvas",
   copper: "bg-copper text-canvas",
   electric: "bg-electric text-canvas",
-  lime: "bg-lime text-ink",
+  lime: "bg-lime text-obsidian",
   emerald: "bg-emerald text-canvas",
 };
 

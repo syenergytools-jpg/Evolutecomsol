@@ -58,9 +58,12 @@ const tone: Record<
     cssAccent: "rgba(15,17,21,0.30)",
   },
   lime: {
+    // lime is always a bright chip, so its foreground is pinned to a
+    // theme-independent dark ink — `text-ink` now flips light in the dark
+    // theme and vanished on the lime operator tile (/services/sourcing).
     bg: "bg-lime",
-    fg: "text-ink",
-    accent: "text-ink",
+    fg: "text-obsidian",
+    accent: "text-lime",
     cssAccent: "rgba(217,255,60,0.25)",
   },
   emerald: {
@@ -303,10 +306,13 @@ function Section01Hero({
           </div>
 
           {data.hero.image && (() => {
-            // Vector illustrations live in /services/ — show them
-            // contained on a tinted backdrop so the artwork isn't
-            // cropped. Anything else is a photo, so cover it.
-            const isIllustration = data.hero.image?.startsWith("/services/");
+            // Vector illustrations live in /services/ or
+            // /images/services/ — show them contained on a tinted backdrop
+            // so the artwork isn't cropped. Anything else is a photo, so
+            // cover it.
+            const isIllustration =
+              data.hero.image?.startsWith("/services/") ||
+              data.hero.image?.startsWith("/images/services/");
             return (
               <Reveal delay={0.3} className="lg:col-span-5 w-full">
                 <div
